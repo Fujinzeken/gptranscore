@@ -1,26 +1,245 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   GP TRANSCO - design tokens
+
+   The palette is sampled from GP Transco's own fleet photography.
+   The trucks read #0077B7, a clean azure. The current site is built
+   on #25318D indigo, which is not the colour of anything they own,
+   so the accent here comes off the vehicles themselves.
+   ============================================================ */
+
+@theme {
+  /* grounds */
+  --color-ink: #070b11; /* near-black, biased cool toward the accent */
+  --color-ink-2: #0d131c;
+  --color-pitch: #000000; /* Manifest needs true black for its knockout */
+  --color-rule: #1b2532;
+  --color-rule-lit: #26344a;
+  /* The page runs light. These are the working surfaces; the ink tokens
+     above stay for the hero, which is a video plate and cannot go light
+     (its knockout needs a true black to multiply against). */
+  --color-page: #f2f5f8; /* cool paper, biased toward the accent */
+  --color-surface: #ffffff;
+  --color-line: #dfe5ec;
+  --color-line-strong: #c3cedb;
+  --color-ink-text: #0a121c; /* near-black, cool */
+  --color-body-text: #46596f;
+  --color-soft-text: #6e8199;
+
+  /* accent, sampled off the trailer */
+  --color-azure: #0b8fcb;
+  --color-azure-hi: #6fd0f0;
+  --color-azure-ink: #03222f;
+
+  /* preserved GP brand navy. structural depth only, never an accent */
+  --color-deep: #1a2568;
+
+  /* type */
+  --color-paper: #f3f7fa;
+  --color-mute: #b7c6d4;
+  --color-mute-2: #61748a;
+  --color-slate-ink: #435870;
+
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  /* near-symmetric, soft at both ends: for motion meant to be watched */
+  --ease-iris: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+  --animate-reveal: reveal 0.82s var(--ease-out-strong) forwards;
+  --animate-wipe: wipe 0.78s var(--ease-out-strong) forwards;
+  --animate-rise: rise 0.6s var(--ease-out-strong) forwards;
+  --animate-lane: lane 0.9s var(--ease-out-strong) 0.15s forwards;
+  --animate-pull: pull 0.9s var(--ease-out-strong) 0.24s forwards;
+  --animate-roll: roll 46s linear infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Reveal wipes a whole composed line upward, including anything layered
+   inside it. Wipe slides type up behind a mask. */
+@keyframes reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes wipe {
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes rise {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lane {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes pull {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes roll {
+  to {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --nav-h: 72px;
+  --gut: clamp(20px, 4.2vw, 68px);
+}
+
+@media (width <= 1240px) {
+  :root {
+    --gut: clamp(20px, 3vw, 40px);
+  }
+}
+
+@media (width <= 920px) {
+  :root {
+    --nav-h: 64px;
+  }
+}
+
+/* ---------------------------------------------------- utilities */
+
+/* The hero's voice, as a utility. Archivo pushed wide, uppercase, black:
+   highway signage, which is what this company is. Every heading below the
+   hero uses this at a smaller size. Sections drifting to sentence case and
+   wdth-100 is what made the page fall apart under the hero. */
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+/* The gutter is a viewport-relative rhythm shared by nav and hero, so it
+   stays a variable rather than a Tailwind spacing step. */
+@utility px-gut {
+  padding-inline: var(--gut);
+}
+
+/* Lane One: keeps the left column readable over moving footage without
+   flattening the right side of the frame. */
+@utility scrim-side {
+  background:
+    linear-gradient(
+      96deg,
+      var(--color-ink) 4%,
+      color-mix(in srgb, var(--color-ink) 96%, transparent) 26%,
+      color-mix(in srgb, var(--color-ink) 72%, transparent) 47%,
+      color-mix(in srgb, var(--color-ink) 18%, transparent) 82%,
+      color-mix(in srgb, var(--color-ink) 5%, transparent) 100%
+    ),
+    linear-gradient(
+      to top,
+      var(--color-ink) 2%,
+      color-mix(in srgb, var(--color-ink) 0%, transparent) 42%
+    ),
+    radial-gradient(
+      90% 70% at 84% 34%,
+      color-mix(in srgb, var(--color-azure) 20%, transparent),
+      transparent 62%
+    );
+}
+
+/* Portrait has no left column to protect, so the scrim comes up from the
+   bottom instead of in from the side. */
+@utility scrim-base {
+  background:
+    linear-gradient(
+      to top,
+      var(--color-ink) 14%,
+      color-mix(in srgb, var(--color-ink) 72%, transparent) 52%,
+      color-mix(in srgb, var(--color-ink) 34%, transparent) 100%
+    ),
+    radial-gradient(
+      80% 50% at 70% 26%,
+      color-mix(in srgb, var(--color-azure) 20%, transparent),
+      transparent 64%
+    );
+}
+
+/* ---------------------------------------------------- base */
+
+/* These MUST stay inside @layer base. Unlayered CSS outranks every
+   Tailwind layer, so an unlayered `a { color: inherit }` silently beats
+   every text-* utility on a link. That is what turned the hero's ghost
+   button and nav links dark the moment the page went light. */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-page);
+    color: var(--color-ink-text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-azure-hi);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-azure) 26%, transparent);
+    color: var(--color-ink-text);
+  }
+
+  /* Figures are compared down columns across the page, so they line up. */
+  dt,
+  dd,
+  time {
+    font-variant-numeric: tabular-nums;
+  }
+
+  * {
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+    border: 3px solid var(--color-page);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-soft-text);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
