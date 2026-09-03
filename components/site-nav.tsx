@@ -143,6 +143,7 @@ function MegaPanel({ menu, shown }: { menu: Menu; shown: boolean }) {
 export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const timer = useRef<number | undefined>(undefined);
 
   const schedule = useCallback((next: string | null, delay: number) => {
@@ -254,7 +255,12 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             aria-expanded={open}
             aria-controls="site-drawer"
             aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => {
+              setOpen((v) => {
+                if (v) setExpanded(null);
+                return !v;
+              });
+            }}
             className={cx(
               "ml-auto hidden size-[42px] items-center justify-center rounded-full border",
               "transition-[transform,background-color] duration-200 ease-[var(--ease-out-strong)]",
@@ -293,59 +299,159 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
       <div
         id="site-drawer"
         className={cx(
-          "fixed inset-x-0 bottom-0 top-[var(--nav-h)] z-[37] overflow-y-auto px-gut pb-10 pt-2.5",
+          "fixed inset-x-0 bottom-0 top-[var(--nav-h)] z-[37] overflow-y-auto px-gut pb-12 pt-5",
           "transition-transform duration-300 ease-[var(--ease-out-strong)]",
           open ? "visible translate-y-0" : "invisible -translate-y-full",
-          light ? "bg-page text-ink" : "bg-[#080d15]",
+          light ? "bg-page text-ink" : "bg-[#080d15] text-paper",
         )}
       >
-        {MENUS.map((menu) => (
-          <div
-            key={menu.label}
-            className={cx("border-b py-4", light ? "border-line" : "border-rule")}
-          >
-            <a
-              href={menu.href}
-              className="block px-0.5 text-[15.5px] font-semibold"
-            >
-              {menu.label}
-            </a>
-            {menu.panel ? (
-              <ul className="m-0 mt-3 grid list-none grid-cols-2 gap-x-5 gap-y-2.5 p-0 max-[520px]:grid-cols-1">
-                {menu.panel.items.map((item) => (
-                  <li key={item.label}>
-                    <a
-                      href={menu.href}
-                      className={cx(
-                        "block px-0.5 text-[13.5px] leading-[1.4]",
-                        light ? "text-body-text" : "text-mute-2",
-                      )}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
-        ))}
-
-        <div className="mt-[26px] flex flex-col gap-2.5">
-          <a href="#" className={cx(btn, "h-12 justify-center px-5 text-sm", btnSolid)}>
-            <Truck size={18} />
-            Apply to Drive
-          </a>
+        {/* Both doors first: on a phone the reason to open the menu is usually
+            to act, not to browse forty-three links. */}
+        <div className="flex gap-2.5">
           <a
             href="#"
             className={cx(
               btn,
-              "h-12 justify-center px-5 text-sm",
+              "h-12 flex-1 justify-center px-4 text-[13.5px]",
               light ? btnOutline : btnGhost,
             )}
           >
             Request a Quote
-            <ArrowRight size={17} />
           </a>
+          <a
+            href="#"
+            className={cx(btn, btnSolid, "h-12 flex-1 justify-center px-4 text-[13.5px]")}
+          >
+            <Truck size={17} />
+            Apply to Drive
+          </a>
+        </div>
+
+        <div className="mt-7">
+          {MENUS.map((menu) => {
+            const isOpen = expanded === menu.label;
+            const panelId = `drawer-${menu.label.replace(/\s+/g, "-").toLowerCase()}`;
+
+            if (!menu.panel) {
+              return (
+                <a
+                  key={menu.label}
+                  href={menu.href}
+                  className={cx(
+                    "block border-b py-[15px] text-[15.5px] font-semibold",
+                    light ? "border-line" : "border-rule",
+                  )}
+                >
+                  {menu.label}
+                </a>
+              );
+            }
+
+            return (
+              <div
+                key={menu.label}
+                className={cx("border-b", light ? "border-line" : "border-rule")}
+              >
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => setExpanded(isOpen ? null : menu.label)}
+                  className="flex w-full items-center justify-between gap-4 py-[15px] text-left text-[15.5px] font-semibold"
+                >
+                  {menu.label}
+                  <CaretDown
+                    size={15}
+                    weight="bold"
+                    aria-hidden="true"
+                    className={cx(
+                      "shrink-0 text-azure transition-transform duration-300 ease-[var(--ease-out-strong)]",
+                      isOpen && "rotate-180",
+                    )}
+                  />
+                </button>
+
+                {/* 0fr to 1fr animates height without measuring anything. */}
+                <div
+                  id={panelId}
+                  className={cx(
+                    "grid transition-[grid-template-rows] duration-300 ease-[var(--ease-out-strong)]",
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <ul
+                      className={cx(
+                        "m-0 mb-4 grid list-none grid-cols-2 gap-px p-0",
+                        light ? "bg-line" : "bg-rule",
+                      )}
+                    >
+                      {menu.panel.items.map((item) => {
+                        const Glyph = ITEM_ICONS[item.label];
+                        return (
+                          <li key={item.label} className="contents">
+                            <a
+                              href={menu.href}
+                              tabIndex={isOpen ? undefined : -1}
+                              className={cx(
+                                "flex items-center gap-2.5 px-3 py-3.5 text-[13px] font-medium leading-[1.3]",
+                                light
+                                  ? "bg-page text-ink-text"
+                                  : "bg-[#080d15] text-paper",
+                              )}
+                            >
+                              {Glyph ? (
+                                <Glyph
+                                  size={17}
+                                  aria-hidden="true"
+                                  className="shrink-0 text-azure"
+                                />
+                              ) : null}
+                              {item.label}
+                            </a>
+                          </li>
+                        );
+                      })}
+                      {menu.panel.items.length % 2 === 1 ? (
+                        <li
+                          aria-hidden="true"
+                          className={light ? "bg-page" : "bg-[#080d15]"}
+                        />
+                      ) : null}
+                    </ul>
+
+                    <a
+                      href={menu.href}
+                      tabIndex={isOpen ? undefined : -1}
+                      className={cx(
+                        btn,
+                        btnSolid,
+                        "mb-5 h-11 w-full justify-center px-4 text-[13px]",
+                      )}
+                    >
+                      {menu.panel.featured.cta}
+                      <ArrowRight size={15} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
+          {EXPLORE_MORE.map((e) => (
+            <a
+              key={e}
+              href="#"
+              className={cx(
+                "text-[13.5px] font-medium",
+                light ? "text-body-text" : "text-mute",
+              )}
+            >
+              {e}
+            </a>
+          ))}
         </div>
       </div>
     </>
