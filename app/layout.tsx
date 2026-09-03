@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GP Transco | Asset-Based Truckload Carrier",
+  title: "PKT Group | Asset-Based Truckload Carrier",
   description:
     "An asset-based carrier running its own fleet, its own drivers, and its own technology across the lower 48.",
 };

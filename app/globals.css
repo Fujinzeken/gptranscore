@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /* ============================================================
-   GP TRANSCO - design tokens
+   PKT GROUP - design tokens
 
-   The palette is sampled from GP Transco's own fleet photography.
+   The palette is sampled from PKT Group's own fleet photography.
    The trucks read #0077B7, a clean azure. The current site is built
    on #25318D indigo, which is not the colour of anything they own,
    so the accent here comes off the vehicles themselves.
@@ -32,7 +32,7 @@
   --color-azure-hi: #6fd0f0;
   --color-azure-ink: #03222f;
 
-  /* preserved GP brand navy. structural depth only, never an accent */
+  /* preserved PKT brand navy. structural depth only, never an accent */
   --color-deep: #1a2568;
 
   /* type */

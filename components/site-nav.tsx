@@ -22,7 +22,7 @@ export function Wordmark({ tone }: { tone: Tone }) {
   return (
     <a
       href="#"
-      aria-label="GP Transco home"
+      aria-label="PKT Group home"
       className="flex shrink-0 items-center gap-[11px]"
     >
       <svg
@@ -52,9 +52,9 @@ export function Wordmark({ tone }: { tone: Tone }) {
           tone === "light" ? "text-ink" : "text-paper",
         )}
       >
-        GP
+        PKT
         <br />
-        Transco
+        Group
       </span>
     </a>
   );

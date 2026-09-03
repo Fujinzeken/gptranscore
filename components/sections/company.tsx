@@ -15,7 +15,7 @@ import { btn, btnGhost, btnHero, cx, label } from "../ui";
  * The crop is anchored on the tractor rather than centred, because a wide band
  * cut from a 1.4:1 source will drop the subject if left to default.
  *
- * The stat rail carries GP Transco's own published figures. They sit at the
+ * The stat rail carries PKT Group's own published figures. They sit at the
  * foot of the band where the photograph is darkest, so they read without
  * fighting the tractor for attention.
  */
@@ -31,7 +31,7 @@ export function Company() {
     <section className="relative isolate flex min-h-[clamp(460px,62vh,660px)] items-center overflow-hidden bg-ink px-gut py-[clamp(56px,9vh,104px)]">
       <Image
         src="/bridge.jpg"
-        alt="A GP Transco tractor and trailer crossing a river bridge at first light."
+        alt="A PKT Group tractor and trailer crossing a river bridge at first light."
         fill
         sizes="100vw"
         className="-z-10 object-cover object-[58%_56%]"
@@ -49,7 +49,7 @@ export function Company() {
             "m-0 max-w-[46ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute",
           )}
         >
-          Since our founding, GP Transco has grown from a small operation into
+          Since our founding, PKT Group has grown from a small operation into
           one of the most respected asset-based carriers in the Midwest.
         </p>
 

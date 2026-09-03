@@ -3,7 +3,7 @@ import { Reveal, revealItem } from "../reveal";
 import { cx } from "../ui";
 
 /**
- * "Why companies choose GP Transco"
+ * "Why companies choose PKT Group"
  *
  * Was six filled cells floating in a gap grid, which was the last container
  * layout left on a page otherwise built from plates, hairlines and bled edges.
@@ -74,7 +74,7 @@ export function WhyGP() {
           className={cx(revealItem, "mb-[clamp(30px,4.5vh,50px)] px-gut")}
         >
           <h2 className="type-display m-0 max-w-[13em] text-[clamp(26px,3.6vw,52px)] text-ink-text">
-            Why companies choose GP&nbsp;Transco
+            Why companies choose PKT&nbsp;Group
           </h2>
           <p className="mt-5 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
             Built on reliability, powered by innovation, and committed to your
@@ -97,7 +97,7 @@ export function WhyGP() {
           >
             <Image
               src="/fleet-dock.jpg"
-              alt="GP Transco tractors and dry vans backed into the loading dock."
+              alt="PKT Group tractors and dry vans backed into the loading dock."
               fill
               sizes="(max-width: 860px) 100vw, 50vw"
               className="object-cover object-[52%_58%]"

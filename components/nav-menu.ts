@@ -123,7 +123,7 @@ export const MENUS: Menu[] = [
       items: [
         {
           label: "Ship With Us",
-          blurb: "Request a quote and start shipping with GP Transco today.",
+          blurb: "Request a quote and start shipping with PKT Group today.",
         },
         {
           label: "Technology-Driven Solutions",
@@ -170,7 +170,7 @@ export const MENUS: Menu[] = [
       ],
       featured: {
         label: "Ship With Us",
-        blurb: "Request a quote and start shipping with GP Transco today.",
+        blurb: "Request a quote and start shipping with PKT Group today.",
         cta: "See all Shipment Solutions",
       },
     },
@@ -187,7 +187,7 @@ export const MENUS: Menu[] = [
         {
           label: "Driver Pay Calculator",
           blurb:
-            "Estimate your potential annual pay at GP Transco in under a minute.",
+            "Estimate your potential annual pay at PKT Group in under a minute.",
         },
         {
           label: "Why Drivers Choose Us",
@@ -232,7 +232,7 @@ export const MENUS: Menu[] = [
       featured: {
         label: "Driver Pay Calculator",
         blurb:
-          "Estimate your potential annual pay at GP Transco in under a minute.",
+          "Estimate your potential annual pay at PKT Group in under a minute.",
         cta: "See all Driver Careers",
       },
     },
@@ -278,7 +278,7 @@ export const MENUS: Menu[] = [
       items: [
         {
           label: "Work With Us",
-          blurb: "Begin working with GP Transco Logistics for your freight needs.",
+          blurb: "Begin working with PKT Group Logistics for your freight needs.",
         },
         {
           label: "Why Use a Brokerage",
@@ -300,7 +300,7 @@ export const MENUS: Menu[] = [
       ],
       featured: {
         label: "Work With Us",
-        blurb: "Begin working with GP Transco Logistics for your freight needs.",
+        blurb: "Begin working with PKT Group Logistics for your freight needs.",
         cta: "See all Brokerage Solutions",
       },
     },
@@ -312,7 +312,7 @@ export const MENUS: Menu[] = [
       items: [
         {
           label: "Overview",
-          blurb: "Who GP Transco is and how we became a modern carrier.",
+          blurb: "Who PKT Group is and how we became a modern carrier.",
         },
         {
           label: "Mission & Values",
@@ -324,7 +324,7 @@ export const MENUS: Menu[] = [
         },
         {
           label: "Leadership",
-          blurb: "Meet the team leading GP Transco forward.",
+          blurb: "Meet the team leading PKT Group forward.",
         },
         {
           label: "History",
@@ -337,7 +337,7 @@ export const MENUS: Menu[] = [
       ],
       featured: {
         label: "Overview",
-        blurb: "Who GP Transco is and how we became a modern carrier.",
+        blurb: "Who PKT Group is and how we became a modern carrier.",
         cta: "See our full Company story",
       },
     },
@@ -345,7 +345,7 @@ export const MENUS: Menu[] = [
   { label: "Blog", href: "/NewsUpdates" },
   {
     label: "Innovation",
-    href: "/GPTranscoTechnology",
+    href: "/PKTGroupTechnology",
     panel: {
       items: [
         {

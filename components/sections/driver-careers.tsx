@@ -10,7 +10,7 @@ import { btn, btnSolid, btnOutline, btnHero, cx, label } from "../ui";
  * so this one cannot be another. It is a statement plus a single artifact
  * instead: headline, then one object carrying the whole argument.
  *
- * That object is the payout. Every carrier claims to pay well; GP Transco
+ * That object is the payout. Every carrier claims to pay well; PKT Group
  * publishes what it actually paid last month, so the money is the strongest
  * thing on the page for a driver and it gets to be the visual. The ELITE
  * metrics sit beside it as the inputs that produce it, which is the real
@@ -20,7 +20,7 @@ import { btn, btnSolid, btnOutline, btnHero, cx, label } from "../ui";
  * appears, used as a surface rather than an accent, so azure stays the single
  * accent across the page.
  *
- * Figures are GP Transco's own published numbers, not illustrative.
+ * Figures are PKT Group's own published numbers, not illustrative.
  */
 
 const SCORE = [

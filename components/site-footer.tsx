@@ -88,10 +88,10 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href="mailto:info@gptransco.com"
+                href="mailto:info@pktgroup.com"
                 className="text-paper transition-colors duration-200 hover:text-azure-hi"
               >
-                info@gptransco.com
+                info@pktgroup.com
               </a>
             </li>
             <li className="pt-1 text-mute-2">
@@ -110,7 +110,7 @@ export function SiteFooter() {
 
       <div className="mt-[clamp(44px,6vh,72px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-rule pt-7">
         <p className="m-0 text-[13.5px] text-mute-2">
-          &copy; 2026 GP Transco. All rights reserved.
+          &copy; 2026 PKT Group. All rights reserved.
         </p>
         <ul className="m-0 flex flex-wrap list-none gap-x-7 gap-y-2 p-0">
           {LEGAL.map((l) => (

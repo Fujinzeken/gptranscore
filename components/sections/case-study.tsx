@@ -11,8 +11,8 @@ import { btn, btnOutline, btnHero, cx, label } from "../ui";
  * does. So the two lines stack with the identical prefix aligned, and the eye
  * lands on the single word that moved.
  *
- * The photograph is the section anchor. It is GP Transco equipment and a GP
- * Transco driver, which is exactly what the story is about, and it bleeds off
+ * The photograph is the section anchor. It is PKT Group equipment and a PKT
+ * Group driver, which is exactly what the story is about, and it bleeds off
  * the left edge so the spread reads as a magazine feature rather than a column
  * of text. No invented Dunlop or Falken imagery: the proof here is theirs.
  */
@@ -37,7 +37,7 @@ export function CaseStudy() {
           )}
         >
           <span className="text-ink-text">
-            GP Transco <span className="text-soft-text">&times;</span> Dunlop +
+            PKT Group <span className="text-soft-text">&times;</span> Dunlop +
             Falken
           </span>
           <span>Latest Case Study</span>
@@ -51,7 +51,7 @@ export function CaseStudy() {
             "text-[clamp(26px,3.6vw,52px)] text-ink-text",
           )}
         >
-          How GP Transco became the #1 carrier for Dunlop + Falken Tires
+          How PKT Group became the #1 carrier for Dunlop + Falken Tires
         </h2>
 
         <div className="mt-[clamp(34px,5vh,60px)] grid grid-cols-12 items-stretch gap-x-[clamp(28px,4vw,72px)] gap-y-[clamp(30px,4.5vh,48px)] max-[900px]:grid-cols-1">
@@ -66,7 +66,7 @@ export function CaseStudy() {
           >
             <Image
               src="/case-haul.jpg"
-              alt="A GP Transco driver at the wheel of a company Freightliner Cascadia."
+              alt="A PKT Group driver at the wheel of a company Freightliner Cascadia."
               fill
               sizes="(max-width: 900px) 100vw, 42vw"
               className="object-cover object-[64%_38%]"
@@ -127,7 +127,7 @@ export function CaseStudy() {
                 "mt-[clamp(26px,3.6vh,44px)] max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.62] text-body-text",
               )}
             >
-              GP Transco earned the #1 spot in Dunlop + Falken&rsquo;s quarterly
+              PKT Group earned the #1 spot in Dunlop + Falken&rsquo;s quarterly
               carrier bid through reliability, communication, and consistent
               execution.
             </p>

@@ -7,7 +7,7 @@ import { SiteNav } from "../site-nav";
 import { btn, btnGhost, btnHero, btnSolid, cx, label } from "../ui";
 import { usePrefersReducedMotion } from "../use-reduced-motion";
 
-// GP Transco's published equipment and service list.
+// PKT Group's published equipment and service list.
 const EQUIPMENT = [
   "Dry Van",
   "Conestoga",
