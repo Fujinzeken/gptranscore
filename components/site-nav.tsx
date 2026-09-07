@@ -1,8 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, CaretDown, List, Truck, X } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowRight,
+  CaretDown,
+  List,
+  Truck,
+  X,
+} from "@phosphor-icons/react/dist/ssr";
 import { EXPLORE_MORE, ITEM_ICONS, MENUS, type Menu } from "./nav-menu";
+import { useQuote } from "./quote-modal";
 import { btn, btnGhost, btnNav, btnOutline, btnSolid, cx, label } from "./ui";
 
 export type Tone = "dark" | "light";
@@ -14,6 +21,9 @@ export type Tone = "dark" | "light";
  * down into the panel without passing over a neighbour. So: a short intent
  * delay in, a longer grace period out.
  */
+/** Menu entries that start the quote flow instead of loading a page. */
+const QUOTE_ITEMS = new Set(["Ship With Us"]);
+
 const OPEN_DELAY = 90;
 const CLOSE_DELAY = 180;
 
@@ -60,7 +70,17 @@ export function Wordmark({ tone }: { tone: Tone }) {
   );
 }
 
-function MegaPanel({ menu, shown }: { menu: Menu; shown: boolean }) {
+function MegaPanel({
+  menu,
+  shown,
+  onQuote,
+  onClose,
+}: {
+  menu: Menu;
+  shown: boolean;
+  onQuote: () => void;
+  onClose: () => void;
+}) {
   if (!menu.panel) return null;
   const { items, featured } = menu.panel;
 
@@ -78,11 +98,50 @@ function MegaPanel({ menu, shown }: { menu: Menu; shown: boolean }) {
         <ul className="m-0 grid flex-1 list-none grid-cols-4 gap-x-[clamp(16px,1.8vw,32px)] gap-y-6 p-0 max-[1320px]:grid-cols-3 max-[1024px]:grid-cols-2">
           {items.map((item) => {
             const Glyph = ITEM_ICONS[item.label];
+            const isQuote = QUOTE_ITEMS.has(item.label);
+            const itemHref = item.href ?? menu.href;
             return (
               <li key={item.label}>
                 <a
-                  href={menu.href}
-                  className="group/item flex gap-3 focus-visible:outline-offset-4"
+                  href={isQuote ? undefined : itemHref}
+                  role={isQuote ? "button" : undefined}
+                  tabIndex={isQuote ? 0 : undefined}
+                  onClick={
+                    isQuote
+                      ? (e) => {
+                          e.preventDefault();
+                          onQuote();
+                        }
+                      : (e) => {
+                          onClose();
+                          if (itemHref.includes("#")) {
+                            const [path, hash] = itemHref.split("#");
+                            const current = window.location.pathname.replace(
+                              /\/$/,
+                              "",
+                            );
+                            const targetPath = path.replace(/\/$/, "");
+                            if (!targetPath || current === targetPath) {
+                              const target = document.getElementById(hash);
+                              if (target) {
+                                e.preventDefault();
+                                target.scrollIntoView({ behavior: "smooth" });
+                                window.history.pushState(null, "", `#${hash}`);
+                              }
+                            }
+                          }
+                        }
+                  }
+                  onKeyDown={
+                    isQuote
+                      ? (e) => {
+                          if (e.key !== "Enter" && e.key !== " ") return;
+                          e.preventDefault();
+                          onQuote();
+                        }
+                      : undefined
+                  }
+                  className="group/item flex cursor-pointer gap-3 focus-visible:outline-offset-4"
                 >
                   {Glyph ? (
                     <Glyph
@@ -116,6 +175,7 @@ function MegaPanel({ menu, shown }: { menu: Menu; shown: boolean }) {
           </p>
           <a
             href={menu.href}
+            onClick={onClose}
             className={cx(btn, btnSolid, "mt-5 h-11 px-5 text-[13.5px]")}
           >
             {featured.cta}
@@ -141,6 +201,7 @@ function MegaPanel({ menu, shown }: { menu: Menu; shown: boolean }) {
 }
 
 export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
+  const { open: openQuote } = useQuote();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -152,7 +213,6 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
   }, []);
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
-
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -241,9 +301,13 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
           </div>
 
           <div className="ml-auto flex shrink-0 items-center gap-[9px] max-[1120px]:hidden">
-            <a href="#" className={cx(btn, btnNav, light ? btnOutline : btnGhost)}>
+            <button
+              type="button"
+              onClick={openQuote}
+              className={cx(btn, btnNav, light ? btnOutline : btnGhost)}
+            >
               Request a Quote
-            </a>
+            </button>
             <a href="#" className={cx(btn, btnNav, btnSolid)}>
               <Truck size={18} />
               Apply to Drive
@@ -290,7 +354,15 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
               key={menu.label}
               className={active === menu.label ? "block" : "hidden"}
             >
-              <MegaPanel menu={menu} shown={active === menu.label} />
+              <MegaPanel
+                menu={menu}
+                shown={active === menu.label}
+                onQuote={() => {
+                  setActive(null);
+                  openQuote();
+                }}
+                onClose={() => setActive(null)}
+              />
             </div>
           ))}
         </div>
@@ -308,8 +380,12 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
         {/* Both doors first: on a phone the reason to open the menu is usually
             to act, not to browse forty-three links. */}
         <div className="flex gap-2.5">
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              openQuote();
+            }}
             className={cx(
               btn,
               "h-12 flex-1 justify-center px-4 text-[13.5px]",
@@ -317,10 +393,14 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             )}
           >
             Request a Quote
-          </a>
+          </button>
           <a
             href="#"
-            className={cx(btn, btnSolid, "h-12 flex-1 justify-center px-4 text-[13.5px]")}
+            className={cx(
+              btn,
+              btnSolid,
+              "h-12 flex-1 justify-center px-4 text-[13.5px]",
+            )}
           >
             <Truck size={17} />
             Apply to Drive
@@ -350,7 +430,10 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             return (
               <div
                 key={menu.label}
-                className={cx("border-b", light ? "border-line" : "border-rule")}
+                className={cx(
+                  "border-b",
+                  light ? "border-line" : "border-rule",
+                )}
               >
                 <button
                   type="button"
@@ -388,11 +471,56 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
                     >
                       {menu.panel.items.map((item) => {
                         const Glyph = ITEM_ICONS[item.label];
+                        const isQuote = QUOTE_ITEMS.has(item.label);
+                        const itemHref = item.href ?? menu.href;
                         return (
                           <li key={item.label} className="contents">
                             <a
-                              href={menu.href}
+                              href={isQuote ? undefined : itemHref}
+                              role={isQuote ? "button" : undefined}
                               tabIndex={isOpen ? undefined : -1}
+                              onClick={
+                                isQuote
+                                  ? (e) => {
+                                      e.preventDefault();
+                                      setOpen(false);
+                                      openQuote();
+                                    }
+                                  : (e) => {
+                                      setOpen(false);
+                                      if (itemHref.includes("#")) {
+                                        const [path, hash] =
+                                          itemHref.split("#");
+                                        const current =
+                                          window.location.pathname.replace(
+                                            /\/$/,
+                                            "",
+                                          );
+                                        const targetPath = path.replace(
+                                          /\/$/,
+                                          "",
+                                        );
+                                        if (
+                                          !targetPath ||
+                                          current === targetPath
+                                        ) {
+                                          const target =
+                                            document.getElementById(hash);
+                                          if (target) {
+                                            e.preventDefault();
+                                            target.scrollIntoView({
+                                              behavior: "smooth",
+                                            });
+                                            window.history.pushState(
+                                              null,
+                                              "",
+                                              `#${hash}`,
+                                            );
+                                          }
+                                        }
+                                      }
+                                    }
+                              }
                               className={cx(
                                 "flex items-center gap-2.5 px-3 py-3.5 text-[13px] font-medium leading-[1.3]",
                                 light

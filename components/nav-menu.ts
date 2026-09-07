@@ -94,6 +94,7 @@ export const ITEM_ICONS: Record<string, Icon> = {
 export type MenuItem = {
   label: string;
   blurb: string;
+  href?: string;
 };
 
 export type Menu = {
@@ -129,43 +130,53 @@ export const MENUS: Menu[] = [
           label: "Technology-Driven Solutions",
           blurb:
             "Advanced tracking and real-time visibility for your shipments.",
+          href: "/freight-shipping-solutions#technology",
         },
         {
           label: "Dry Van & Conestoga",
           blurb: "Flexible dry van and flatbed Conestoga capacity for any load.",
+          href: "/freight-shipping-solutions#trailers",
         },
         {
           label: "In-House Tech & AI",
           blurb: "OpenRoad TMS and AI-powered logistics optimization.",
+          href: "/freight-shipping-solutions#openroad",
         },
         {
           label: "Industry-Leading Features",
           blurb: "GPS tracking, geofencing, and automated load updates.",
+          href: "/freight-shipping-solutions#features",
         },
         {
           label: "Running Green",
           blurb:
             "Sustainability initiatives saving 107K gallons of fuel yearly.",
+          href: "/freight-shipping-solutions#sustainability",
         },
         {
           label: "ELITE Drivers",
           blurb: "Highly trained drivers delivering outstanding service.",
+          href: "/freight-shipping-solutions#drivers",
         },
         {
           label: "Outstanding Equipment",
           blurb: "State-of-the-art fleet with modern safety features.",
+          href: "/freight-shipping-solutions#openroad",
         },
         {
           label: "Supported by the Best",
           blurb: "Dedicated support team and single point of contact.",
+          href: "/freight-shipping-solutions#support",
         },
         {
           label: "Some of our Customers",
           blurb: "Trusted by leading companies like Walmart and GE.",
+          href: "/freight-shipping-solutions#customers",
         },
         {
           label: "Case Studies",
           blurb: "See how we deliver 8,500+ loads per year for PaperWorks.",
+          href: "/freight-shipping-solutions#case-studies",
         },
       ],
       featured: {
