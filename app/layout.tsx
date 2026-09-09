@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { QuoteProvider } from "@/components/quote-modal";
+import { DriverApplyProvider } from "@/components/driver-apply-modal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <QuoteProvider>{children}</QuoteProvider>
+        <QuoteProvider>
+          <DriverApplyProvider>{children}</DriverApplyProvider>
+        </QuoteProvider>
       </body>
     </html>
   );

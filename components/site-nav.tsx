@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { EXPLORE_MORE, ITEM_ICONS, MENUS, type Menu } from "./nav-menu";
 import { useQuote } from "./quote-modal";
+import { useDriverApply } from "./driver-apply-modal";
 import { btn, btnGhost, btnNav, btnOutline, btnSolid, cx, label } from "./ui";
 
 export type Tone = "dark" | "light";
@@ -23,6 +24,7 @@ export type Tone = "dark" | "light";
  */
 /** Menu entries that start the quote flow instead of loading a page. */
 const QUOTE_ITEMS = new Set(["Ship With Us"]);
+const APPLY_ITEMS = new Set(["Apply to Drive"]);
 
 const OPEN_DELAY = 90;
 const CLOSE_DELAY = 180;
@@ -74,11 +76,13 @@ function MegaPanel({
   menu,
   shown,
   onQuote,
+  onApply,
   onClose,
 }: {
   menu: Menu;
   shown: boolean;
   onQuote: () => void;
+  onApply: () => void;
   onClose: () => void;
 }) {
   if (!menu.panel) return null;
@@ -99,18 +103,22 @@ function MegaPanel({
           {items.map((item) => {
             const Glyph = ITEM_ICONS[item.label];
             const isQuote = QUOTE_ITEMS.has(item.label);
+            const isApply = APPLY_ITEMS.has(item.label);
+            const isAction = isQuote || isApply;
             const itemHref = item.href ?? menu.href;
             return (
               <li key={item.label}>
                 <a
-                  href={isQuote ? undefined : itemHref}
-                  role={isQuote ? "button" : undefined}
-                  tabIndex={isQuote ? 0 : undefined}
+                  href={isAction ? undefined : itemHref}
+                  role={isAction ? "button" : undefined}
+                  tabIndex={isAction ? 0 : undefined}
                   onClick={
-                    isQuote
+                    isAction
                       ? (e) => {
                           e.preventDefault();
-                          onQuote();
+                          onClose();
+                          if (isQuote) onQuote();
+                          if (isApply) onApply();
                         }
                       : (e) => {
                           onClose();
@@ -133,11 +141,13 @@ function MegaPanel({
                         }
                   }
                   onKeyDown={
-                    isQuote
+                    isAction
                       ? (e) => {
                           if (e.key !== "Enter" && e.key !== " ") return;
                           e.preventDefault();
-                          onQuote();
+                          onClose();
+                          if (isQuote) onQuote();
+                          if (isApply) onApply();
                         }
                       : undefined
                   }
@@ -202,6 +212,7 @@ function MegaPanel({
 
 export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
   const { open: openQuote } = useQuote();
+  const { openApplyModal } = useDriverApply();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -308,10 +319,14 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             >
               Request a Quote
             </button>
-            <a href="#" className={cx(btn, btnNav, btnSolid)}>
+            <button
+              type="button"
+              onClick={openApplyModal}
+              className={cx(btn, btnNav, btnSolid, "cursor-pointer")}
+            >
               <Truck size={18} />
               Apply to Drive
-            </a>
+            </button>
           </div>
 
           <button
@@ -361,6 +376,10 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
                   setActive(null);
                   openQuote();
                 }}
+                onApply={() => {
+                  setActive(null);
+                  openApplyModal();
+                }}
                 onClose={() => setActive(null)}
               />
             </div>
@@ -394,17 +413,21 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
           >
             Request a Quote
           </button>
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              openApplyModal();
+            }}
             className={cx(
               btn,
               btnSolid,
-              "h-12 flex-1 justify-center px-4 text-[13.5px]",
+              "h-12 flex-1 justify-center px-4 text-[13.5px] cursor-pointer",
             )}
           >
             <Truck size={17} />
             Apply to Drive
-          </a>
+          </button>
         </div>
 
         <div className="mt-7">
@@ -472,19 +495,22 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
                       {menu.panel.items.map((item) => {
                         const Glyph = ITEM_ICONS[item.label];
                         const isQuote = QUOTE_ITEMS.has(item.label);
+                        const isApply = APPLY_ITEMS.has(item.label);
+                        const isAction = isQuote || isApply;
                         const itemHref = item.href ?? menu.href;
                         return (
                           <li key={item.label} className="contents">
                             <a
-                              href={isQuote ? undefined : itemHref}
-                              role={isQuote ? "button" : undefined}
+                              href={isAction ? undefined : itemHref}
+                              role={isAction ? "button" : undefined}
                               tabIndex={isOpen ? undefined : -1}
                               onClick={
-                                isQuote
+                                isAction
                                   ? (e) => {
                                       e.preventDefault();
                                       setOpen(false);
-                                      openQuote();
+                                      if (isQuote) openQuote();
+                                      if (isApply) openApplyModal();
                                     }
                                   : (e) => {
                                       setOpen(false);

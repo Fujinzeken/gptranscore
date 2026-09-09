@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/heroes/page-hero";
 import { SectionNav, type SectionLink } from "@/components/section-nav";
-import { ShipTechnology } from "@/components/sections/ship-technology";
-import { ShipTrailers } from "@/components/sections/ship-trailers";
-import { ShipComparison } from "@/components/sections/ship-comparison";
-import { ShipAward } from "@/components/sections/ship-award";
-import { ShipOpenRoad } from "@/components/sections/ship-openroad";
-import { ShipFeatures } from "@/components/sections/ship-features";
-import { ShipSustainability } from "@/components/sections/ship-sustainability";
-import { ShipEliteDrivers } from "@/components/sections/ship-elite-drivers";
-import { ShipSupport } from "@/components/sections/ship-support";
-import { ShipCustomers } from "@/components/sections/ship-customers";
-import { ShipCaseStudies } from "@/components/sections/ship-case-studies";
+import {
+  ShipTechnology,
+  ShipTrailers,
+  ShipComparison,
+  ShipAward,
+  ShipOpenRoad,
+  ShipFeatures,
+  ShipSustainability,
+  ShipEliteDrivers,
+  ShipSupport,
+  ShipCustomers,
+  ShipCaseStudies,
+} from "@/components/shipment";
 import { ClosingCTA } from "@/components/sections/closing-cta";
 import { SiteFooter } from "@/components/site-footer";
 

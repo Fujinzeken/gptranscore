@@ -199,45 +199,55 @@ export const MENUS: Menu[] = [
           label: "Driver Pay Calculator",
           blurb:
             "Estimate your potential annual pay at PKT Group in under a minute.",
+          href: "/best-truck-driving-jobs#calculator",
         },
         {
           label: "Why Drivers Choose Us",
           blurb:
             "Industry-leading pay, annual raises, and a team that has your back.",
+          href: "/best-truck-driving-jobs#overview",
         },
         {
           label: "Routes that Fit Your Life",
           blurb: "Local, short-haul, regional, and OTR options available.",
+          href: "/best-truck-driving-jobs#routes",
         },
         {
           label: "Am I ELITE?",
           blurb:
             "Take the 60-second quiz to see if you are tracking toward ELITE performance.",
+          href: "/best-truck-driving-jobs#elite",
         },
         {
           label: "ELITE Driver Program",
           blurb: "Earn up to $7,400/year extra through performance rewards.",
+          href: "/best-truck-driving-jobs#elite",
         },
         {
           label: "Complete Benefits",
           blurb: "401(k), health insurance, paid holidays, and more.",
+          href: "/best-truck-driving-jobs#benefits",
         },
         {
           label: "Modern Equipment",
           blurb: "Late-model Freightliner Cascadias with top safety features.",
+          href: "/best-truck-driving-jobs#equipment",
         },
         {
           label: "Driver Highlights",
           blurb: "Watch video testimonials from our professional drivers.",
+          href: "/best-truck-driving-jobs#highlights",
         },
         {
           label: "Transparency & Convenience",
           blurb:
             "See your loads, pay, docs and miles right from your driver tablet.",
+          href: "/best-truck-driving-jobs#transparency",
         },
         {
           label: "Meet Our Driver Managers",
           blurb: "The people you will actually talk to every single day.",
+          href: "/best-truck-driving-jobs#managers",
         },
       ],
       featured: {
