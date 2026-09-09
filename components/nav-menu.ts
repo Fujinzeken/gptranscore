@@ -266,23 +266,28 @@ export const MENUS: Menu[] = [
         {
           label: "Culture of Innovation",
           blurb: "A team that builds its own tools and improves how trucking works.",
+          href: "/office-careers#culture",
         },
         {
           label: "Staff Connect",
           blurb:
             "Our in-house employee platform for resources, wins and learning.",
+          href: "/office-careers#staff-connect",
         },
         {
           label: "Benefits",
           blurb: "Health insurance, 401(k), paid time off and more.",
+          href: "/office-careers#benefits",
         },
         {
           label: "Open Positions",
           blurb: "See every role currently open at our Joliet headquarters.",
+          href: "/office-careers#open-positions",
         },
         {
           label: "Pitch Your Role",
           blurb: "Do not see your job? Invent the role you want and pitch it to us.",
+          href: "/office-careers#pitch-your-role",
         },
       ],
       featured: {
