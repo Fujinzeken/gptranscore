@@ -134,7 +134,8 @@ export const MENUS: Menu[] = [
         },
         {
           label: "Dry Van & Conestoga",
-          blurb: "Flexible dry van and flatbed Conestoga capacity for any load.",
+          blurb:
+            "Flexible dry van and flatbed Conestoga capacity for any load.",
           href: "/freight-shipping-solutions#trailers",
         },
         {
@@ -265,7 +266,8 @@ export const MENUS: Menu[] = [
       items: [
         {
           label: "Culture of Innovation",
-          blurb: "A team that builds its own tools and improves how trucking works.",
+          blurb:
+            "A team that builds its own tools and improves how trucking works.",
           href: "/office-careers#culture",
         },
         {
@@ -286,13 +288,15 @@ export const MENUS: Menu[] = [
         },
         {
           label: "Pitch Your Role",
-          blurb: "Do not see your job? Invent the role you want and pitch it to us.",
+          blurb:
+            "Do not see your job? Invent the role you want and pitch it to us.",
           href: "/office-careers#pitch-your-role",
         },
       ],
       featured: {
         label: "Culture of Innovation",
-        blurb: "A team that builds its own tools and improves how trucking works.",
+        blurb:
+          "A team that builds its own tools and improves how trucking works.",
         cta: "See all Office Careers",
       },
     },
@@ -304,24 +308,29 @@ export const MENUS: Menu[] = [
       items: [
         {
           label: "Work With Us",
-          blurb: "Begin working with PKT Group Logistics for your freight needs.",
+          blurb:
+            "Begin working with PKT Group Logistics for your freight needs.",
+          href: "/freight-brokerage-services#contact",
         },
         {
           label: "Why Use a Brokerage",
-          blurb:
-            "Trusted carrier network plus our own asset-based capacity.",
+          blurb: "Trusted carrier network plus our own asset-based capacity.",
+          href: "/freight-brokerage-services#streamline",
         },
         {
           label: "Logistics Services",
           blurb: "Dry van, reefer, flatbed, lift-gate, and more services.",
+          href: "/freight-brokerage-services#logistics-services",
         },
         {
           label: "Our Solutions",
           blurb: "Complete transportation solutions for shippers.",
+          href: "/freight-brokerage-services#solutions",
         },
         {
           label: "For Carriers",
           blurb: "Join our carrier network and grow your business.",
+          href: "/freight-brokerage-services#for-carriers",
         },
       ],
       featured: {
@@ -368,7 +377,7 @@ export const MENUS: Menu[] = [
       },
     },
   },
-  { label: "Blog", href: "/NewsUpdates" },
+  { label: "Blog", href: "/blog" },
   {
     label: "Innovation",
     href: "/PKTGroupTechnology",

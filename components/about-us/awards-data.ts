@@ -1,0 +1,47 @@
+export interface Award {
+  title: string;
+  year: string;
+}
+
+export const AWARDS: Award[] = [
+  { title: "Smart Trucking's Best Companies to Work For", year: "2026" },
+  { title: "CCJ Innovator of The Year", year: "2026" },
+  { title: "Best Fleets to Drive For - Fleets to Watch", year: "2026" },
+  { title: "Smart Trucking's Best Companies to Work For", year: "2025" },
+  { title: "CCJ Innovator of the Month", year: "2025" },
+  { title: "Smart Trucking's Best Companies to Work For", year: "2024" },
+  { title: "Ryder Regional Dry Van Carrier of the Year", year: "2024" },
+  { title: "Inc. 5000", year: "2023" },
+  { title: "Smart Trucking's Best Companies to Work For", year: "2023" },
+  { title: "Top Workplaces by Chicago Tribune", year: "2023" },
+  { title: "USA Top Workplaces", year: "2023" },
+  { title: "Top Fleets For-Hire (#46)", year: "2023" },
+  { title: "CCJ Top 250", year: "2023" },
+  { title: "Inc. 5000", year: "2022" },
+  { title: "Smart Trucking's Best Companies to Work For", year: "2022" },
+  { title: "Top Workplaces by Chicago Tribune", year: "2022" },
+  { title: "Transport Topics Trucking Frontline Hero", year: "2022" },
+  { title: "Top 500 Largest For-Hire Carriers (#149)", year: "2022" },
+  { title: "Humanitarian Logistics Award", year: "2022" },
+  { title: "FreightWaves Best OTR Company", year: "2022" },
+  { title: "Crain's Chicago Business Fast 50", year: "2021" },
+  { title: "Inc. 5000", year: "2021" },
+  { title: "Smart Trucking's Best Companies to Work For", year: "2021" },
+  { title: "Top Workplaces by Chicago Tribune", year: "2021" },
+  { title: "Top 100 For-Hire Carrier (#54)", year: "2021" },
+  { title: "CDL Life Best Carrier", year: "2021" },
+  { title: "Crain's Chicago Business Fast 50", year: "2020" },
+  { title: "Inc. 5000", year: "2020" },
+  { title: "Smart Trucking's Best Companies to Work For", year: "2020" },
+  { title: "Excellence in Driver Experience", year: "2020" },
+  { title: "Top Fleets by Samsara", year: "2020" },
+  { title: "Fleet Owner 500", year: "2020" },
+  { title: "Top Workplaces by Chicago Tribune", year: "2020" },
+  { title: "Crain's Chicago Business Fast 50", year: "2019" },
+  { title: "Inc. 5000", year: "2019" },
+  { title: "Top 10 Best Truck Companies to Work for", year: "2019" },
+  { title: "Excellence in Service Top Fleet Finalist", year: "2019" },
+  { title: "Crain's Chicago Business Fast 50", year: "2018" },
+  { title: "Inc. 5000", year: "2018" },
+  { title: "TDS Best Trucking Company to Drive for (#5)", year: "2018" }
+];

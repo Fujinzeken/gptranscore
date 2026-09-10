@@ -23,7 +23,13 @@ import { btn, btnSolid, cx, label } from "./ui";
 
 export type SectionLink = { id: string; label: string };
 
-export function SectionNav({ links }: { links: SectionLink[] }) {
+export function SectionNav({
+  links,
+  action,
+}: {
+  links: SectionLink[];
+  action?: { label: string; onClick?: () => void; href?: string };
+}) {
   const { open: openQuote } = useQuote();
   const [active, setActive] = useState<string | null>(null);
   const railRef = useRef<HTMLDivElement>(null);
@@ -108,17 +114,44 @@ export function SectionNav({ links }: { links: SectionLink[] }) {
           })}
         </div>
 
-        <button
-          type="button"
-          onClick={openQuote}
-          className={cx(
-            btn,
-            btnSolid,
-            "my-2 h-9 shrink-0 px-4 text-[12.5px] max-[720px]:hidden",
-          )}
-        >
-          Request a Quote
-        </button>
+        {action ? (
+          action.href ? (
+            <a
+              href={action.href}
+              className={cx(
+                btn,
+                btnSolid,
+                "my-2 h-9 shrink-0 px-4 text-[12.5px] max-[720px]:hidden",
+              )}
+            >
+              {action.label}
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={action.onClick}
+              className={cx(
+                btn,
+                btnSolid,
+                "my-2 h-9 shrink-0 px-4 text-[12.5px] max-[720px]:hidden",
+              )}
+            >
+              {action.label}
+            </button>
+          )
+        ) : (
+          <button
+            type="button"
+            onClick={openQuote}
+            className={cx(
+              btn,
+              btnSolid,
+              "my-2 h-9 shrink-0 px-4 text-[12.5px] max-[720px]:hidden",
+            )}
+          >
+            Request a Quote
+          </button>
+        )}
       </div>
     </div>
   );
