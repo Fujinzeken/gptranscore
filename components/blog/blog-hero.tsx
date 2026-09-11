@@ -41,7 +41,7 @@ export function BlogHero() {
         {/* Display Headline */}
         <h1
           className={cx(
-            "font-display m-0 max-w-[14em] text-[clamp(36px,6.2vw,92px)]",
+            "font-display m-0 max-w-[14em] text-[clamp(34px,5.6vw,86px)]",
             "font-black uppercase leading-[0.92] tracking-[-0.03em] text-paper",
           )}
         >

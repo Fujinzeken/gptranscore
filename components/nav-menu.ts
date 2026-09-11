@@ -348,26 +348,32 @@ export const MENUS: Menu[] = [
         {
           label: "Overview",
           blurb: "Who PKT Group is and how we became a modern carrier.",
+          href: "/about-us#reliability",
         },
         {
           label: "Mission & Values",
           blurb: "The principles that guide every decision we make.",
+          href: "/about-us#mission",
         },
         {
           label: "Press Releases",
           blurb: "Company news, announcements and media coverage.",
+          href: "/about-us#press-releases",
         },
         {
           label: "Leadership",
           blurb: "Meet the team leading PKT Group forward.",
+          href: "/about-us#leadership",
         },
         {
           label: "History",
           blurb: "Our journey from a small fleet to a national carrier.",
+          href: "/about-us#history",
         },
         {
           label: "Awards",
           blurb: "Industry recognition, including CCJ Innovator of the Year.",
+          href: "/about-us#awards",
         },
       ],
       featured: {
@@ -387,22 +393,27 @@ export const MENUS: Menu[] = [
           label: "Be Selective",
           blurb:
             "Our philosophy of selectivity in staff, technology, and partnerships.",
+          href: "/HighestPayingTruckingCompanies",
         },
         {
           label: "ELITE Drivers",
           blurb: "Performance-based rewards program for outstanding drivers.",
+          href: "/EliteDriverProgram",
         },
         {
           label: "Technology",
           blurb: "In-house technology and AI-powered logistics solutions.",
+          href: "/PKTGroupTechnology",
         },
         {
           label: "Safety",
           blurb: "Industry-leading safety practices and technology.",
+          href: "/Safety",
         },
         {
           label: "Sustainability",
           blurb: "Our commitment to environmental responsibility.",
+          href: "/Sustainability",
         },
       ],
       featured: {

@@ -1,0 +1,11 @@
+export { InnovationHero } from "./innovation-hero";
+export { InnovationOverview } from "./innovation-overview";
+export { InnovationApproach } from "./innovation-approach";
+export { InnovationPeople } from "./innovation-people";
+export { InnovationApps } from "./innovation-apps";
+export { InnovationCapabilities } from "./innovation-capabilities";
+export { InnovationAward } from "./innovation-award";
+export { InnovationHardware } from "./innovation-hardware";
+export { InnovationSoftware } from "./innovation-software";
+export { InnovationAI } from "./innovation-ai";
+export { InnovationPartnerships } from "./innovation-partnerships";

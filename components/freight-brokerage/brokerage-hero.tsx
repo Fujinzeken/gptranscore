@@ -43,7 +43,7 @@ export function BrokerageHero() {
         {/* Master Display Headline */}
         <h1
           className={cx(
-            "font-display m-0 max-w-[14em] text-[clamp(36px,6.6vw,104px)]",
+            "font-display m-0 max-w-[14em] text-[clamp(34px,5.6vw,86px)]",
             "font-black uppercase leading-[0.88] tracking-[-0.03em] text-paper",
           )}
         >

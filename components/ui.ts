@@ -24,6 +24,13 @@ export const btnHero = "h-[50px] px-[26px] text-[14.5px]";
 export const label =
   "font-mono text-[10.5px] font-medium uppercase tracking-[0.16em]";
 
+/** Bounded cards (photo cards, dark panels, boards) get a responsive radius
+ *  so they sit on the page as objects rather than cropping hard at the gutters. */
+export const cardRound = "rounded-[clamp(16px,1.8vw,24px)]";
+
+/** Deep, diffuse shadow for photo cards floating on the light page. */
+export const cardLift = "shadow-[0_30px_70px_-38px_rgba(15,23,42,0.55)]";
+
 export function cx(...parts: (string | false | null | undefined)[]) {
   return parts.filter(Boolean).join(" ");
 }
