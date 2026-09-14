@@ -24,7 +24,7 @@ import { cardRound, cx, label } from "../ui";
 const BOARD_ROWS: { label: string; value: string; note: string }[] = [
   {
     label: "Driver",
-    value: "Marcus Reed · #GP-48221",
+    value: "Marcus Reed · #PKT-48221",
     note: "On time",
   },
   {

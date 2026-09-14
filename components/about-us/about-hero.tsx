@@ -12,7 +12,7 @@ export function AboutHero() {
       {/* Background Image — Clean original from live site */}
       <Image
         src="/about-us/about-hero.jpg"
-        alt="GP Transco Professional Fleet and Driver"
+        alt="PKT Group Professional Fleet and Driver"
         fill
         priority
         sizes="100vw"

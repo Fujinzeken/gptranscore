@@ -21,37 +21,37 @@ const PARTNERS = [
   {
     name: "Samsara",
     logo: "/innovation/partners/samsara.png",
-    body: "GP Transco became an early adopter of Samsara — now a leading company in fleet tracking and management products.",
+    body: "PKT Group became an early adopter of Samsara — now a leading company in fleet tracking and management products.",
     tag: "Outstanding safety record and real-time visibility into fleet location",
   },
   {
     name: "Freightliner",
     logo: "/innovation/partners/freightliner.png",
-    body: "GP Transco partners with Freightliner as a core fleet equipment platform, leveraging modern truck technology that supports safety, reliability, and long-term uptime.",
+    body: "PKT Group partners with Freightliner as a core fleet equipment platform, leveraging modern truck technology that supports safety, reliability, and long-term uptime.",
     tag: "Safer operations, stronger uptime, consistent driver experience",
   },
   {
     name: "E-SMART",
     logo: "/innovation/partners/esmart.png",
-    body: "GP Transco partners with E-SMART for intelligent, GPS-based vehicle control solutions that help fleets reduce speeding events and improve safety performance.",
+    body: "PKT Group partners with E-SMART for intelligent, GPS-based vehicle control solutions that help fleets reduce speeding events and improve safety performance.",
     tag: "GPS-based speed governance for safer driving behavior",
   },
   {
     name: "Luma Brighter Learning",
     logo: "/innovation/partners/luma.png",
-    body: "GP Transco partners with Luma Learning to support driver training and continuous learning, helping drivers stay current on the latest regulations and best practices.",
+    body: "PKT Group partners with Luma Learning to support driver training and continuous learning, helping drivers stay current on the latest regulations and best practices.",
     tag: "Ongoing driver learning reinforces safety best practices",
   },
   {
     name: "Idelic",
     logo: "/innovation/partners/idelic.png",
-    body: "GP Transco partners with Idelic's Safety Suite — a modern, AI-powered fleet safety management platform that centralizes driver data, streamlines safety workflows, and uses predictive analytics to proactively identify at-risk behaviors before they become incidents.",
+    body: "PKT Group partners with Idelic's Safety Suite — a modern, AI-powered fleet safety management platform that centralizes driver data, streamlines safety workflows, and uses predictive analytics to proactively identify at-risk behaviors before they become incidents.",
     tag: "Data-driven safety management and proactive driver coaching",
   },
   {
     name: "Hyundai Translead",
     logo: "/innovation/partners/hyundai-translead.png",
-    body: "GP Transco operates Hyundai Translead Composite® dry van trailers — delivering the same strength at a lighter weight with durable composite plate sidewalls, hot-dipped galvanization as standard, and increased freight capacity through thinner walls and lower trailer weight.",
+    body: "PKT Group operates Hyundai Translead Composite® dry van trailers — delivering the same strength at a lighter weight with durable composite plate sidewalls, hot-dipped galvanization as standard, and increased freight capacity through thinner walls and lower trailer weight.",
     tag: "Lighter, more durable trailers with industry-leading anti-corrosion protection",
   },
 ];
@@ -102,7 +102,7 @@ export function InnovationPartnerships() {
             "text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
           )}
         >
-          Even though we develop our own IT products, GP Transco is extremely
+          Even though we develop our own IT products, PKT Group is extremely
           selective when choosing technology partners. We prioritize modern
           user experience, long-term vendor strength, and the ability to
           integrate into our cloud-based infrastructure.
@@ -191,7 +191,7 @@ export function InnovationPartnerships() {
               "max-[900px]:col-span-1 max-[900px]:col-start-1",
             )}
           >
-            Technology isn&apos;t a feature at GP Transco — it&apos;s part of
+            Technology isn&apos;t a feature at PKT Group — it&apos;s part of
             how we operate every day. From modern equipment and connected
             services to in-house software and real-time visibility, we
             continue to invest in tools that improve safety, efficiency, and
@@ -200,7 +200,7 @@ export function InnovationPartnerships() {
           {/* The page's closing controls. */}
           <div className="col-span-12 mt-2 flex flex-wrap items-center gap-4 max-[900px]:col-span-1">
             <a href="/about-us" className={cx(btn, btnHero, "bg-paper text-ink-text font-semibold hover:bg-white")}>
-              Learn More About GP Transco
+              Learn More About PKT Group
             </a>
             <a
               href="tel:+18004605071"

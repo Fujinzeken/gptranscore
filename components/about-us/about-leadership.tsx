@@ -87,7 +87,7 @@ export function AboutLeadership() {
 
           <p className="mx-auto mt-5 max-w-[55ch] text-[clamp(15px,1.2vw,18.5px)] leading-[1.6] text-body-text">
             Meet the executives driving innovation, technological excellence, and
-            uncompromising standards at GP Transco.
+            uncompromising standards at PKT Group.
           </p>
         </div>
 

@@ -99,7 +99,7 @@ export function InnovationSoftware() {
         >
           Even in our early days, we knew that off-the-shelf transportation
           management systems wouldn&apos;t meet the demanding needs of our
-          customers, employees, and leadership. That is why GP Transco built a
+          customers, employees, and leadership. That is why PKT Group built a
           custom, cloud and web-based TMS from scratch.
         </p>
 
@@ -123,7 +123,7 @@ export function InnovationSoftware() {
             </p>
           </div>
           <p className="m-0 mt-4 max-w-[70ch] text-[clamp(14.5px,1.1vw,16.5px)] leading-[1.6] text-body-text">
-            In 2013, GP Transco decided to build a custom TMS to support
+            In 2013, PKT Group decided to build a custom TMS to support
             operational speed, flexibility, and situational awareness. This
             system helps manage the entire lifecycle of a load — from entry to
             billing — and provides visibility to employees and customers alike.

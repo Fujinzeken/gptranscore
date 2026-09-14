@@ -228,7 +228,7 @@ function CarrierOnboardingModal({ onClose }: { onClose: () => void }) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <span className="text-azure-hi text-[11px] font-mono font-semibold uppercase tracking-wider block mb-1.5">
-                GP Transco Carrier Network
+                PKT Group Carrier Network
               </span>
               <h2 className="text-2xl font-black tracking-tight text-paper m-0">
                 Join Our Carrier Partner Fleet
@@ -258,7 +258,7 @@ function CarrierOnboardingModal({ onClose }: { onClose: () => void }) {
                 Application Received!
               </h3>
               <p className="text-sm text-body-text max-w-md mx-auto">
-                Thank you for applying to the GP Transco Carrier Network. Our
+                Thank you for applying to the PKT Group Carrier Network. Our
                 carrier relations team will verify your DOT/MC credentials and
                 reach out shortly with onboarding packets.
               </p>

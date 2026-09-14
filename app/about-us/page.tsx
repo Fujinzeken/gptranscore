@@ -10,9 +10,9 @@ import { AboutCTA } from "@/components/about-us/about-cta";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "About Us | GP Transco",
+  title: "About Us | PKT Group",
   description:
-    "20 years of redefining trucking through innovation, integrity, and an uncompromising commitment to safety. Learn about GP Transco's mission, values, and leadership.",
+    "20 years of redefining trucking through innovation, integrity, and an uncompromising commitment to safety. Learn about PKT Group's mission, values, and leadership.",
 };
 
 const LINKS: SectionLink[] = [

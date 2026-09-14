@@ -137,7 +137,7 @@ export function AboutPressReleases() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-[60ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-            The latest news, technological milestones, and achievements from GP Transco.
+            The latest news, technological milestones, and achievements from PKT Group.
           </p>
         </div>
 

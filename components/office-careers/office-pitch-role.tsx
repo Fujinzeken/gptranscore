@@ -75,7 +75,7 @@ export function OfficePitchRole() {
                 "mt-6 text-[clamp(16px,1.25vw,19.5px)] leading-[1.65] text-mute max-w-[64ch] mx-auto",
               )}
             >
-              Got something great to bring to GP Transco but don&apos;t see an
+              Got something great to bring to PKT Group but don&apos;t see an
               opening that fits? Tell us the role you&apos;d create, what
               you&apos;d build in your first 90 days, and the impact you&apos;d
               make here.
@@ -228,7 +228,7 @@ function PitchRoleModal({ onClose }: { onClose: () => void }) {
                 Executive Talent Initiative
               </span>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-paper m-0">
-                Pitch Your Role to GP Transco
+                Pitch Your Role to PKT Group
               </h2>
               <p className="text-xs sm:text-sm text-soft-text mt-1.5 m-0">
                 Define what you build. We review every thoughtful pitch.

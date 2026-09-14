@@ -12,7 +12,7 @@ export function OfficeHero() {
       {/* Background Image */}
       <Image
         src="/office-careers/office-hero-bg1.jpg"
-        alt="GP Transco modern office headquarters in Joliet, IL"
+        alt="PKT Group modern office headquarters in Joliet, IL"
         fill
         priority
         sizes="100vw"

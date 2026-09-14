@@ -139,12 +139,12 @@ export default function BlogGrid() {
       <div className="container mx-auto max-w-7xl px-4">
         {/* Section header */}
         <div className="text-center mb-12 space-y-4">
-          <p className={cx(label, "text-azure")}>GP Transco Insights</p>
+          <p className={cx(label, "text-azure")}>PKT Group Insights</p>
           <h2 className="text-4xl md:text-5xl font-bold text-ink-text tracking-tight">
             Stories from the Road
           </h2>
           <p className="text-body-text max-w-xl mx-auto">
-            Industry perspectives, driver stories, and technology deep-dives from the GP Transco team.
+            Industry perspectives, driver stories, and technology deep-dives from the PKT Group team.
           </p>
         </div>
 

@@ -10,7 +10,7 @@ export function AboutCTA() {
 
   return (
     <section
-      aria-label="Ready to partner with GP Transco"
+      aria-label="Ready to partner with PKT Group"
       className="relative isolate overflow-hidden bg-ink py-[clamp(80px,12vh,140px)]"
     >
       {/* Subtle grid pattern texture from screenshot 4 */}
@@ -35,7 +35,7 @@ export function AboutCTA() {
         {/* Eyebrow */}
         <p className={cx(label, "text-azure-hi mb-5 flex items-center justify-center gap-2")}>
           <Sparkle size={13} weight="fill" />
-          START YOUR JOURNEY WITH GP TRANSCO
+          START YOUR JOURNEY WITH PKT GROUP
         </p>
 
         {/* Display Headline */}

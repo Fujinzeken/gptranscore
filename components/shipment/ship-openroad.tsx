@@ -67,7 +67,7 @@ export function ShipOpenRoad() {
               <div className="mt-4 bg-ink-2 border border-rule p-4">
                 <div className="flex items-center justify-between text-[10.5px] font-mono">
                   <span className="text-azure-hi font-bold">
-                    LOAD # GP-482193
+                    LOAD # PKT-482193
                   </span>
                   <span className="bg-azure/20 text-azure-hi px-2 py-0.5 rounded-full font-semibold">
                     In Transit

@@ -367,7 +367,7 @@ export function AboutJourney() {
                       Bootstrapping & Infrastructure Phase
                     </p>
                     <p className="mt-1 text-sm text-mute max-w-[45ch] mx-auto">
-                      During this initial period, GP Transco was focused on building
+                      During this initial period, PKT Group was focused on building
                       its proprietary systems and driver culture before entering national industry competitions in 2018.
                     </p>
                   </div>

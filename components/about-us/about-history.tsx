@@ -13,13 +13,13 @@ export interface Milestone {
 export const MILESTONES: Milestone[] = [
   {
     year: "2006",
-    title: "GP Transportation is born",
+    title: "PKT Group is born",
     description: "Founded with a single truck and a clear vision to revolutionize reliability in logistics.",
     tag: "Foundation",
   },
   {
     year: "2007",
-    title: "The first owner-operator joins GP Transportation",
+    title: "The first owner-operator joins PKT Group",
     description: "Expanding capacity and welcoming our very first partner behind the wheel.",
     tag: "Network",
   },
@@ -43,7 +43,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     year: "2015",
-    title: "GP Transportation merges with ZA Transport",
+    title: "PKT Group merges with ZA Transport",
     description: "Combining expertise and assets to accelerate Midwest regional dominance.",
     tag: "Strategic Merger",
   },
@@ -56,7 +56,7 @@ export const MILESTONES: Milestone[] = [
   {
     year: "2016",
     title: "Company-wide re-branding takes place",
-    description: "Unveiling modern fleet livery, brand identity, and corporate structure as GP Transco.",
+    description: "Unveiling modern fleet livery, brand identity, and corporate structure as PKT Group.",
     tag: "Evolution",
   },
   {
@@ -91,13 +91,13 @@ export const MILESTONES: Milestone[] = [
   },
   {
     year: "2025",
-    title: "With 1,800 trailers, 95% of GP Transco's drivers are company drivers hauling over 80% contracted freight",
+    title: "With 1,800 trailers, 95% of PKT Group's drivers are company drivers hauling over 80% contracted freight",
     description: "Unmatched driver retention rates, high-value freight contracts, and trailer density.",
     tag: "Industry Leader",
   },
   {
     year: "2026",
-    title: "GP Transco turns 20",
+    title: "PKT Group turns 20",
     description:
       "Two decades in, we're weaving AI throughout our operations — dramatically boosting efficiency and accuracy while elevating the experience for both our clients and our drivers.",
     tag: "20th Anniversary",
@@ -136,7 +136,7 @@ export function AboutHistory() {
 
           <p className="mx-auto mt-5 max-w-[62ch] text-[clamp(15px,1.2vw,18.5px)] leading-[1.6] text-body-text">
             From a single owner-operator in 2006 to a fleet of over 550 trucks—discover
-            the milestones that shaped GP Transco into an industry leader.
+            the milestones that shaped PKT Group into an industry leader.
           </p>
         </div>
 

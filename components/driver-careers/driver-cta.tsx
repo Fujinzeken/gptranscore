@@ -73,7 +73,7 @@ export function DriverCTA() {
               )}
             >
               Join a team that values your skills, respects your time, and rewards
-              your performance. Apply today and become part of the GP Transco
+              your performance. Apply today and become part of the PKT Group
               family.
             </p>
 

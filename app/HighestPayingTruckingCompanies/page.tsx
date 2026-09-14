@@ -13,7 +13,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "What Does It Mean to Be Selective? | PKT Group",
   description:
-    "All the ways GP Transco is intentional with our operations, staff, drivers, and more — from a 2% driver hire rate to in-house technology.",
+    "All the ways PKT Group is intentional with our operations, staff, drivers, and more — from a 2% driver hire rate to in-house technology.",
 };
 
 const LINKS: SectionLink[] = [

@@ -40,10 +40,10 @@ type AppId = (typeof APPS)[number]["id"];
 function StaffMini() {
   return (
     <div className="apps-fade space-y-3">
-      <p className={cx(label, "m-0 text-[10px] text-mute")}>Today at GP Transco</p>
+      <p className={cx(label, "m-0 text-[10px] text-mute")}>Today at PKT Group</p>
       {[
         { t: "Joliet shop hits 100 days without a recordable", m: "Operations · 2h ago" },
-        { t: "New: winter chain law refresher is live in GP Academy", m: "Training · 5h ago" },
+        { t: "New: winter chain law refresher is live in PKT Academy", m: "Training · 5h ago" },
         { t: "Q3 town hall recording now available", m: "Company · Yesterday" },
       ].map((row) => (
         <div key={row.t} className="border-b border-rule pb-3">
@@ -204,7 +204,7 @@ function AfterhoursMini() {
   const queue = [
     { t: "02:14", w: "Driver check call — Omaha, NE", s: "Resolved" },
     { t: "02:41", w: "Reefer alarm — unit 7312", s: "Dispatched" },
-    { t: "03:07", w: "Customer ETA request — GP-482167", s: "Answered" },
+    { t: "03:07", w: "Customer ETA request — PKT-482167", s: "Answered" },
     { t: "03:52", w: "Weather hold — I-80 westbound", s: "Monitoring" },
   ];
   return (
@@ -352,7 +352,7 @@ export function InnovationApps() {
             )}
           >
             Each app was created by the team that uses it — built to solve real
-            workflows across GP Transco, not bought to approximate them.
+            workflows across PKT Group, not bought to approximate them.
           </p>
 
           {/* The app console. Rail is the suite; panel is the app. */}
@@ -461,7 +461,7 @@ export function InnovationApps() {
                       "hidden text-[10px] text-mute-2 lg:block",
                     )}
                   >
-                    GP Transco · Internal
+                    PKT Group · Internal
                   </span>
                   <span className={cx(label, "text-[10px] text-mute")}>
                     {String(i + 1).padStart(2, "0")} / 06

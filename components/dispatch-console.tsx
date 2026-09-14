@@ -26,7 +26,7 @@ import { cx, label } from "./ui";
  * away from someone who is reading is the fastest way to make a thing like
  * this annoying. Every step is also directly reachable from the rail.
  *
- * All figures are GP Transco's published simulation values, unchanged.
+ * All figures are PKT Group's published simulation values, unchanged.
  */
 
 const STEP_MS = 4200;
@@ -55,10 +55,10 @@ const STEPS: { key: StepKey; time: string; name: string }[] = [
 ];
 
 const PENDING = [
-  { id: "GP-482167", lane: "Joliet, IL → Louisville, KY", mi: "192 mi", lbs: "42,000 lbs", freight: "Smart home devices" },
-  { id: "GP-482168", lane: "Plainfield, IL → Columbus, OH", mi: "229 mi", lbs: "21,300 lbs", freight: "Cleaning supplies" },
-  { id: "GP-482193", lane: "Chicago, IL → Columbus, OH", mi: "356 mi", lbs: "38,400 lbs", freight: "Consumer electronics" },
-  { id: "GP-482170", lane: "Valparaiso, IN → Philadelphia, PA", mi: "303 mi", lbs: "35,000 lbs", freight: "Machinery parts" },
+  { id: "PKT-482167", lane: "Joliet, IL → Louisville, KY", mi: "192 mi", lbs: "42,000 lbs", freight: "Smart home devices" },
+  { id: "PKT-482168", lane: "Plainfield, IL → Columbus, OH", mi: "229 mi", lbs: "21,300 lbs", freight: "Cleaning supplies" },
+  { id: "PKT-482193", lane: "Chicago, IL → Columbus, OH", mi: "356 mi", lbs: "38,400 lbs", freight: "Consumer electronics" },
+  { id: "PKT-482170", lane: "Valparaiso, IN → Philadelphia, PA", mi: "303 mi", lbs: "35,000 lbs", freight: "Machinery parts" },
 ];
 
 const DRIVERS = [
@@ -235,7 +235,7 @@ function StepPanel({ step }: { step: StepKey }) {
             <span className={cx(label, "text-paper")}>Load selected</span>
           </div>
           <div className="bg-ink-2 p-5">
-            <Row k="Load" v="GP-482193" strong />
+            <Row k="Load" v="PKT-482193" strong />
             <Row k="Lane" v="Chicago, IL → Columbus, OH" />
             <Row k="Freight" v="Consumer electronics" />
             <Row k="Weight" v="38,400 lbs" />
@@ -360,7 +360,7 @@ function StepPanel({ step }: { step: StepKey }) {
           </div>
           <div className="mx-auto w-full max-w-[280px] bg-ink-2 p-4">
             <p className={cx(label, "m-0 text-mute")}>New assignment</p>
-            <Row k="Load" v="GP-482193" strong />
+            <Row k="Load" v="PKT-482193" strong />
             <Row k="Pickup" v="Chicago, IL" />
             <Row k="Delivery" v="Columbus, OH" />
             <Row k="Driver" v="Jasmine Lee" />
@@ -446,7 +446,7 @@ function StepPanel({ step }: { step: StepKey }) {
             <div className="bg-ink-2 p-4">
               <p className={cx(label, "m-0 text-mute")}>Customer notified</p>
               <p className="m-0 mt-1.5 text-[13px] leading-[1.5] text-mute">
-                Shipment GP-482193 is being unloaded. Estimated empty in 32
+                Shipment PKT-482193 is being unloaded. Estimated empty in 32
                 minutes.
               </p>
             </div>
@@ -454,7 +454,7 @@ function StepPanel({ step }: { step: StepKey }) {
           <div className="flex items-center gap-3 border-l-2 border-azure bg-azure/15 p-4">
             <Check size={18} weight="bold" className="shrink-0 text-azure-hi" />
             <p className="m-0 text-[14px] font-semibold text-paper">
-              Delivered on time, GP-482193
+              Delivered on time, PKT-482193
             </p>
           </div>
         </Panel>
@@ -505,7 +505,7 @@ export function DispatchConsole() {
         </span>
         <span className={cx(label, "text-paper")}>Live dispatch</span>
         <span className="text-[13px] text-mute">
-          Load GP-482193, Chicago to Columbus
+          Load PKT-482193, Chicago to Columbus
         </span>
         <span
           className={cx(label, "ml-auto tabular-nums text-azure-hi")}

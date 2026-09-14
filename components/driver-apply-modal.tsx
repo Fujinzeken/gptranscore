@@ -355,7 +355,7 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
         </div>
       )}
 
-      {/* 2. GP TRANSCO DRIVER QUALIFICATION MULTI-STEP MODAL */}
+      {/* 2. PKT GROUP DRIVER QUALIFICATION MULTI-STEP MODAL */}
       {prequalOpen && (
         <div
           role="dialog"
@@ -389,7 +389,7 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
                 </button>
 
                 <h3 className="text-base sm:text-lg font-bold text-[#25318d] m-0 text-center">
-                  GP Transco Driver Qualification
+                  PKT Group Driver Qualification
                 </h3>
 
                 <button
@@ -473,7 +473,7 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
                         {formData.firstName || "Driver"}
                       </strong>
                       ! Based on your CDL experience and safety record, you meet
-                      GP Transco&apos;s hiring standards for top-tier pay.
+                      PKT Group&apos;s hiring standards for top-tier pay.
                     </p>
                   </div>
 

@@ -11,7 +11,7 @@ export function BlogHero() {
       {/* Background Image — Original highway truck asset */}
       <Image
         src="/blog/blog-hero.jpg"
-        alt="GP Transco Fleet Highway"
+        alt="PKT Group Fleet Highway"
         fill
         priority
         sizes="100vw"
@@ -51,7 +51,7 @@ export function BlogHero() {
         {/* Subtitle */}
         <p className="mt-5 max-w-[56ch] text-[clamp(15px,1.2vw,18.5px)] leading-[1.6] text-mute">
           Stay informed with expert insights on trucking technology, driver careers,
-          sustainability, and industry trends from GP Transco.
+          sustainability, and industry trends from PKT Group.
         </p>
       </div>
     </section>

@@ -5,7 +5,7 @@ import { Reveal, revealItem } from "../reveal";
 import { cx, label } from "../ui";
 
 /**
- * Our Selectivity — "Only the Best Drive for GP Transco".
+ * Our Selectivity — "Only the Best Drive for PKT Group".
  *
  * Prod's two stat cards wore a dark gradient and an orange gradient. The
  * two-tone is kept but translated into the system's own surfaces: one ink
@@ -51,7 +51,7 @@ export function EliteSelectivity() {
             )}
           >
             Only the Best Drive for{" "}
-            <span className="text-azure">GP Transco</span>
+            <span className="text-azure">PKT Group</span>
           </h2>
           <p
             style={{ "--i": 3 } as React.CSSProperties}
@@ -117,7 +117,7 @@ export function EliteSelectivity() {
             "text-center text-[clamp(16px,1.35vw,20px)] font-medium leading-[1.55] text-ink-text",
           )}
         >
-          This selectivity means every driver behind the wheel of a GP Transco
+          This selectivity means every driver behind the wheel of a PKT Group
           truck is a proven professional — reliable, safe, and committed to
           excellence.
         </p>

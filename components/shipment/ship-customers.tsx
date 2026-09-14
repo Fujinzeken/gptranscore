@@ -10,7 +10,7 @@ import { cx, label } from "../ui";
  * Light field (bg-page) following the dark ShipSupport section,
  * maintaining the strict alternating light/dark rhythm.
  *
- * Displays enterprise shippers that trust GP Transco in a machined
+ * Displays enterprise shippers that trust PKT Group in a machined
  * 20-client matrix sharing 1px hairlines.
  */
 

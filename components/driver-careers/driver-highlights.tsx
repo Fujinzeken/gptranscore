@@ -17,7 +17,7 @@ import { btn, btnSolid, btnHero, cx, label } from "../ui";
  *
  * Sits on a 100% light field (bg-page) following the dark DriverElite section.
  * Cohesive with the rest of the redesign (bento styling, border-line, type-display):
- * - Left: Real GP Transco driver cutout with a subtle ambient background
+ * - Left: Real PKT Group driver cutout with a subtle ambient background
  * - Right: Short, high-impact copy, featured driver testimonial pill, and primary CTA
  * - Interactive modal with driver stories when clicking "View Driver Highlights"
  */
@@ -56,7 +56,7 @@ const DRIVER_STORIES: DriverStory[] = [
     role: "Team OTR Drivers",
     tenure: "4 Years",
     quote:
-      "We've driven for four carriers over 15 years. No one comes close to GP Transco in how they treat drivers like actual partners.",
+      "We've driven for four carriers over 15 years. No one comes close to PKT Group in how they treat drivers like actual partners.",
     highlight: "5,200+ miles/wk in a 2025 Freightliner Cascadia",
   },
 ];
@@ -93,7 +93,7 @@ export function DriverHighlights() {
           </h2>
 
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
-            Real stories from real drivers who chose GP Transco. Hear what life
+            Real stories from real drivers who chose PKT Group. Hear what life
             on the road is really like — straight from the people who live it
             every day.
           </p>
@@ -118,7 +118,7 @@ export function DriverHighlights() {
             {/* Driver Image */}
             <Image
               src="/driver-highlights.png"
-              alt="GP Transco Driver"
+              alt="PKT Group Driver"
               width={700}
               height={850}
               priority
@@ -152,7 +152,7 @@ export function DriverHighlights() {
 
               <p className="text-[clamp(15px,1.15vw,17.5px)] leading-[1.65] text-body-text max-w-[50ch] m-0 mb-6">
                 From first-year drivers to seasoned veterans, our drivers share
-                why they chose GP Transco — and why they stay. Pick a story and
+                why they chose PKT Group — and why they stay. Pick a story and
                 hear it in their own words.
               </p>
 

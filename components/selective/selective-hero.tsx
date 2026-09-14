@@ -64,7 +64,7 @@ export function SelectiveHero() {
                 "leading-[1.6] text-body-text",
               )}
             >
-              Learn about all the ways that we at GP Transco are intentional
+              Learn about all the ways that we at PKT Group are intentional
               with our operations, staff, drivers, and more.
             </p>
 
@@ -105,7 +105,7 @@ export function SelectiveHero() {
             <div className="relative aspect-[4/5] max-[1000px]:aspect-[16/10]">
               <Image
                 src="/driver-highlight.png"
-                alt="A GP Transco driver in company gear, arms crossed"
+                alt="A PKT Group driver in company gear, arms crossed"
                 fill
                 priority
                 sizes="(max-width: 1000px) 100vw, 40vw"
@@ -118,7 +118,7 @@ export function SelectiveHero() {
                 "m-0 text-right text-mute-2",
               )}
             >
-              The 2% — A GP Transco Driver
+              The 2% — A PKT Group Driver
             </p>
           </div>
         </div>

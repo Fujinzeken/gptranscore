@@ -26,7 +26,7 @@ export function AboutOverview() {
         >
           <Image
             src="/about-us/overview-left.png"
-            alt="GP Transco Team Member"
+            alt="PKT Group Team Member"
             width={700}
             height={900}
             className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(11,26,44,0.12)]"
@@ -41,7 +41,7 @@ export function AboutOverview() {
         >
           <Image
             src="/about-us/overview-right.png"
-            alt="GP Transco Team Member"
+            alt="PKT Group Team Member"
             width={700}
             height={900}
             className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(11,26,44,0.12)]"
@@ -67,7 +67,7 @@ export function AboutOverview() {
 
           {/* Narrative Lead */}
           <p className="mx-auto mt-6 max-w-[62ch] text-[clamp(15px,1.2vw,18px)] leading-[1.7] text-body-text">
-            Since our founding, GP Transco has grown from a small operation into
+            Since our founding, PKT Group has grown from a small operation into
             one of the most respected asset-based carriers in the Midwest. Our
             success is built on a simple principle: treat customers and drivers
             right, invest in technology, and never compromise on safety.

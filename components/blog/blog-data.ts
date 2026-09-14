@@ -1,4 +1,4 @@
-// Dummy blog data for GP Transco blog page
+// Dummy blog data for PKT Group blog page
 // Images reuse existing public assets until real blog images are provided
 
 export type Publication = {
@@ -31,7 +31,7 @@ export const PUBLICATIONS: Publication[] = [
     slug: "ai-powered-route-optimization",
     title: "How AI-Powered Route Optimization Is Reshaping Long-Haul Trucking",
     excerpt:
-      "From predictive traffic analysis to fuel-efficient routing, artificial intelligence is transforming how GP Transco plans every mile across the US and Canada.",
+      "From predictive traffic analysis to fuel-efficient routing, artificial intelligence is transforming how PKT Group plans every mile across the US and Canada.",
     category: "Technology",
     date: "2026-08-28",
     readTime: 6,
@@ -44,7 +44,7 @@ export const PUBLICATIONS: Publication[] = [
     slug: "life-on-the-road",
     title: "Life on the Road: What Our Drivers Say About Company Culture",
     excerpt:
-      "We sat down with six GP Transco drivers to hear what a typical week on the road actually looks like — the rewards, the challenges, and why they stay.",
+      "We sat down with six PKT Group drivers to hear what a typical week on the road actually looks like — the rewards, the challenges, and why they stay.",
     category: "Driver Careers",
     date: "2026-08-14",
     readTime: 5,
@@ -57,7 +57,7 @@ export const PUBLICATIONS: Publication[] = [
     slug: "electric-fleet-2027",
     title: "Mapping Our Path to a Zero-Emission Fleet by 2030",
     excerpt:
-      "GP Transco's sustainability roadmap outlines the phased transition to electric Class 8 trucks, the infrastructure investments required, and why now is the moment to act.",
+      "PKT Group's sustainability roadmap outlines the phased transition to electric Class 8 trucks, the infrastructure investments required, and why now is the moment to act.",
     category: "Sustainability",
     date: "2026-07-30",
     readTime: 7,
@@ -83,7 +83,7 @@ export const PUBLICATIONS: Publication[] = [
     slug: "driver-wellness-program",
     title: "Putting Drivers First: Inside Our Comprehensive Wellness Program",
     excerpt:
-      "Sleep apnea screening, mental health resources, and ergonomic cab design — GP Transco is raising the industry bar for driver health and wellbeing.",
+      "Sleep apnea screening, mental health resources, and ergonomic cab design — PKT Group is raising the industry bar for driver health and wellbeing.",
     category: "Safety",
     date: "2026-06-25",
     readTime: 5,

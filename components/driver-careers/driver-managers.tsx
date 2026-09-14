@@ -57,9 +57,9 @@ const MANAGERS: Manager[] = [
       "Driver Partnership & Mileage Optimization",
     ],
     bio: [
-      "With 12 years of service in the U.S. Army, Jon developed the discipline, leadership, and problem-solving skills that continue to shape his career in the trucking industry. He began his transportation career five years ago in a breakdown department, where he gained valuable experience supporting drivers during critical situations. From there, he advanced into a Driver Manager role with his previous carrier and is now entering his third year with GP Transco.",
-      "Jon's success as a Driver Manager is built on the strong relationships he develops with his drivers. He believes that drivers and Driver Managers are true partners, and that success is achieved through consistent communication, mutual accountability, and trust. He invests time in coaching each driver to embrace the GP way while fostering open communication throughout the workday.",
-      "Taking a driver-first approach, Jon focuses on each driver's individual goals and works to help them maximize every opportunity available at GP Transco. By leveraging technology, maximizing miles, improving operational efficiency, and providing dependable support, he strives to position every driver for long-term success. He holds his drivers accountable for their performance while encouraging them to hold him to the same standard.",
+      "With 12 years of service in the U.S. Army, Jon developed the discipline, leadership, and problem-solving skills that continue to shape his career in the trucking industry. He began his transportation career five years ago in a breakdown department, where he gained valuable experience supporting drivers during critical situations. From there, he advanced into a Driver Manager role with his previous carrier and is now entering his third year with PKT Group.",
+      "Jon's success as a Driver Manager is built on the strong relationships he develops with his drivers. He believes that drivers and Driver Managers are true partners, and that success is achieved through consistent communication, mutual accountability, and trust. He invests time in coaching each driver to embrace the PKT way while fostering open communication throughout the workday.",
+      "Taking a driver-first approach, Jon focuses on each driver's individual goals and works to help them maximize every opportunity available at PKT Group. By leveraging technology, maximizing miles, improving operational efficiency, and providing dependable support, he strives to position every driver for long-term success. He holds his drivers accountable for their performance while encouraging them to hold him to the same standard.",
     ],
   },
   {
@@ -70,14 +70,14 @@ const MANAGERS: Manager[] = [
     badge: "9+ Years Freight · Active CDL Holder",
     image: "/managers/ebony.png",
     intro:
-      "With nine years in transportation and a CDL of her own, Ebony knows both sides of the windshield. She leads with a driver-first philosophy — making sure every driver feels heard, supported, and positioned to earn more and grow at GP Transco.",
+      "With nine years in transportation and a CDL of her own, Ebony knows both sides of the windshield. She leads with a driver-first philosophy — making sure every driver feels heard, supported, and positioned to earn more and grow at PKT Group.",
     highlights: [
       "Holds an Active CDL-A License",
       "9+ Years Fleet Operations & Payroll",
       "Driver Growth & Earning Advocate",
     ],
     bio: [
-      "With more than nine years of experience in the transportation industry, Ebony brings extensive expertise in driver management, department development, payroll, scheduling, and efficient fleet operations to GP Transco. Throughout her career, she has remained committed to a core principle: driver satisfaction is the foundation of a thriving company.",
+      "With more than nine years of experience in the transportation industry, Ebony brings extensive expertise in driver management, department development, payroll, scheduling, and efficient fleet operations to PKT Group. Throughout her career, she has remained committed to a core principle: driver satisfaction is the foundation of a thriving company.",
       "By combining her Faith, operational expertise, and a driver-first philosophy, Ebony fosters a trusted environment where every driver feels heard, supported, respected, and positioned for long-term success. As a manager, she serves as a dedicated advocate and resource, ensuring drivers have the tools, information, and support they need to perform at their highest level.",
       "As a CDL holder herself, Ebony understands the challenges and responsibilities of both life on the road and operations in the office. This firsthand perspective is a defining aspect of her leadership style, allowing her to anticipate challenges, provide practical solutions, and build strong, relatable relationships with drivers.",
     ],
@@ -97,7 +97,7 @@ const MANAGERS: Manager[] = [
       "Proactive Route Planning & Support",
     ],
     bio: [
-      "As a Driver Manager at GP Transco, Carly Petersen has found her role to be both rewarding and fulfilling, offering continuous opportunities for professional and personal growth. Carly is passionate about leading fleet operations, supporting drivers, improving performance, and contributing to a culture built on safety, efficiency, and excellence.",
+      "As a Driver Manager at PKT Group, Carly Petersen has found her role to be both rewarding and fulfilling, offering continuous opportunities for professional and personal growth. Carly is passionate about leading fleet operations, supporting drivers, improving performance, and contributing to a culture built on safety, efficiency, and excellence.",
       "With a background in both freight and counseling, Carly brings a unique perspective to driver management. Her transportation experience gives her a practical understanding of the challenges drivers face every day, helping her make informed decisions that support both operational success and driver needs. Her counseling background enhances her ability to communicate effectively, listen with empathy, and help drivers navigate challenges with respect and understanding.",
       "Carly believes that successful driver management begins with putting drivers first. By building strong relationships, fostering trust, and creating an environment where drivers feel heard, valued, and supported, she helps empower her team to succeed both on and off the road.",
     ],
@@ -118,7 +118,7 @@ const MANAGERS: Manager[] = [
     ],
     bio: [
       "Jim is a dedicated and dependable transportation professional with 10 years of combined experience in military communications and the logistics industry. He proudly served 6 years in the military as a Radio Operator, where he developed exceptional communication, critical thinking, and decision-making skills while operating in high-pressure environments.",
-      "After completing his military service, Jim built a successful career in transportation, gaining 4 years of experience as a Freight Broker and Dispatcher. He developed his expertise while working with Viz Point and John Express, and currently serves as a Dispatcher with GP Transco. Throughout his career, he has coordinated freight, managed driver schedules, optimized routes, and built strong relationships with both drivers and customers.",
+      "After completing his military service, Jim built a successful career in transportation, gaining 4 years of experience as a Freight Broker and Dispatcher. He developed his expertise while working with Viz Point and John Express, and currently serves as a Dispatcher with PKT Group. Throughout his career, he has coordinated freight, managed driver schedules, optimized routes, and built strong relationships with both drivers and customers.",
       "Jim is passionate about working with truck drivers and believes that clear communication, trust, and mutual respect are the foundation of a successful dispatch operation. He understands the day-to-day challenges drivers face and is committed to providing dependable support that helps keep freight moving safely, efficiently, and on schedule.",
     ],
   },
@@ -138,7 +138,7 @@ const MANAGERS: Manager[] = [
     ],
     bio: [
       "Daniel is a U.S. Air Force veteran and transportation industry leader with 16 years of experience driving operational success through a strong driver-first approach. He is passionate about building trust and credibility with drivers by understanding their challenges and providing practical, results-oriented support.",
-      "Daniel is known for maximizing driver success at GP Transco through effective communication, relationship building, and a commitment to helping each driver reach their full earning potential. He leverages technology, data-driven decision-making, and strategic planning to optimize miles, improve efficiency, and create win-win outcomes for both drivers and the organization.",
+      "Daniel is known for maximizing driver success at PKT Group through effective communication, relationship building, and a commitment to helping each driver reach their full earning potential. He leverages technology, data-driven decision-making, and strategic planning to optimize miles, improve efficiency, and create win-win outcomes for both drivers and the organization.",
       "Dedicated to delivering exceptional service, Daniel fosters driver satisfaction and ensures long-term success for every member of the team.",
     ],
   },
@@ -459,7 +459,7 @@ export function DriverManagers() {
             {/* Modal Footer */}
             <div className="px-6 py-4 border-t border-line bg-page flex items-center justify-between">
               <span className="text-xs font-mono text-soft-text">
-                Dedicated GP Transco Operations Team
+                Dedicated PKT Group Operations Team
               </span>
               <button
                 type="button"

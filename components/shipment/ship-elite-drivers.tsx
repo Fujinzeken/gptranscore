@@ -52,8 +52,8 @@ export function ShipEliteDrivers() {
             >
               <p className="text-[clamp(15px,1.15vw,17px)] leading-[1.65] text-body-text m-0">
                 In order to provide our customers with the best service possible,
-                an asset-based carrier must have elite drivers. Each year, the GP
-                Transco Management Team runs an extensive satisfaction survey
+                an asset-based carrier must have elite drivers. Each year, the PKT
+                Group Management Team runs an extensive satisfaction survey
                 among our drivers and compares the results to the national
                 average.
               </p>

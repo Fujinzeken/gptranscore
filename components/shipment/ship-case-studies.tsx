@@ -30,29 +30,29 @@ interface CaseStudyItem {
 
 const CASE_STUDIES: CaseStudyItem[] = [
   {
-    client: "GP Transco & PaperWorks",
+    client: "PKT Group & PaperWorks",
     image: "/fleet-dock.jpg",
-    alt: "GP Transco freight carrier operations for PaperWorks.",
+    alt: "PKT Group freight carrier operations for PaperWorks.",
     stat1Value: "8,500+",
     stat1Label: "Loads hauled per year",
     stat1Sub: "Trusted partnership",
     stat2Value: "98.7%",
     stat2Label: "On-time delivery rate",
     stat2Sub: "Industry-leading performance",
-    body: "A partnership built on trust and communication. GP Transco has become PaperWorks' preferred mid-sized carrier, covering 5 locations from Nebraska to Massachusetts.",
+    body: "A partnership built on trust and communication. PKT Group has become PaperWorks' preferred mid-sized carrier, covering 5 locations from Nebraska to Massachusetts.",
     href: "/company",
   },
   {
-    client: "GP Transco & Dunlop + Falken Tires",
+    client: "PKT Group & Dunlop + Falken Tires",
     image: "/case-haul.jpg",
-    alt: "GP Transco driver hauling for Dunlop and Falken Tires.",
+    alt: "PKT Group driver hauling for Dunlop and Falken Tires.",
     stat1Value: "550+",
     stat1Label: "Loads per year (projected)",
     stat1Sub: "Rapid growth partnership",
     stat2Value: "#1",
     stat2Label: "Carrier in quarterly bid",
     stat2Sub: "Top-ranked performance",
-    body: "From 2–3 trailers per week to 2–3 trailers per day. GP Transco is now the #1 carrier in the quarterly bid for Dunlop + Falken.",
+    body: "From 2–3 trailers per week to 2–3 trailers per day. PKT Group is now the #1 carrier in the quarterly bid for Dunlop + Falken.",
     href: "/company",
   },
 ];
@@ -91,7 +91,7 @@ export function ShipCaseStudies() {
           </h2>
 
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">
-            See how industry leaders trust GP Transco to deliver measurable
+            See how industry leaders trust PKT Group to deliver measurable
             results.
           </p>
         </header>

@@ -110,7 +110,7 @@ export function DriverTransparency() {
           </h2>
 
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">
-            Everything you need lives right in the GP Transco driver app. Your
+            Everything you need lives right in the PKT Group driver app. Your
             performance, your pay, your standing — always transparent, always in
             your hands. Plus the tools to make life on the road easier.
           </p>
@@ -199,7 +199,7 @@ export function DriverTransparency() {
             <div className="pt-2 flex items-center gap-3 text-xs font-mono text-mute">
               <DeviceMobile size={18} className="text-azure-hi shrink-0" />
               <span>
-                Available on the GP Transco driver tablet & phone app (iOS & Android)
+                Available on the PKT Group driver tablet & phone app (iOS & Android)
               </span>
             </div>
           </div>
@@ -232,7 +232,7 @@ export function DriverTransparency() {
                   <div className="px-5 pt-3 pb-3 border-b border-rule bg-ink flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="size-6 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">
-                        GP
+                        PK
                       </div>
                       <span className="font-display text-sm font-black tracking-wide text-paper">
                         OPENROAD

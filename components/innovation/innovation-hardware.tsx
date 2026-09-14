@@ -98,7 +98,7 @@ export function InnovationHardware() {
             "text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
           )}
         >
-          GP Transco operates modern equipment designed to maximize uptime,
+          PKT Group operates modern equipment designed to maximize uptime,
           efficiency, and driver comfort. Our fleet is built around the
           Freightliner Cascadia — one of the most advanced on-highway trucks
           Freightliner has offered.
@@ -231,7 +231,7 @@ export function InnovationHardware() {
               "max-[900px]:col-span-1 max-[900px]:col-start-1",
             )}
           >
-            GP Transco maintains one of the youngest fleets in the industry —
+            PKT Group maintains one of the youngest fleets in the industry —
             ensuring drivers operate the latest safety technology,
             fuel-efficient powertrains, and modern cab amenities on every
             mile.

@@ -65,7 +65,7 @@ export function DriverPayCalculator() {
 
           <h2 className="type-display m-0 text-[clamp(32px,4.5vw,62px)] text-paper leading-[0.94]">
             Estimate Your <span className="text-azure-hi">Potential Pay</span>{" "}
-            at GP Transco
+            at PKT Group
           </h2>
 
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">

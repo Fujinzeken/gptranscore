@@ -73,7 +73,7 @@ export function InnovationAward() {
                 "text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute",
               )}
             >
-              In 2026, GP Transco was named CCJ Innovator of the Year — one of
+              In 2026, PKT Group was named CCJ Innovator of the Year — one of
               the highest honors in the industry — by Commercial Carrier
               Journal for groundbreaking advancements in artificial intelligence
               and logistics optimization.
@@ -90,7 +90,7 @@ export function InnovationAward() {
               The award recognizes our cutting-edge AI-driven tools that
               supercharge planning efficiency, automate load-matching, reduce
               planner workload, and eliminate errors — proving once again that
-              GP Transco isn&apos;t just part of the industry evolution,{" "}
+              PKT Group isn&apos;t just part of the industry evolution,{" "}
               <span className="font-semibold text-paper">
                 we&apos;re driving it.
               </span>

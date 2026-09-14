@@ -35,7 +35,7 @@ export function BrokerageStreamline() {
               <div className="relative rounded-3xl overflow-hidden border border-rule-lit bg-ink-2 shadow-2xl min-h-[440px] sm:min-h-[520px] flex items-end p-6 sm:p-8 group">
                 <Image
                   src="/freight-brokerage/brokerage-streamline.webp"
-                  alt="GP Transco Fleet Trucks in Terminal"
+                  alt="PKT Group Fleet Trucks in Terminal"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -99,7 +99,7 @@ export function BrokerageStreamline() {
 
               {/* Subheading */}
               <p className="mt-5 text-[clamp(15px,1.15vw,17.5px)] leading-[1.65] text-mute max-w-xl">
-                GP Transco Logistics puts service and communication first. We
+                PKT Group Logistics puts service and communication first. We
                 bring the best freight brokerage solutions with the backing of
                 our own Chicagoland top-10 over-the-road truckload fleet and
                 strong relationships with a diverse set of carriers.

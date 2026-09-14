@@ -91,7 +91,7 @@ export function OfficeBenefits() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-azure/10 border border-azure/20 mb-5">
               <span className="size-2 rounded-full bg-azure animate-pulse" />
               <span className={cx(label, "text-azure tracking-widest text-[11px] sm:text-xs")}>
-                Why Choose GP Transco
+                Why Choose PKT Group
               </span>
             </div>
 

@@ -26,13 +26,13 @@ export const JOURNEY_ERAS: Era[] = [
     title: "The Genesis & Core Fleet",
     theme: "Bootstrapped Resilience & Infrastructure",
     summary:
-      "Founded by owner-operator Gedas Poviliunas with a single truck. Driven by a promise to honor driver commitments and customer deadlines, GP Transco systematically laid its foundational maintenance, global back-office, and fleet roots.",
+      "Founded by owner-operator Gedas Poviliunas with a single truck. Driven by a promise to honor driver commitments and customer deadlines, PKT Group systematically laid its foundational maintenance, global back-office, and fleet roots.",
     fleetStat: "1 → 25+ Trucks",
     keyHighlight: "Opened international support in Vilnius & built in-house maintenance facility.",
     milestones: [
       {
         year: "2006",
-        title: "GP Transportation is born",
+        title: "PKT Group is born",
         detail: "Founded with a single truck and a clear mission to bring honesty back to freight.",
         tag: "Founding",
       },
@@ -89,7 +89,7 @@ export const JOURNEY_ERAS: Era[] = [
       {
         year: "2016",
         title: "Company-Wide Rebrand",
-        detail: "Re-emerged as GP Transco with iconic teal branding and unified corporate vision.",
+        detail: "Re-emerged as PKT Group with iconic teal branding and unified corporate vision.",
         tag: "Brand",
       },
       {
@@ -178,7 +178,7 @@ export const JOURNEY_ERAS: Era[] = [
       },
       {
         year: "2026",
-        title: "GP Transco Turns 20",
+        title: "PKT Group Turns 20",
         detail: "Two decades in, proving that integrity, driver pay, and smart software always win.",
         tag: "Anniversary",
       },

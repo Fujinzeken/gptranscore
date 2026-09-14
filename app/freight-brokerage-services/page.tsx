@@ -43,7 +43,7 @@ export default function FreightBrokerageServicesPage() {
       {/* 6. Section 4: Built Around Your Success (Cinematic Dark plate split for carriers) */}
       <BrokerageCarriers />
 
-      {/* 7. Section 5: Begin Working with GP Transco Logistics (Light field command cards) */}
+      {/* 7. Section 5: Begin Working with PKT Group Logistics (Light field command cards) */}
       <BrokerageClosing />
 
       {/* 8. Site Footer */}

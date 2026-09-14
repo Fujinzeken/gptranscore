@@ -144,7 +144,7 @@ export function InnovationAI() {
                 "text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute",
               )}
             >
-              At GP Transco, artificial intelligence is not a buzzword — it is
+              At PKT Group, artificial intelligence is not a buzzword — it is
               a practical tool built to solve one of the most complex
               challenges in trucking:{" "}
               <span className="font-semibold text-azure-hi">planning</span>.
@@ -158,8 +158,8 @@ export function InnovationAI() {
               )}
             >
               Planning shipments across a national fleet requires evaluating
-              dozens of constantly changing variables. To solve this, GP
-              Transco developed its own in-house, AI-powered planning
+              dozens of constantly changing variables. To solve this, PKT
+              Group developed its own in-house, AI-powered planning
               technology designed specifically for real-world transportation
               operations.
             </p>
@@ -231,7 +231,7 @@ export function InnovationAI() {
           </h3>
           <div className="col-span-6 col-start-7 max-[900px]:col-span-12 max-[900px]:col-start-1">
             <p className="m-0 max-w-[52ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">
-              GP Transco built an in-house, AI-powered Driver Shipment Planner
+              PKT Group built an in-house, AI-powered Driver Shipment Planner
               to unify critical planning inputs into a single intelligent
               system.
             </p>
@@ -384,7 +384,7 @@ export function InnovationAI() {
             )}
           >
             <p className="m-0 max-w-[56ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-paper">
-              GP Transco is transparent about the maturity of its AI systems.
+              PKT Group is transparent about the maturity of its AI systems.
             </p>
             <ul className="m-0 mt-6 list-none space-y-4 p-0">
               {CAPABILITIES.map((item, n) => (
@@ -466,7 +466,7 @@ export function InnovationAI() {
             className="mx-auto text-azure-hi"
           />
           <p className="m-0 mt-6 text-[clamp(15px,1.25vw,19px)] leading-[1.6] text-mute">
-            This technology is built internally by GP Transco, for GP Transco —
+            This technology is built internally by PKT Group, for PKT Group —
             designed around the realities of running a high-performance
             trucking operation.
           </p>

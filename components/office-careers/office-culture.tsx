@@ -102,8 +102,8 @@ export function OfficeCulture() {
           <div className="lg:col-span-7 space-y-4 text-body-text text-[15px] leading-[1.68]">
             <p className="m-0">
               We believe the strongest companies do more than follow the industry
-              forward — they help move it there. That mindset has shaped GP
-              Transco into a place where technology, creativity, and continuous
+              forward — they help move it there. That mindset has shaped PKT
+              Group into a place where technology, creativity, and continuous
               improvement are part of the everyday culture. When we see a better
               way to work, communicate, support our drivers, or serve our
               customers — we build toward it.
@@ -115,7 +115,7 @@ export function OfficeCulture() {
               a more thoughtful experience — these things often begin with a
               simple but powerful question.{" "}
               <strong className="text-ink-text font-bold">
-                At GP Transco, that question matters.
+                At PKT Group, that question matters.
               </strong>
             </p>
 

@@ -68,7 +68,7 @@ export function EliteHero() {
                 "leading-[1.6] text-body-text",
               )}
             >
-              GP Transco&apos;s ELITE Driver Program rewards drivers for
+              PKT Group&apos;s ELITE Driver Program rewards drivers for
               consistently delivering safe, efficient, and reliable service.
               When drivers succeed, customers succeed.
             </p>
@@ -118,7 +118,7 @@ export function EliteHero() {
             <div className={cx(cardRound, cardLift, "relative aspect-[4/5] max-[1000px]:aspect-[16/10] overflow-hidden bg-ink")}>
               <Image
                 src="/case-haul.jpg"
-                alt="GP Transco tractor running under an overpass on the interstate"
+                alt="PKT Group tractor running under an overpass on the interstate"
                 fill
                 priority
                 sizes="(max-width: 1000px) 100vw, 40vw"

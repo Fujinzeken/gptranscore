@@ -24,7 +24,7 @@ const TABS = [
     id: "directory",
     icon: Users,
     title: "Employee Directory",
-    desc: "Find teammates, expertise, and the people behind GP Transco.",
+    desc: "Find teammates, expertise, and the people behind PKT Group.",
     navLabel: "Directory",
   },
   {
@@ -44,7 +44,7 @@ const TABS = [
   {
     id: "academy",
     icon: GraduationCap,
-    title: "GP Academy",
+    title: "PKT Academy",
     desc: "Assignments, quizzes, progress tracking, and employee recognition make professional development visible and accessible.",
     navLabel: "Academy",
   },
@@ -91,7 +91,7 @@ export function OfficeStaffConnect() {
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute max-w-[58ch]">
             Staff Connect brings communication, learning, recognition, company
             knowledge, and everyday tools together in one modern workspace built
-            specifically for GP Transco employees.
+            specifically for PKT Group employees.
           </p>
         </header>
 
@@ -215,7 +215,7 @@ export function OfficeStaffConnect() {
 
                   {/* App Main Body */}
                   <div className="flex-1 p-4 sm:p-6 bg-ink flex flex-col justify-center">
-                    {/* 1. GP ACADEMY VIEW (Matches Screenshot 5) */}
+                    {/* 1. PKT ACADEMY VIEW (Matches Screenshot 5) */}
                     {activeTab === "academy" && (
                       <div className="space-y-4 animate-in fade-in duration-300">
                         {/* Top Metrics Row */}

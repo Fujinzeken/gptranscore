@@ -28,7 +28,7 @@ export default function BlogNewsletter() {
           delivered to your inbox
         </h2>
         <p className="text-mute max-w-md mx-auto">
-          Monthly roundups of logistics trends, driver stories, and GP Transco news — no spam, unsubscribe anytime.
+          Monthly roundups of logistics trends, driver stories, and PKT Group news — no spam, unsubscribe anytime.
         </p>
 
         <form

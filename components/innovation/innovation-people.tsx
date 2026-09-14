@@ -117,7 +117,7 @@ export function InnovationPeople() {
                   "text-[clamp(20px,2.4vw,34px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-paper",
                 )}
               >
-                Technology at GP Transco isn&apos;t adopted.{" "}
+                Technology at PKT Group isn&apos;t adopted.{" "}
                 <span className="text-azure-hi">It&apos;s built.</span>
               </p>
             </div>
@@ -180,7 +180,7 @@ export function InnovationPeople() {
               {/* Caption */}
               <div className="border-t border-rule-lit px-[clamp(18px,2.2vw,28px)] py-4">
                 <p className="m-0 text-center text-[clamp(12.5px,1vw,14.5px)] leading-[1.55] text-mute">
-                  A few of the GP Transco team members from different
+                  A few of the PKT Group team members from different
                   departments making a real difference by building powerful
                   productivity tools — without any prior development experience.
                 </p>

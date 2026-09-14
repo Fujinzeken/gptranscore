@@ -47,7 +47,7 @@ export function DriverOverview() {
             )}
           >
             <Heart size={14} weight="bold" />
-            Why Choose GP Transco
+            Why Choose PKT Group
           </p>
 
           <h2 className="type-display m-0 text-[clamp(32px,4.5vw,62px)] text-ink-text leading-[0.94]">
@@ -84,14 +84,14 @@ export function DriverOverview() {
                 Earn well above the national average
               </h3>
               <p className="text-[15px] leading-[1.65] text-body-text m-0 max-w-[54ch]">
-                First-year drivers at GP Transco earn <strong className="text-ink-text">$80,000 to $110,000</strong> annually — nearly double the national average CDL-A salary of $54,320. Plus, receive an automatic <strong className="text-azure">+1 CPM raise every single year</strong>.
+                First-year drivers at PKT Group earn <strong className="text-ink-text">$80,000 to $110,000</strong> annually — nearly double the national average CDL-A salary of $54,320. Plus, receive an automatic <strong className="text-azure">+1 CPM raise every single year</strong>.
               </p>
 
               {/* Salary Comparison Bar Visual */}
               <div className="mt-8 bg-page border border-line p-5 space-y-4">
                 <div>
                   <div className="flex justify-between text-xs font-semibold mb-1.5">
-                    <span className="text-ink-text">GP Transco First-Year Driver</span>
+                    <span className="text-ink-text">PKT Group First-Year Driver</span>
                     <span className="text-azure font-mono font-bold">$80,000 – $110,000/yr</span>
                   </div>
                   <div className="h-3 w-full bg-line rounded-full overflow-hidden">

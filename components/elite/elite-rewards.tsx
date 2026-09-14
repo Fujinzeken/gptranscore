@@ -64,7 +64,7 @@ export function EliteRewards() {
                 "mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute",
               )}
             >
-              GP Transco&apos;s ELITE Driver Program rewards drivers for
+              PKT Group&apos;s ELITE Driver Program rewards drivers for
               consistently delivering safe, efficient, and reliable service.
               Drivers are scored and rewarded based on real-world performance
               metrics that directly impact customer satisfaction.

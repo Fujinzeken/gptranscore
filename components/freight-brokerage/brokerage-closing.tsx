@@ -20,7 +20,7 @@ export function BrokerageClosing() {
   return (
     <section
       id="contact"
-      aria-label="Begin working with GP Transco Logistics"
+      aria-label="Begin working with PKT Group Logistics"
       className="relative bg-page py-[clamp(78px,12vh,150px)] px-gut overflow-hidden border-t border-line"
     >
       {/* Subtle brand ambient glow */}
@@ -51,7 +51,7 @@ export function BrokerageClosing() {
 
             <h2 className="type-display m-0 text-[clamp(32px,4.5vw,58px)] text-ink-text leading-[0.94]">
               Begin Working with{" "}
-              <span className="text-azure">GP Transco Logistics</span>
+              <span className="text-azure">PKT Group Logistics</span>
             </h2>
 
             <p className="mt-4 text-[clamp(15px,1.15vw,18px)] leading-[1.62] text-body-text max-w-2xl mx-auto">
@@ -89,7 +89,7 @@ export function BrokerageClosing() {
 
                 <div className="space-y-4 text-[14.5px] leading-relaxed text-body-text mb-8">
                   <p className="m-0">
-                    The GP Transco freight brokerage services division puts
+                    The PKT Group freight brokerage services division puts
                     service and communication first in all that we do. We
                     strive to bring the best freight brokerage solutions to our
                     customers&apos; transportation needs with a unique ability
@@ -99,7 +99,7 @@ export function BrokerageClosing() {
                     carriers.
                   </p>
                   <p className="m-0 text-mute text-sm">
-                    With GP Transco Logistics&apos; Trusted Carrier Network, you
+                    With PKT Group Logistics&apos; Trusted Carrier Network, you
                     can always be sure to work with those that meet the highest
                     standards. Our carriers are evaluated through a strict and
                     rigorous vetting process to ensure verified insurance,
@@ -233,10 +233,10 @@ function CarrierSimpleModal({ onClose }: { onClose: () => void }) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <span className="text-azure-hi text-[11px] font-mono font-semibold uppercase tracking-wider block mb-1.5">
-                GP Transco Carrier Network
+                PKT Group Carrier Network
               </span>
               <h2 className="text-2xl font-black tracking-tight text-paper m-0">
-                Partner with GP Transco Logistics
+                Partner with PKT Group Logistics
               </h2>
               <p className="text-xs text-soft-text mt-1 m-0">
                 Join our trusted carrier network for steady loads and fast payments.
@@ -263,7 +263,7 @@ function CarrierSimpleModal({ onClose }: { onClose: () => void }) {
                 Application Received!
               </h3>
               <p className="text-sm text-body-text max-w-md mx-auto">
-                Thank you for applying to the GP Transco Carrier Network. Our
+                Thank you for applying to the PKT Group Carrier Network. Our
                 carrier relations team will review your qualifications and reach
                 out with packet verification shortly.
               </p>

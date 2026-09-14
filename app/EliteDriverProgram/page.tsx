@@ -13,7 +13,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "ELITE Driver Program | Performance That Delivers Results | PKT Group",
   description:
-    "GP Transco's ELITE Driver Program rewards drivers up to $7,400/year extra for safe, efficient, reliable service. When drivers succeed, customers succeed.",
+    "PKT Group's ELITE Driver Program rewards drivers up to $7,400/year extra for safe, efficient, reliable service. When drivers succeed, customers succeed.",
 };
 
 const LINKS: SectionLink[] = [

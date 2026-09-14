@@ -15,7 +15,7 @@ export function BrokerageHero() {
       {/* Background Image — Clean original from live site */}
       <Image
         src="/freight-brokerage/brokerage-hero.jpg"
-        alt="GP Transco Freight Brokerage Logistics Fleet"
+        alt="PKT Group Freight Brokerage Logistics Fleet"
         fill
         priority
         sizes="100vw"
@@ -37,7 +37,7 @@ export function BrokerageHero() {
         {/* Eyebrow */}
         <p className={cx(label, "text-azure-hi mb-4 flex items-center gap-2")}>
           <Sparkle size={13} weight="fill" />
-          GP Transco Logistics
+          PKT Group Logistics
         </p>
 
         {/* Master Display Headline */}

@@ -71,9 +71,9 @@ const JOBS: JobOpening[] = [
     salaryMax: 150000,
     salaryType: "yearly",
     shortDescription:
-      "GP Transco, a modern industry leader in trucking and logistics, is seeking a highly motivated and experienced Director of Safety to lead our company-wide fleet safety, DOT compliance, and risk programs.",
+      "PKT Group, a modern industry leader in trucking and logistics, is seeking a highly motivated and experienced Director of Safety to lead our company-wide fleet safety, DOT compliance, and risk programs.",
     fullDescription: [
-      "The Director of Safety is responsible for overseeing all aspects of transportation safety and regulatory compliance across GP Transco's fleet operations.",
+      "The Director of Safety is responsible for overseeing all aspects of transportation safety and regulatory compliance across PKT Group's fleet operations.",
       "In this executive leadership role, you will champion our award-winning safety culture, manage FMCSA and DOT compliance audits, direct driver risk mitigation programs, and implement cutting-edge safety technologies across hundreds of power units.",
     ],
     responsibilities: [
@@ -99,7 +99,7 @@ const JOBS: JobOpening[] = [
     salaryMax: 42,
     salaryType: "hourly",
     shortDescription:
-      "GP Transco is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
+      "PKT Group is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
     fullDescription: [
       "As a Mobile Trailer Technician, you will operate a fully equipped service vehicle providing mobile inspection, diagnostic, and repair services for our dry van and refrigerated trailers.",
     ],
@@ -124,13 +124,13 @@ const JOBS: JobOpening[] = [
     salaryMax: 42,
     salaryType: "hourly",
     shortDescription:
-      "GP Transco is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
+      "PKT Group is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
     fullDescription: [
-      "Operate a company-provided mobile service truck serving GP Transco trailers in the Kalamazoo / Western Michigan regional operating corridors.",
+      "Operate a company-provided mobile service truck serving PKT Group trailers in the Kalamazoo / Western Michigan regional operating corridors.",
     ],
     responsibilities: [
       "Inspect, troubleshoot, and repair 53ft trailers in the field and at terminal locations.",
-      "Ensure trailer equipment meets DOT and strict GP Transco internal roadworthiness benchmarks.",
+      "Ensure trailer equipment meets DOT and strict PKT Group internal roadworthiness benchmarks.",
     ],
     requirements: [
       "Prior commercial fleet maintenance experience.",
@@ -147,7 +147,7 @@ const JOBS: JobOpening[] = [
     salaryMax: 42,
     salaryType: "hourly",
     shortDescription:
-      "GP Transco is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
+      "PKT Group is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
     fullDescription: [
       "Stationed in the Indianapolis regional hub, performing preventive maintenance and rapid field repair on fleet trailers.",
     ],
@@ -169,7 +169,7 @@ const JOBS: JobOpening[] = [
     salaryMax: 42,
     salaryType: "hourly",
     shortDescription:
-      "GP Transco is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
+      "PKT Group is a modern trucking company that hires experienced technicians to operate mobile service units, maintaining our late-model trailer fleet with state-of-the-art tooling and equipment.",
     fullDescription: [
       "Based out of our flagship Joliet headquarters terminal, supporting the primary equipment depot and Midwest terminal network.",
     ],
@@ -208,7 +208,7 @@ const JOBS: JobOpening[] = [
     location: "Vilnius, Lithuania",
     jobType: "Full-time",
     shortDescription:
-      "Support freight billing, carrier settlements, and financial reporting in GP Transco's European technical and finance center located in Vilnius.",
+      "Support freight billing, carrier settlements, and financial reporting in PKT Group's European technical and finance center located in Vilnius.",
     fullDescription: [
       "Process freight audit invoices, reconcile accounts receivable, and collaborate with US finance executives.",
     ],
@@ -237,7 +237,7 @@ const JOBS: JobOpening[] = [
     ],
     responsibilities: [
       "Build long-term direct shipper partnerships across US domestic lanes.",
-      "Present GP Transco's technology and safety track record to VP-level logistics buyers.",
+      "Present PKT Group's technology and safety track record to VP-level logistics buyers.",
     ],
     requirements: [
       "3+ years of enterprise freight brokerage or carrier sales experience.",
@@ -682,8 +682,8 @@ function JobApplicationModal({
                 Application Submitted!
               </h3>
               <p className="text-sm text-body-text max-w-md mx-auto">
-                Thank you for applying for the {job.title} position at GP
-                Transco. Our recruiting team will review your qualifications and
+                Thank you for applying for the {job.title} position at PKT
+                Group. Our recruiting team will review your qualifications and
                 reach out shortly.
               </p>
             </div>
