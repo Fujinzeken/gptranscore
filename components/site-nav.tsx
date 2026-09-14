@@ -196,13 +196,14 @@ function MegaPanel({
 
       <div className="flex flex-wrap items-center gap-x-[clamp(16px,2.2vw,36px)] gap-y-3 border-t border-rule pt-5">
         <span className={cx(label, "text-mute-2")}>Explore more</span>
-        {EXPLORE_MORE.map((e) => (
+        {EXPLORE_MORE.map(({ label: l, href }) => (
           <a
-            key={e}
-            href="#"
+            key={l}
+            href={href}
+            onClick={onClose}
             className="text-[13.5px] font-medium text-mute transition-colors duration-200 hover:text-azure-hi"
           >
-            {e}
+            {l}
           </a>
         ))}
       </div>
@@ -594,16 +595,17 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
         </div>
 
         <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-          {EXPLORE_MORE.map((e) => (
+          {EXPLORE_MORE.map(({ label: l, href }) => (
             <a
-              key={e}
-              href="#"
+              key={l}
+              href={href}
+              onClick={() => setOpen(false)}
               className={cx(
                 "text-[13.5px] font-medium",
                 light ? "text-body-text" : "text-mute",
               )}
             >
-              {e}
+              {l}
             </a>
           ))}
         </div>

@@ -14,23 +14,40 @@ import { cx, label } from "./ui";
  * moment this redesign ships, so it is not carried over.
  */
 
+/**
+ * Labels stay as prod has them; each link is resolved to the page (or panel
+ * section anchor) that actually carries the content. "Careers" and
+ * "Request a Quote" have no dedicated routes, so they land on the driver
+ * careers page and the Ship With Us page respectively — the two destinations
+ * that own those actions. Legal pages do not exist yet, so those remain "#".
+ */
 const COLUMNS = [
   {
     heading: "Company",
-    links: ["About Us", "Leadership", "Awards", "Careers"],
+    links: [
+      { label: "About Us", href: "/about-us" },
+      { label: "Leadership", href: "/about-us#leadership" },
+      { label: "Awards", href: "/about-us#awards" },
+      { label: "Careers", href: "/best-truck-driving-jobs" },
+    ],
   },
   {
     heading: "Solutions",
     links: [
-      "Shipment Solutions",
-      "Brokerage Solutions",
-      "Technology",
-      "Request a Quote",
+      { label: "Shipment Solutions", href: "/freight-shipping-solutions" },
+      { label: "Brokerage Solutions", href: "/freight-brokerage-services" },
+      { label: "Technology", href: "/PKTGroupTechnology" },
+      { label: "Request a Quote", href: "/freight-shipping-solutions" },
     ],
   },
   {
     heading: "Careers",
-    links: ["Driver Careers", "Office Careers", "Benefits", "ELITE Program"],
+    links: [
+      { label: "Driver Careers", href: "/best-truck-driving-jobs" },
+      { label: "Office Careers", href: "/office-careers" },
+      { label: "Benefits", href: "/best-truck-driving-jobs#benefits" },
+      { label: "ELITE Program", href: "/EliteDriverProgram" },
+    ],
   },
 ];
 
@@ -56,10 +73,10 @@ export function SiteFooter() {
           >
             <h2 className={cx(label, "m-0 text-mute")}>{heading}</h2>
             <ul className="m-0 mt-5 list-none space-y-3 p-0">
-              {links.map((l) => (
+              {links.map(({ label: l, href }) => (
                 <li key={l}>
                   <a
-                    href="#"
+                    href={href}
                     className="text-[14.5px] leading-[1.5] text-paper transition-colors duration-200 hover:text-azure-hi"
                   >
                     {l}

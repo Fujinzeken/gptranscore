@@ -107,13 +107,17 @@ export type Menu = {
   };
 };
 
-/** The same secondary row sits under every panel on the live site. */
+/**
+ * The same secondary row sits under every panel on the live site. Labels are
+ * theirs; hrefs are resolved to the Innovation destinations the labels name,
+ * so the row behaves as real navigation instead of dead "#".
+ */
 export const EXPLORE_MORE = [
-  "Be Selective",
-  "Safety",
-  "Technology",
-  "Sustainability",
-  "ELITE Drivers",
+  { label: "Be Selective", href: "/HighestPayingTruckingCompanies" },
+  { label: "Safety", href: "/Safety" },
+  { label: "Technology", href: "/PKTGroupTechnology" },
+  { label: "Sustainability", href: "/Sustainability" },
+  { label: "ELITE Drivers", href: "/EliteDriverProgram" },
 ];
 
 export const MENUS: Menu[] = [
