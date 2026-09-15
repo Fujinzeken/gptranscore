@@ -209,6 +209,8 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [values, setValues] = useState<Values>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const restoreTo = useRef<HTMLElement | null>(null);
@@ -284,10 +286,38 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
       return;
     }
     if (isLast) {
-      setSent(true);
+      void submitQuote();
       return;
     }
     setIndex((i) => i + 1);
+  }
+
+  /**
+   * Posts to the internal route, which forwards to the Google Sheet. The
+   * success screen only shows once the row has actually landed — a quote
+   * request that vanished into a network error must say so, not celebrate.
+   */
+  async function submitQuote() {
+    setSending(true);
+    setSendError(null);
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? `Request failed (${res.status})`);
+      }
+      setSent(true);
+    } catch {
+      setSendError(
+        "We could not send your request. Please try again, or call us directly.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   function reset() {
@@ -538,12 +568,18 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
                 <span className={cx(labelType, "text-body-text max-[420px]:hidden")}>
                   Step {index + 1} of {STEPS.length}
                 </span>
+                {sendError ? (
+                  <p className="m-0 max-w-[260px] text-[13px] leading-[1.4] text-[#c0392b]">
+                    {sendError}
+                  </p>
+                ) : null}
                 <button
                   type="button"
                   onClick={advance}
-                  className={cx(btn, btnSolid, "h-12 px-6 text-sm")}
+                  disabled={sending}
+                  className={cx(btn, btnSolid, "h-12 px-6 text-sm", "disabled:opacity-70")}
                 >
-                  {isLast ? "Send request" : "Continue"}
+                  {isLast && sending ? "Sending…" : isLast ? "Send request" : "Continue"}
                   <ArrowRight size={17} />
                 </button>
               </div>

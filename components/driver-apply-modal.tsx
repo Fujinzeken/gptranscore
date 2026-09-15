@@ -9,9 +9,6 @@ import {
   ReactNode,
 } from "react";
 import {
-  Truck,
-  Lightning,
-  FileText,
   ArrowRight,
   ArrowLeft,
   X,
@@ -23,13 +20,11 @@ import {
   Warning,
   ClipboardText,
   ShieldCheck,
+  FileText,
   CheckCircle,
   Phone,
 } from "@phosphor-icons/react/dist/ssr";
 import { cx } from "./ui";
-
-const INTELLIAPP_URL =
-  "https://intelliapp.driverapponline.com/c/gptransco?r=website-apply-to-drive&uri_b=ia_gptransco_1630618353";
 
 interface DriverApplyContextType {
   openApplyModal: () => void;
@@ -135,27 +130,33 @@ const STEPS = [
 ];
 
 export function DriverApplyProvider({ children }: { children: ReactNode }) {
-  const [choiceOpen, setChoiceOpen] = useState(false);
   const [prequalOpen, setPrequalOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<QualificationData>(INITIAL_DATA);
   const [copied, setCopied] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
+  // Only true once the row is actually in the sheet — never before.
   const [submitted, setSubmitted] = useState(false);
 
+  // "Apply to Drive" goes straight into the qualification form — no chooser.
   const openApplyModal = useCallback(() => {
-    setPrequalOpen(false);
-    setChoiceOpen(true);
+    setStep(0);
+    setFormData(INITIAL_DATA);
+    setSubmitted(false);
+    setSendError(null);
+    setPrequalOpen(true);
   }, []);
 
   const openPrequalModal = useCallback(() => {
-    setChoiceOpen(false);
     setStep(0);
+    setFormData(INITIAL_DATA);
     setSubmitted(false);
+    setSendError(null);
     setPrequalOpen(true);
   }, []);
 
   const closeModals = useCallback(() => {
-    setChoiceOpen(false);
     setPrequalOpen(false);
   }, []);
 
@@ -227,9 +228,36 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
     if (step < STEPS.length - 1) {
       setStep((prev) => prev + 1);
     } else {
-      setSubmitted(true);
+      void submitApplication();
     }
   };
+
+  /**
+   * Posts to the internal route, which forwards to the Google Sheet's
+   * "Driver Applications" tab. There is no result screen: on success the
+   * modal simply closes; on failure the error is shown inline so the
+   * applicant can retry without losing their answers.
+   */
+  async function submitApplication() {
+    setSending(true);
+    setSendError(null);
+    try {
+      const res = await fetch("/api/driver-apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? `Request failed (${res.status})`);
+      }
+      setSubmitted(true);
+    } catch {
+      setSendError("We could not send your application. Please try again, or call recruiting at (708) 298-8281.");
+    } finally {
+      setSending(false);
+    }
+  }
 
   const handleBack = () => {
     if (step > 0) setStep((prev) => prev - 1);
@@ -240,120 +268,6 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
       value={{ openApplyModal, openPrequalModal, closeModals }}
     >
       {children}
-
-      {/* 1. APPLY TO DRIVE CHOICE MODAL */}
-      {choiceOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
-          onClick={() => setChoiceOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-[460px] bg-white rounded-3xl p-6 shadow-2xl animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between mb-5">
-              <div className="flex items-center gap-3">
-                <div className="size-11 rounded-full bg-[#25318d] flex items-center justify-center shadow-md shadow-[#25318d]/20 text-white">
-                  <Truck size={22} weight="fill" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-bold text-slate-800 m-0 leading-tight">
-                    Apply to Drive
-                  </h2>
-                  <p className="text-slate-400 text-xs sm:text-sm m-0 mt-0.5">
-                    Choose how you&apos;d like to get started
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setChoiceOpen(false)}
-                className="text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
-                aria-label="Close dialog"
-              >
-                <X size={18} />
-              </button>
-            </div>
-
-            {/* Modal Body: 2 Action Cards */}
-            <div className="space-y-3">
-              {/* Option 1: Quick Qualification (RECOMMENDED) */}
-              <button
-                type="button"
-                onClick={openPrequalModal}
-                className="w-full text-left p-4 rounded-2xl border border-[#25318d]/25 bg-[#25318d]/[0.03] hover:bg-[#25318d]/[0.07] transition-all cursor-pointer group"
-              >
-                <div className="flex items-start gap-3.5">
-                  <div className="size-10 rounded-full bg-[#25318d] flex items-center justify-center shrink-0 shadow-md shadow-[#25318d]/20 text-white mt-0.5">
-                    <Lightning size={20} weight="fill" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-slate-900 text-sm">
-                        Quick Qualification
-                      </span>
-                      <span className="px-2 py-0.5 rounded-full bg-[#25318d] text-white text-[10px] font-extrabold tracking-wider uppercase">
-                        RECOMMENDED
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-500 leading-relaxed m-0">
-                      See if you meet our hiring requirements in under 2
-                      minutes — before filling out the full application.
-                    </p>
-                  </div>
-                  <ArrowRight
-                    size={16}
-                    className="text-slate-400 group-hover:text-[#25318d] group-hover:translate-x-1 transition-all shrink-0 mt-2"
-                  />
-                </div>
-              </button>
-
-              {/* Option 2: Begin Full Application */}
-              <a
-                href={INTELLIAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setChoiceOpen(false)}
-                className="block w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer group"
-              >
-                <div className="flex items-start gap-3.5">
-                  <div className="size-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0 text-slate-600 mt-0.5 group-hover:bg-slate-200 transition-colors">
-                    <FileText size={20} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="font-bold text-slate-900 text-sm block mb-1">
-                      Begin Full Application
-                    </span>
-                    <p className="text-xs text-slate-500 leading-relaxed m-0">
-                      Skip pre-qualification and go directly to the full driver
-                      application on IntelliApp.
-                    </p>
-                  </div>
-                  <ArrowRight
-                    size={16}
-                    className="text-slate-400 group-hover:text-slate-700 group-hover:translate-x-1 transition-all shrink-0 mt-2"
-                  />
-                </div>
-              </a>
-            </div>
-
-            {/* Modal Footer Note */}
-            <p className="mt-5 text-center text-xs text-slate-400 m-0 font-medium">
-              Questions? Call recruiting at{" "}
-              <a
-                href="tel:7082988281"
-                className="text-slate-700 font-bold hover:underline"
-              >
-                (708) 298-8281
-              </a>
-            </p>
-          </div>
-        </div>
-      )}
 
       {/* 2. PKT GROUP DRIVER QUALIFICATION MULTI-STEP MODAL */}
       {prequalOpen && (
@@ -402,9 +316,9 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
                 </button>
               </div>
 
-              {/* Progress Steps Header */}
+              {/* Progress Steps Header (hidden after submission) */}
               {!submitted && (
-                <div className="pt-2">
+              <div className="pt-2">
                   <div className="flex items-center justify-between mb-3">
                     {STEPS.map((s, idx) => {
                       const isDone = idx < step;
@@ -456,66 +370,40 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
 
             {/* Scrollable Form Content */}
             <div className="p-6 overflow-y-auto flex-1">
-              {/* SUCCESS / RESULT SCREEN */}
               {submitted ? (
-                <div className="text-center py-6 space-y-5 animate-in zoom-in-95 duration-300">
-                  <div className="size-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
-                    <CheckCircle size={38} weight="fill" />
+                <div className="flex flex-col items-center justify-center text-center py-10 px-4 animate-in fade-in zoom-in-95 duration-300">
+                  <div className="size-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-5">
+                    <CheckCircle size={40} weight="fill" />
                   </div>
-
-                  <div>
-                    <h3 className="text-2xl font-black text-slate-900 m-0">
-                      You&apos;re Pre-Qualified!
-                    </h3>
-                    <p className="text-sm text-slate-600 mt-2 max-w-md mx-auto leading-relaxed">
-                      Great news,{" "}
-                      <strong className="text-slate-900 font-bold">
-                        {formData.firstName || "Driver"}
-                      </strong>
-                      ! Based on your CDL experience and safety record, you meet
-                      PKT Group&apos;s hiring standards for top-tier pay.
-                    </p>
+                  <h4 className="text-2xl font-bold text-[#25318d] m-0 mb-2">
+                    Congratulations!
+                  </h4>
+                  <p className="text-sm text-slate-600 leading-relaxed m-0 mb-1">
+                    Your application has been received.
+                  </p>
+                  <p className="text-sm text-slate-600 leading-relaxed m-0 mb-6">
+                    Our recruiting team will review it and reach out to you
+                    within 1–2 business days.
+                  </p>
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 bg-slate-100 rounded-full px-4 py-2 mb-6">
+                    <Phone size={14} weight="bold" />
+                    <span>
+                      Questions? Call{" "}
+                      <a
+                        href="tel:+17082988281"
+                        className="text-[#25318d] font-bold hover:underline"
+                      >
+                        (708) 298-8281
+                      </a>
+                    </span>
                   </div>
-
-                  <div className="bg-slate-50 border border-slate-200 p-4 rounded-2xl max-w-md mx-auto text-left space-y-2 text-xs font-mono">
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Applicant:</span>
-                      <span className="text-slate-800 font-bold">
-                        {formData.firstName} {formData.lastName}
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Target Pay Range:</span>
-                      <span className="text-[#25318d] font-bold">
-                        Up to 83 CPM + ELITE
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Next Step:</span>
-                      <span className="text-emerald-700 font-bold">
-                        Complete IntelliApp Form
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-                    <a
-                      href={INTELLIAPP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#25318d] text-white font-bold text-sm shadow-md hover:bg-[#1a2366] transition-all flex items-center justify-center gap-2"
-                    >
-                      Complete Full Application
-                      <ArrowRight size={16} weight="bold" />
-                    </a>
-                    <a
-                      href="tel:7082988281"
-                      className="w-full sm:w-auto py-3.5 px-5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2"
-                    >
-                      <Phone size={16} weight="bold" />
-                      (708) 298-8281
-                    </a>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={closeModals}
+                    className="px-8 py-3 rounded-xl font-bold text-xs bg-[#25318d] text-white hover:bg-[#1b2466] shadow-sm active:scale-[0.98] transition-all cursor-pointer"
+                  >
+                    Done
+                  </button>
                 </div>
               ) : (
                 <>
@@ -1353,37 +1241,49 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
               )}
             </div>
 
-            {/* Bottom Form Navigation Buttons */}
+            {/* Bottom Form Navigation Buttons (hidden on success screen) */}
             {!submitted && (
-              <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-between bg-slate-50/80 shrink-0">
-                {step > 0 ? (
-                  <button
-                    type="button"
-                    onClick={handleBack}
-                    className="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
-                  >
-                    <ArrowLeft size={14} weight="bold" />
-                    Back
-                  </button>
-                ) : (
-                  <div />
-                )}
-
+            <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-between bg-slate-50/80 shrink-0">
+              {step > 0 ? (
                 <button
                   type="button"
-                  onClick={handleNext}
-                  disabled={!canContinue}
-                  className={cx(
-                    "px-6 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all",
-                    !canContinue
-                      ? "bg-[#B4BFE0] text-white cursor-not-allowed"
-                      : "bg-[#25318d] text-white hover:bg-[#1b2466] shadow-sm active:scale-[0.98] cursor-pointer",
-                  )}
+                  onClick={handleBack}
+                  className="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
                 >
-                  <span>{step === STEPS.length - 1 ? "See My Results" : "Continue"}</span>
-                  {step < STEPS.length - 1 && <ArrowRight size={14} weight="bold" />}
+                  <ArrowLeft size={14} weight="bold" />
+                  Back
                 </button>
-              </div>
+              ) : (
+                <div />
+              )}
+
+              {sendError ? (
+                <p className="m-0 max-w-[280px] text-[12px] leading-[1.4] font-semibold text-red-600">
+                  {sendError}
+                </p>
+              ) : null}
+
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={!canContinue || sending}
+                className={cx(
+                  "px-6 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all",
+                  !canContinue || sending
+                    ? "bg-[#B4BFE0] text-white cursor-not-allowed"
+                    : "bg-[#25318d] text-white hover:bg-[#1b2466] shadow-sm active:scale-[0.98] cursor-pointer",
+                )}
+              >
+                <span>
+                  {step === STEPS.length - 1
+                    ? sending
+                      ? "Sending…"
+                      : "Submit Application"
+                    : "Continue"}
+                </span>
+                {step < STEPS.length - 1 && <ArrowRight size={14} weight="bold" />}
+              </button>
+            </div>
             )}
           </div>
         </div>
