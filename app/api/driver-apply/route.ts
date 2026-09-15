@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { notifyDriver } from "../../lib/telegram";
 
 /**
  * POST /api/driver-apply
@@ -112,7 +113,11 @@ export async function POST(req: Request) {
   });
 
   const payload = JSON.stringify({ form: "driver", timestamp, ...values });
-  console.log("[driver-apply] forwarding payload to Apps Script");
+  console.log(
+    "[driver-apply] forwarding to Apps Script:",
+    WEBAPP_URL.replace(/\/macros\/s\/[^/]+/, "/macros/s/<id>"),
+    `(payload ${payload.length} chars)`,
+  );
 
   let res: Response;
   try {
@@ -164,6 +169,11 @@ export async function POST(req: Request) {
       { status: 502 },
     );
   }
+
+  // Application is safely in the sheet — fire the Telegram notification.
+  // A Telegram failure never fails the request; notifyDriver logs its own errors.
+  const delivered = await notifyDriver(values, timestamp);
+  console.log(`[driver-apply] telegram notification ${delivered ? "sent" : "failed/skipped"}`);
 
   return NextResponse.json({ ok: true });
 }

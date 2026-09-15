@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { notifyQuote } from "../../lib/telegram";
 
 /**
  * POST /api/quote
@@ -144,6 +145,12 @@ export async function POST(req: Request) {
       { status: 502 },
     );
   }
+
+  // Lead is safely in the sheet — fire the Telegram notification. A Telegram
+  // failure must never fail the request (the sheet is the source of truth);
+  // notifyQuote swallows and logs its own errors.
+  const delivered = await notifyQuote(values, timestamp);
+  console.log(`[quote] telegram notification ${delivered ? "sent" : "failed/skipped"}`);
 
   return NextResponse.json({ ok: true });
 }
