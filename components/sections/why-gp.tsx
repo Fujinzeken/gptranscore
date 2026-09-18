@@ -25,56 +25,34 @@ import { cx } from "../ui";
  * Seven pieces of content, seven cells, twelve grid units, no filler.
  */
 
+/**
+ * Homepage section 1 of 6 (Capacity). The other five CSV items are separate
+ * homepage sections, not tiles in this bento — they get their own sections.
+ */
+
 type Reason = {
   title: string;
   body: string;
-  span: string;
   tone?: "azure";
 };
 
-const REASONS: Reason[] = [
-  {
-    title: "Asset-Based Capacity",
-    body: "Our own fleet means consistent capacity when the market tightens. Not a broker's network.",
-    span: "col-span-2",
-    tone: "azure",
-  },
-  {
-    title: "On-Time Performance",
-    body: "Industry-leading delivery rates backed by real data.",
-    span: "col-span-1",
-  },
-  {
-    title: "Live GPS Visibility",
-    body: "Real-time tracking and proactive updates on every shipment.",
-    span: "col-span-1",
-  },
-  {
-    title: "Safety-First Culture",
-    body: "Top CSA scores and a team committed to protecting your freight.",
-    span: "col-span-1",
-  },
-  {
-    title: "Technology That Delivers",
-    body: "Systems that optimize routing, visibility, and communication.",
-    span: "col-span-1",
-  },
-  {
-    title: "Proactive Communication",
-    body: "Updates before you ask. We keep you informed at every step.",
-    span: "col-span-2",
-  },
-];
+const CAPACITY: Reason = {
+  title: "One carrier. One authority. One team accountable.",
+  body: "When PKT commits to your freight, our operations team stays responsible for it from pickup through delivery. Loads accepted by PKT move under our authority and dispatch, kept with us rather than passed to another carrier. When you call about a shipment, you are talking to the team managing it.",
+  tone: "azure",
+};
 
 export function WhyGP() {
   return (
-    <section className="bg-page py-[clamp(72px,11vh,150px)]">
+    /* No bottom padding: the bento slab butts straight onto the next section,
+       so no bare page-gray band opens up between two full-bleed plates. */
+    <section className="bg-page pt-[clamp(72px,11vh,150px)]">
       <Reveal>
         <header
           className={cx(revealItem, "mb-[clamp(30px,4.5vh,50px)] px-gut")}
         >
           <h2 className="type-display m-0 max-w-[13em] text-[clamp(26px,3.6vw,52px)] text-ink-text">
-            Why companies choose PKT&nbsp;Group
+            Why companies choose PKT
           </h2>
           <p className="mt-5 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
             Built on reliability, powered by innovation, and committed to your
@@ -97,43 +75,40 @@ export function WhyGP() {
           >
             <Image
               src="/fleet-dock.jpg"
-              alt="PKT Group tractors and dry vans backed into the loading dock."
+              alt="PKT tractors and dry vans backed into the loading dock."
               fill
               sizes="(max-width: 860px) 100vw, 50vw"
               className="object-cover object-[52%_58%]"
             />
           </figure>
 
-          {REASONS.map(({ title, body, span, tone }, i) => (
-            <article
-              key={title}
-              style={{ "--i": i + 2 } as React.CSSProperties}
+          <article
+            style={{ "--i": 2 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              CAPACITY.tone === "azure" ? "bg-azure" : "bg-surface",
+              "col-span-2 row-span-2 flex flex-col justify-center gap-3 p-[clamp(22px,2.2vw,36px)]",
+              "min-h-[400px] max-[860px]:row-span-1 max-[860px]:min-h-0 max-[860px]:py-[clamp(28px,4vh,48px)]",
+              "max-[560px]:col-span-1 max-[560px]:min-h-[150px]",
+            )}
+          >
+            <h3
               className={cx(
-                revealItem,
-                span,
-                "flex flex-col justify-start gap-3 p-[clamp(22px,2.2vw,36px)]",
-                "min-h-[190px] max-[560px]:col-span-1 max-[560px]:min-h-[150px]",
-                tone === "azure" ? "bg-azure" : "bg-surface",
+                "font-display m-0 max-w-[16em] text-[clamp(22px,2.4vw,36px)] font-bold tracking-[-0.015em]",
+                CAPACITY.tone === "azure" ? "text-azure-ink" : "text-ink-text",
               )}
             >
-              <h3
-                className={cx(
-                  "font-display m-0 text-[clamp(17px,1.6vw,24px)] font-bold tracking-[-0.015em]",
-                  tone === "azure" ? "text-azure-ink" : "text-ink-text",
-                )}
-              >
-                {title}
-              </h3>
-              <p
-                className={cx(
-                  "m-0 max-w-[44ch] text-[15px] leading-[1.55]",
-                  tone === "azure" ? "text-azure-ink" : "text-body-text",
-                )}
-              >
-                {body}
-              </p>
-            </article>
-          ))}
+              {CAPACITY.title}
+            </h3>
+            <p
+              className={cx(
+                "m-0 max-w-[52ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62]",
+                CAPACITY.tone === "azure" ? "text-azure-ink" : "text-body-text",
+              )}
+            >
+              {CAPACITY.body}
+            </p>
+          </article>
         </div>
       </Reveal>
     </section>

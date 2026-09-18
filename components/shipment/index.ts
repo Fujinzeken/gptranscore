@@ -9,3 +9,4 @@ export { ShipEliteDrivers } from "./ship-elite-drivers";
 export { ShipSupport } from "./ship-support";
 export { ShipCustomers } from "./ship-customers";
 export { ShipCaseStudies } from "./ship-case-studies";
+export { HubIntro, HubHowItMoves, HubCommunication, HubCoverage, HubQuote } from "./hub-sections";

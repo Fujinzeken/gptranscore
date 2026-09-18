@@ -326,7 +326,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
               className={cx(btn, btnNav, btnSolid, "cursor-pointer")}
             >
               <Truck size={18} />
-              Apply to Drive
+              Drive With PKT
             </button>
           </div>
 
@@ -427,7 +427,7 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             )}
           >
             <Truck size={17} />
-            Apply to Drive
+            Drive With PKT
           </button>
         </div>
 

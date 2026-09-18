@@ -1,6 +1,7 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
 import { btn, btnHero, cx } from "../ui";
+import { ApplyButton, QuoteButton } from "./cta-buttons";
 
 /**
  * Closing CTA.
@@ -21,14 +22,14 @@ import { btn, btnHero, cx } from "../ui";
 const DOORS = [
   {
     heading: "Move freight",
-    body: "Partner with a carrier that delivers on every promise. Same-day response, no obligations.",
+    body: "Need a truck? Tell us the origin, destination, equipment and pickup date — we'll tell you whether PKT can cover it.",
     action: "Request a Quote",
     tone: "ink" as const,
   },
   {
     heading: "Grow your career",
-    body: "Industry-leading pay, full benefits, modern equipment, and a culture that rewards how you drive.",
-    action: "Apply to Drive",
+    body: "Dispatch knows who you are, what you drive and where you live. 48-state authority, steady freight, and settlements that arrive when we said they would.",
+    action: "Drive With PKT",
     tone: "azure" as const,
   },
 ];
@@ -41,6 +42,7 @@ export function ClosingCTA() {
     >
       {DOORS.map(({ heading, body, action, tone }) => {
         const dark = tone === "ink";
+        const Action = dark ? QuoteButton : ApplyButton;
         return (
           <div
             key={heading}
@@ -72,14 +74,13 @@ export function ClosingCTA() {
                 {body}
               </p>
 
-              <a
-                href="#"
+              <Action
                 style={{ "--i": 2 } as React.CSSProperties}
                 className={cx(
                   revealItem,
                   btn,
                   btnHero,
-                  "mt-[clamp(28px,4.4vh,52px)] font-semibold",
+                  "mt-[clamp(28px,4.4vh,52px)] cursor-pointer font-semibold",
                   dark
                     ? "bg-azure text-azure-ink hover:bg-[#12a2e2]"
                     : "bg-ink text-paper hover:bg-[#101826]",
@@ -87,7 +88,7 @@ export function ClosingCTA() {
               >
                 {action}
                 <ArrowRight size={18} />
-              </a>
+              </Action>
             </Reveal>
           </div>
         );

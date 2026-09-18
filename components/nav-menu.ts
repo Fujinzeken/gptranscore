@@ -11,7 +11,6 @@ import {
   Buildings,
   ClockCounterClockwise,
   CurrencyDollar,
-  Gear,
   Handshake,
   Heart,
   Leaf,
@@ -23,15 +22,18 @@ import {
   PaperPlaneTilt,
   Play,
   ShieldCheck,
+  Snowflake,
   Sparkle,
   Stack,
   Star,
   Target,
   Trophy,
   Truck,
+  TruckTrailer,
   Users,
   Wrench,
   Cpu,
+  ClipboardText,
   FileText,
 } from "@phosphor-icons/react/dist/ssr";
 
@@ -41,18 +43,15 @@ import {
  * carries a single accent and a nav is not the place to break it.
  */
 export const ITEM_ICONS: Record<string, Icon> = {
-  // Shipment Solutions
-  "Ship With Us": PaperPlaneTilt,
-  "Technology-Driven Solutions": Monitor,
-  "Dry Van & Conestoga": Package,
-  "In-House Tech & AI": Cpu,
-  "Industry-Leading Features": Medal,
-  "Running Green": Leaf,
-  "ELITE Drivers": Users,
-  "Outstanding Equipment": Gear,
-  "Supported by the Best": Handshake,
-  "Some of our Customers": Buildings,
-  "Case Studies": FileText,
+  // Freight Services
+  "Freight Services": Package,
+  "Dry Van": Package,
+  "Refrigerated": Snowflake,
+  "Flatbed": Stack,
+  "Step Deck": Truck,
+  "Dedicated": Handshake,
+  "Drop Trailer": TruckTrailer,
+  "What We Need to Quote": ClipboardText,
   // Driver Careers
   "Apply to Drive": PaperPlaneTilt,
   "Driver Pay Calculator": CurrencyDollar,
@@ -122,72 +121,50 @@ export const EXPLORE_MORE = [
 
 export const MENUS: Menu[] = [
   {
-    label: "Shipment Solutions",
+    label: "Freight Services",
     href: "/freight-shipping-solutions",
     panel: {
       items: [
         {
-          label: "Ship With Us",
-          blurb: "Request a quote and start shipping with PKT Group today.",
+          label: "Dry Van",
+          blurb: "53' enclosed capacity for freight that travels at ambient temperature.",
+          href: "/freight-shipping-solutions#how-it-moves",
         },
         {
-          label: "Technology-Driven Solutions",
-          blurb:
-            "Advanced tracking and real-time visibility for your shipments.",
-          href: "/freight-shipping-solutions#technology",
+          label: "Refrigerated",
+          blurb: "Temperature-controlled capacity for higher-stakes freight.",
+          href: "/freight-shipping-solutions#how-it-moves",
         },
         {
-          label: "Dry Van & Conestoga",
-          blurb:
-            "Flexible dry van and flatbed Conestoga capacity for any load.",
-          href: "/freight-shipping-solutions#trailers",
+          label: "Flatbed",
+          blurb: "Open-deck capacity for oversized building materials and machinery.",
+          href: "/freight-shipping-solutions#how-it-moves",
         },
         {
-          label: "In-House Tech & AI",
-          blurb: "OpenRoad TMS and AI-powered logistics optimization.",
-          href: "/freight-shipping-solutions#openroad",
+          label: "Step Deck",
+          blurb: "For freight too tall for a flatbed.",
+          href: "/freight-shipping-solutions#how-it-moves",
         },
         {
-          label: "Industry-Leading Features",
-          blurb: "GPS tracking, geofencing, and automated load updates.",
-          href: "/freight-shipping-solutions#features",
+          label: "Dedicated",
+          blurb: "Recurring-volume shippers get capacity reserved for them.",
+          href: "/freight-shipping-solutions#coverage",
         },
         {
-          label: "Running Green",
-          blurb:
-            "Sustainability initiatives saving 107K gallons of fuel yearly.",
-          href: "/freight-shipping-solutions#sustainability",
+          label: "Drop Trailer",
+          blurb: "For slow or unpredictable loading windows.",
+          href: "/freight-shipping-solutions#coverage",
         },
         {
-          label: "ELITE Drivers",
-          blurb: "Highly trained drivers delivering outstanding service.",
-          href: "/freight-shipping-solutions#drivers",
-        },
-        {
-          label: "Outstanding Equipment",
-          blurb: "State-of-the-art fleet with modern safety features.",
-          href: "/freight-shipping-solutions#openroad",
-        },
-        {
-          label: "Supported by the Best",
-          blurb: "Dedicated support team and single point of contact.",
-          href: "/freight-shipping-solutions#support",
-        },
-        {
-          label: "Some of our Customers",
-          blurb: "Trusted by leading companies like Walmart and GE.",
-          href: "/freight-shipping-solutions#customers",
-        },
-        {
-          label: "Case Studies",
-          blurb: "See how we deliver 8,500+ loads per year for PaperWorks.",
-          href: "/freight-shipping-solutions#case-studies",
+          label: "What We Need to Quote",
+          blurb: "Send the details, get a clear answer on availability.",
+          href: "/freight-shipping-solutions#quote",
         },
       ],
       featured: {
-        label: "Ship With Us",
-        blurb: "Request a quote and start shipping with PKT Group today.",
-        cta: "See all Shipment Solutions",
+        label: "Freight Services",
+        blurb: "PKT owns its trucks and holds its own authority. Dry van, refrigerated, flatbed and step deck capacity across 48 states.",
+        cta: "See all Freight Services",
       },
     },
   },

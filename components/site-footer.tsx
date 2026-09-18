@@ -34,7 +34,7 @@ const COLUMNS = [
   {
     heading: "Solutions",
     links: [
-      { label: "Shipment Solutions", href: "/freight-shipping-solutions" },
+      { label: "Freight Services", href: "/freight-shipping-solutions" },
       { label: "Brokerage Solutions", href: "/freight-brokerage-services" },
       { label: "Technology", href: "/PKTGroupTechnology" },
       { label: "Request a Quote", href: "/freight-shipping-solutions" },
@@ -91,16 +91,16 @@ export function SiteFooter() {
           <h2 className={cx(label, "m-0 text-mute")}>Contact</h2>
           <ul className="m-0 mt-5 list-none space-y-3 p-0 text-[14.5px] leading-[1.5]">
             <li className="text-mute-2">
-              3200 Channahon Rd
+              9400 W Higgins Rd STE 412
               <br />
-              Joliet, IL 60436
+              Rosemont, IL 60018
             </li>
             <li>
               <a
-                href="tel:+18004605071"
+                href="tel:+13313361445"
                 className="text-paper transition-colors duration-200 hover:text-azure-hi"
               >
-                (800) 460-5071
+                Recruiting (331) 336-1445
               </a>
             </li>
             <li>
@@ -111,23 +111,14 @@ export function SiteFooter() {
                 info@pktgroup.com
               </a>
             </li>
-            <li className="pt-1 text-mute-2">
-              Driver verification of employment
-              <br />
-              <a
-                href="tel:+17082610263"
-                className="text-paper transition-colors duration-200 hover:text-azure-hi"
-              >
-                (708) 261-0263
-              </a>
-            </li>
           </ul>
         </address>
       </div>
 
       <div className="mt-[clamp(44px,6vh,72px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-rule pt-7">
         <p className="m-0 text-[13.5px] text-mute-2">
-          &copy; 2026 PKT Group. All rights reserved.
+          &copy; 2026 PKT Group. All rights reserved. · USDOT 3188421 · MC
+          132863
         </p>
         <ul className="m-0 flex flex-wrap list-none gap-x-7 gap-y-2 p-0">
           {LEGAL.map((l) => (

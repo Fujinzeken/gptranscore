@@ -2,68 +2,46 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/heroes/page-hero";
 import { SectionNav, type SectionLink } from "@/components/section-nav";
 import {
-  ShipTechnology,
-  ShipTrailers,
-  ShipComparison,
-  ShipAward,
-  ShipOpenRoad,
-  ShipFeatures,
-  ShipSustainability,
-  ShipEliteDrivers,
-  ShipSupport,
-  ShipCustomers,
-  ShipCaseStudies,
+  HubIntro,
+  HubHowItMoves,
+  HubCommunication,
+  HubCoverage,
+  HubQuote,
 } from "@/components/shipment";
-import { ClosingCTA } from "@/components/sections/closing-cta";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Freight Shipping Services & Solutions | PKT Group",
+  title: "Asset-Based Truckload Carrier | PKT",
   description:
-    "Reliable transportation solutions, modern technology, and responsive service, built around your supply chain.",
+    "PKT owns its trucks and holds its own authority. Dry van, refrigerated, flatbed and step deck capacity across 48 states. Truckload freight, moved by the carrier you hired.",
 };
 
-// Their own section order, kept so the page reads the same way theirs does.
-/** Only sections this page actually renders. A strip that scrolls nowhere is
- *  worse than a short one, so this list grows as the page does. */
 const LINKS: SectionLink[] = [
-  { id: "technology", label: "Technology" },
-  { id: "trailers", label: "Dry Van & Conestoga" },
-  { id: "difference", label: "The Difference" },
-  { id: "innovation", label: "CCJ Award" },
-  { id: "openroad", label: "In-House TMS & AI" },
-  { id: "features", label: "Features" },
-  { id: "sustainability", label: "Running Green" },
-  { id: "drivers", label: "ELITE Drivers" },
-  { id: "support", label: "Support" },
-  { id: "customers", label: "Customers" },
-  { id: "case-studies", label: "Case Studies" },
+  { id: "intro", label: "Asset-Based" },
+  { id: "how-it-moves", label: "How Freight Moves" },
+  { id: "communication", label: "Communication" },
+  { id: "coverage", label: "Where We Run" },
+  { id: "quote", label: "Get a Quote" },
 ];
 
-export default function ShipmentSolutions() {
+export default function FreightServices() {
   return (
     <>
       <PageHero
-        title={["Freight that moves", "business forward"]}
-        blurb="Reliable transportation solutions, modern technology, and responsive service. Built around your supply chain."
+        title={["Truckload freight, moved by", "the carrier you hired"]}
+        blurb="PKT owns its trucks and holds its own authority. Dry van, refrigerated, flatbed and step deck capacity across 48 states."
         image={{
           src: "/ship-hero.jpg",
-          alt: "A PKT Group tractor and trailer crossing a river bridge.",
+          alt: "A PKT tractor and trailer on the highway.",
           position: "56% 62%",
         }}
       />
       <SectionNav links={LINKS} />
-      <ShipTechnology />
-      <ShipTrailers />
-      <ShipComparison />
-      <ShipAward />
-      <ShipOpenRoad />
-      <ShipFeatures />
-      <ShipSustainability />
-      <ShipEliteDrivers />
-      <ShipSupport />
-      <ShipCustomers />
-      <ShipCaseStudies />
+      <HubIntro />
+      <HubHowItMoves />
+      <HubCommunication />
+      <HubCoverage />
+      <HubQuote />
       <SiteFooter />
     </>
   );
