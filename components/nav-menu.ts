@@ -128,7 +128,7 @@ export const MENUS: Menu[] = [
         {
           label: "Dry Van",
           blurb: "53' enclosed capacity for freight that travels at ambient temperature.",
-          href: "/services#how-it-moves",
+          href: "/services/dry-van",
         },
         {
           label: "Refrigerated",

@@ -1,4 +1,5 @@
 export { ShipTechnology } from "./ship-technology";
+export { DVIntro, DVEquipment, DVHaul, DVCrossSell, DVQuote } from "./dry-van";
 export { ShipTrailers } from "./ship-trailers";
 export { ShipComparison } from "./ship-comparison";
 export { ShipAward } from "./ship-award";
