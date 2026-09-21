@@ -67,7 +67,7 @@ export function AboutCTA() {
           </button>
 
           <Link
-            href="/best-truck-driving-jobs"
+            href="/careers"
             className={cx(
               btn,
               btnHero,

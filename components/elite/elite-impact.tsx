@@ -178,7 +178,7 @@ export function EliteImpact() {
                 <ArrowRight size={18} />
               </button>
               <a
-                href="/best-truck-driving-jobs#elite"
+                href="/careers#elite"
                 className={cx(btn, btnHero, btnGhost, "justify-center")}
               >
                 Explore the Program

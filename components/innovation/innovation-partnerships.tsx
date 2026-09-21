@@ -199,7 +199,7 @@ export function InnovationPartnerships() {
           </p>
           {/* The page's closing controls. */}
           <div className="col-span-12 mt-2 flex flex-wrap items-center gap-4 max-[900px]:col-span-1">
-            <a href="/about-us" className={cx(btn, btnHero, "bg-paper text-ink-text font-semibold hover:bg-white")}>
+            <a href="/company" className={cx(btn, btnHero, "bg-paper text-ink-text font-semibold hover:bg-white")}>
               Learn More About PKT Group
             </a>
             <a

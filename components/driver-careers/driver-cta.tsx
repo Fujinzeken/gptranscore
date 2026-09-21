@@ -13,7 +13,7 @@ import { btn, btnSolid, btnHero, btnGhost, cx } from "../ui";
 /**
  * Driver Careers Closing CTA Section.
  *
- * Cinematic dark plate (bg-ink) concluding the /best-truck-driving-jobs page.
+ * Cinematic dark plate (bg-ink) concluding the /careers page.
  * Sits after the light DriverManagers section and flows seamlessly into SiteFooter.
  */
 

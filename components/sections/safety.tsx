@@ -64,7 +64,7 @@ export function Safety() {
         </p>
 
         <a
-          href="/Safety"
+          href="/safety"
           style={{ "--i": 3 } as React.CSSProperties}
           className={cx(
             revealItem,

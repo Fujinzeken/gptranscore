@@ -113,7 +113,7 @@ export type Menu = {
  */
 export const EXPLORE_MORE = [
   { label: "Be Selective", href: "/HighestPayingTruckingCompanies" },
-  { label: "Safety", href: "/Safety" },
+  { label: "Safety", href: "/safety" },
   { label: "Technology", href: "/PKTGroupTechnology" },
   { label: "Sustainability", href: "/Sustainability" },
   { label: "ELITE Drivers", href: "/EliteDriverProgram" },
@@ -122,43 +122,43 @@ export const EXPLORE_MORE = [
 export const MENUS: Menu[] = [
   {
     label: "Freight Services",
-    href: "/freight-shipping-solutions",
+    href: "/services",
     panel: {
       items: [
         {
           label: "Dry Van",
           blurb: "53' enclosed capacity for freight that travels at ambient temperature.",
-          href: "/freight-shipping-solutions#how-it-moves",
+          href: "/services#how-it-moves",
         },
         {
           label: "Refrigerated",
           blurb: "Temperature-controlled capacity for higher-stakes freight.",
-          href: "/freight-shipping-solutions#how-it-moves",
+          href: "/services#how-it-moves",
         },
         {
           label: "Flatbed",
           blurb: "Open-deck capacity for oversized building materials and machinery.",
-          href: "/freight-shipping-solutions#how-it-moves",
+          href: "/services#how-it-moves",
         },
         {
           label: "Step Deck",
           blurb: "For freight too tall for a flatbed.",
-          href: "/freight-shipping-solutions#how-it-moves",
+          href: "/services#how-it-moves",
         },
         {
           label: "Dedicated",
           blurb: "Recurring-volume shippers get capacity reserved for them.",
-          href: "/freight-shipping-solutions#coverage",
+          href: "/services#coverage",
         },
         {
           label: "Drop Trailer",
           blurb: "For slow or unpredictable loading windows.",
-          href: "/freight-shipping-solutions#coverage",
+          href: "/services#coverage",
         },
         {
           label: "What We Need to Quote",
           blurb: "Send the details, get a clear answer on availability.",
-          href: "/freight-shipping-solutions#quote",
+          href: "/services#quote",
         },
       ],
       featured: {
@@ -170,7 +170,7 @@ export const MENUS: Menu[] = [
   },
   {
     label: "Driver Careers",
-    href: "/best-truck-driving-jobs",
+    href: "/careers",
     panel: {
       items: [
         {
@@ -181,55 +181,55 @@ export const MENUS: Menu[] = [
           label: "Driver Pay Calculator",
           blurb:
             "Estimate your potential annual pay at PKT Group in under a minute.",
-          href: "/best-truck-driving-jobs#calculator",
+          href: "/careers#calculator",
         },
         {
           label: "Why Drivers Choose Us",
           blurb:
             "Industry-leading pay, annual raises, and a team that has your back.",
-          href: "/best-truck-driving-jobs#overview",
+          href: "/careers#overview",
         },
         {
           label: "Routes that Fit Your Life",
           blurb: "Local, short-haul, regional, and OTR options available.",
-          href: "/best-truck-driving-jobs#routes",
+          href: "/careers#routes",
         },
         {
           label: "Am I ELITE?",
           blurb:
             "Take the 60-second quiz to see if you are tracking toward ELITE performance.",
-          href: "/best-truck-driving-jobs#elite",
+          href: "/careers#elite",
         },
         {
           label: "ELITE Driver Program",
           blurb: "Earn up to $7,400/year extra through performance rewards.",
-          href: "/best-truck-driving-jobs#elite",
+          href: "/careers#elite",
         },
         {
           label: "Complete Benefits",
           blurb: "401(k), health insurance, paid holidays, and more.",
-          href: "/best-truck-driving-jobs#benefits",
+          href: "/careers#benefits",
         },
         {
           label: "Modern Equipment",
           blurb: "Late-model Freightliner Cascadias with top safety features.",
-          href: "/best-truck-driving-jobs#equipment",
+          href: "/careers#equipment",
         },
         {
           label: "Driver Highlights",
           blurb: "Watch video testimonials from our professional drivers.",
-          href: "/best-truck-driving-jobs#highlights",
+          href: "/careers#highlights",
         },
         {
           label: "Transparency & Convenience",
           blurb:
             "See your loads, pay, docs and miles right from your driver tablet.",
-          href: "/best-truck-driving-jobs#transparency",
+          href: "/careers#transparency",
         },
         {
           label: "Meet Our Driver Managers",
           blurb: "The people you will actually talk to every single day.",
-          href: "/best-truck-driving-jobs#managers",
+          href: "/careers#managers",
         },
       ],
       featured: {
@@ -323,38 +323,38 @@ export const MENUS: Menu[] = [
   },
   {
     label: "Company",
-    href: "/about-us",
+    href: "/company",
     panel: {
       items: [
         {
           label: "Overview",
           blurb: "Who PKT Group is and how we became a modern carrier.",
-          href: "/about-us#reliability",
+          href: "/company#reliability",
         },
         {
           label: "Mission & Values",
           blurb: "The principles that guide every decision we make.",
-          href: "/about-us#mission",
+          href: "/company#mission",
         },
         {
           label: "Press Releases",
           blurb: "Company news, announcements and media coverage.",
-          href: "/about-us#press-releases",
+          href: "/company#press-releases",
         },
         {
           label: "Leadership",
           blurb: "Meet the team leading PKT Group forward.",
-          href: "/about-us#leadership",
+          href: "/company#leadership",
         },
         {
           label: "History",
           blurb: "Our journey from a small fleet to a national carrier.",
-          href: "/about-us#history",
+          href: "/company#history",
         },
         {
           label: "Awards",
           blurb: "Industry recognition, including CCJ Innovator of the Year.",
-          href: "/about-us#awards",
+          href: "/company#awards",
         },
       ],
       featured: {
@@ -389,7 +389,7 @@ export const MENUS: Menu[] = [
         {
           label: "Safety",
           blurb: "Industry-leading safety practices and technology.",
-          href: "/Safety",
+          href: "/safety",
         },
         {
           label: "Sustainability",

@@ -66,14 +66,14 @@ export function SelectiveDrivers() {
               )}
             >
               <a
-                href="/best-truck-driving-jobs"
+                href="/careers"
                 className={cx(btn, btnHero, btnSolid, "max-[560px]:justify-center")}
               >
                 Explore Driver Careers
                 <ArrowRight size={18} />
               </a>
               <a
-                href="/best-truck-driving-jobs#elite"
+                href="/careers#elite"
                 className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
               >
                 Discover ELITE Drivers

@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import {
   ArrowRight,
-  ChatText,
   ClipboardText,
   MapTrifold,
   NotePencil,
@@ -30,20 +30,47 @@ export function HubIntro() {
           <h2 className="font-display m-0 text-[clamp(30px,3.6vw,52px)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-ink">
             The carrier you hired is the carrier that moves it.
           </h2>
-        </Reveal>
-        <Reveal>
-          <div className={cx(revealItem, "space-y-5 text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-ink/80")}>
-            <p>
+          <div className="mt-[clamp(30px,4.5vh,52px)]">
+            <p
+              style={{ "--i": 1 } as React.CSSProperties}
+              className={cx(
+                revealItem,
+                "max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-ink/80",
+              )}
+            >
               PKT is an asset-based carrier. We own the trucks and hold the
               authority, so your freight moves with us rather than being passed
               along to a company you have never spoken to.
             </p>
-            <p>
+            <p
+              style={{ "--i": 2 } as React.CSSProperties}
+              className={cx(
+                revealItem,
+                "mt-5 max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-ink/80",
+              )}
+            >
               We run dry van, refrigerated, flatbed and step deck equipment
               across 48 states. The people you call about a load are the people
               who dispatched it.
             </p>
           </div>
+        </Reveal>
+        <Reveal>
+          <figure
+            style={{ "--i": 3 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              "relative m-0 min-h-[clamp(320px,44vw,520px)] overflow-hidden bg-line",
+            )}
+          >
+            <Image
+              src="/fleet-dock.jpg"
+              alt="PKT tractors and dry vans backed into the loading dock."
+              fill
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="object-cover object-[52%_58%]"
+            />
+          </figure>
         </Reveal>
       </div>
     </section>
@@ -89,50 +116,106 @@ export function HubHowItMoves() {
           <h2 className="font-display m-0 max-w-[16em] text-[clamp(30px,3.6vw,52px)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-paper">
             Four steps, one accountable carrier.
           </h2>
-        </Reveal>
-        <div className="mt-[clamp(40px,6vh,72px)] grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((s) => {
-            const Icon = s.icon;
-            return (
-              <Reveal key={s.step} className={cx(revealItem, "bg-ink p-[clamp(24px,2.6vw,36px)]")}>
-                <div className="flex items-center justify-between pb-5">
-                  <Icon size={22} weight="bold" className="text-azure-hi" />
-                  <span className={cx(label, "text-soft-text")}>{s.step}</span>
+
+          {/* One Reveal over the slab; the cells and their ink paint are
+              static — only the inner content fades in (a cell that is both
+              the paint and the fade shows the pale grid base beneath it as a
+              blank slab before it reveals). */}
+          <div className="mt-[clamp(40px,6vh,72px)] grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div key={s.step} className="bg-ink p-[clamp(24px,2.6vw,36px)]">
+                  <div
+                    style={{ "--i": i } as React.CSSProperties}
+                    className={cx(revealItem)}
+                  >
+                    <div className="flex items-center justify-between pb-5">
+                      <Icon size={22} weight="bold" className="text-azure-hi" />
+                      <span className={cx(label, "text-soft-text")}>
+                        {s.step}
+                      </span>
+                    </div>
+                    <h3 className="font-display m-0 pb-2 text-[20px] font-bold uppercase tracking-[-0.01em] text-paper">
+                      {s.title}
+                    </h3>
+                    <p className="m-0 text-[14.5px] leading-[1.6] text-mute">
+                      {s.body}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="font-display m-0 pb-2 text-[20px] font-bold uppercase tracking-[-0.01em] text-paper">
-                  {s.title}
-                </h3>
-                <p className="m-0 text-[14.5px] leading-[1.6] text-mute">
-                  {s.body}
-                </p>
-              </Reveal>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
 }
 
 export function HubCommunication() {
+  const { open: openQuote } = useQuote();
   return (
     <section
       id="communication"
-      className="relative bg-paper py-[clamp(78px,12vh,150px)] px-gut"
+      className="relative isolate flex min-h-[clamp(460px,62vh,660px)] items-center overflow-hidden bg-ink px-gut py-[clamp(56px,9vh,104px)]"
     >
-      <div className="mx-auto max-w-[900px] text-center">
-        <Reveal>
-          <ChatText size={34} weight="bold" className="mx-auto text-azure" />
-          <h2 className="font-display m-0 mt-6 text-[clamp(28px,3.4vw,46px)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-ink">
-            Direct communication with dispatch.
-          </h2>
-          <p className="mx-auto mt-6 max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-ink/80">
-            Contact PKT about an active shipment and you reach the team managing
-            it — appointment changes, receiver questions, schedule issues
-            handled directly by operations.
-          </p>
-        </Reveal>
-      </div>
+      <Image
+        src="/case-haul.jpg"
+        alt="A PKT driver at the wheel of a company Freightliner Cascadia."
+        fill
+        sizes="100vw"
+        className="-z-10 object-cover object-[64%_38%]"
+      />
+      {/* Reads left, so the scrim is heaviest there and clears to the right. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(7,11,17,0.94)_0%,rgba(7,11,17,0.82)_34%,rgba(7,11,17,0.34)_62%,rgba(7,11,17,0.12)_100%)]"
+      />
+
+      <Reveal className="w-full">
+        <p className={cx(label, revealItem, "m-0 text-mute")}>
+          Communication
+        </p>
+
+        <h2
+          style={{ "--i": 1 } as React.CSSProperties}
+          className={cx(
+            revealItem,
+            "font-display mb-0 mt-[clamp(20px,3vh,34px)] max-w-[15em] text-[clamp(28px,3.4vw,46px)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-paper",
+          )}
+        >
+          Direct communication with dispatch.
+        </h2>
+
+        <p
+          style={{ "--i": 2 } as React.CSSProperties}
+          className={cx(
+            revealItem,
+            "m-0 mt-[clamp(18px,2.8vh,30px)] max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-mute",
+          )}
+        >
+          Contact PKT about an active shipment and you reach the team managing
+          it — appointment changes, receiver questions, schedule issues handled
+          directly by operations.
+        </p>
+
+        <button
+          type="button"
+          onClick={openQuote}
+          style={{ "--i": 3 } as React.CSSProperties}
+          className={cx(
+            revealItem,
+            btn,
+            btnHero,
+            btnSolid,
+            "mt-[clamp(26px,4vh,44px)] cursor-pointer shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)]",
+          )}
+        >
+          Talk to Our Team
+          <ArrowRight size={17} />
+        </button>
+      </Reveal>
     </section>
   );
 }

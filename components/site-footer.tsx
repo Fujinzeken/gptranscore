@@ -25,27 +25,27 @@ const COLUMNS = [
   {
     heading: "Company",
     links: [
-      { label: "About Us", href: "/about-us" },
-      { label: "Leadership", href: "/about-us#leadership" },
-      { label: "Awards", href: "/about-us#awards" },
-      { label: "Careers", href: "/best-truck-driving-jobs" },
+      { label: "About Us", href: "/company" },
+      { label: "Leadership", href: "/company#leadership" },
+      { label: "Awards", href: "/company#awards" },
+      { label: "Careers", href: "/careers" },
     ],
   },
   {
     heading: "Solutions",
     links: [
-      { label: "Freight Services", href: "/freight-shipping-solutions" },
+      { label: "Freight Services", href: "/services" },
       { label: "Brokerage Solutions", href: "/freight-brokerage-services" },
       { label: "Technology", href: "/PKTGroupTechnology" },
-      { label: "Request a Quote", href: "/freight-shipping-solutions" },
+      { label: "Request a Quote", href: "/services" },
     ],
   },
   {
     heading: "Careers",
     links: [
-      { label: "Driver Careers", href: "/best-truck-driving-jobs" },
+      { label: "Driver Careers", href: "/careers" },
       { label: "Office Careers", href: "/office-careers" },
-      { label: "Benefits", href: "/best-truck-driving-jobs#benefits" },
+      { label: "Benefits", href: "/careers#benefits" },
       { label: "ELITE Program", href: "/EliteDriverProgram" },
     ],
   },

@@ -33,7 +33,7 @@ export default function AboutUsPage() {
       {/* 2. Pinned Section Subnav — Explore Careers CTA */}
       <SectionNav
         links={LINKS}
-        action={{ label: "Explore Careers", href: "/best-truck-driving-jobs" }}
+        action={{ label: "Explore Careers", href: "/careers" }}
       />
 
       {/* 3. Overview — Driven by People, Powered by Innovation */}

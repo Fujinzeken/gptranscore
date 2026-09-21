@@ -80,7 +80,7 @@ export function EliteHero() {
               )}
             >
               <a
-                href="/best-truck-driving-jobs#calculator"
+                href="/careers#calculator"
                 className={cx(
                   btn,
                   btnHero,

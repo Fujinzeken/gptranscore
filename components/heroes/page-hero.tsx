@@ -31,7 +31,7 @@ export function PageHero({
   blurb,
   image,
   primary = "quote",
-  primaryLabel = "Ship With Us",
+  primaryLabel = "Request a Quote",
 }: {
   /** Lead clause, then the clause that takes the accent. */
   title: [string, string];
