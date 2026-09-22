@@ -60,7 +60,7 @@ export function SafetyCta() {
         </button>
 
         <a
-          href="/PKTGroupTechnology"
+          href="/pktgrouptechnology"
           className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
         >
           <Cpu size={17} />

@@ -1,0 +1,6 @@
+# Case-normalization: legacy uppercase URLs redirect to the lowercase routes.
+/Safety            /safety                            301
+/Sustainability    /sustainability                    301
+/EliteDriverProgram  /elitedriverprogram              301
+/HighestPayingTruckingCompanies  /highestpayingtruckingcompanies  301
+/PKTGroupTechnology  /pktgrouptechnology              301

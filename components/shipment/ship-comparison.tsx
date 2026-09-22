@@ -198,8 +198,8 @@ const DIFFERENCES: Difference[] = [
 ];
 
 const DETAIL_LINKS = [
-  { label: "ELITE Driver Program", href: "/EliteDriverProgram" },
-  { label: "PKT Group Technology", href: "/PKTGroupTechnology" },
+  { label: "ELITE Driver Program", href: "/elitedriverprogram" },
+  { label: "PKT Group Technology", href: "/pktgrouptechnology" },
 ];
 
 export function ShipComparison() {

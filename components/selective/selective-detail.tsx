@@ -18,7 +18,7 @@ const DIFFERENT = [
     title: "OpenRoad TMS",
     body: "Our in-house developed transportation management system is a testament to our commitment of improving operations through continuous innovation.",
     tag: "In-House Innovation",
-    link: { label: "Explore OpenRoad TMS", href: "/PKTGroupTechnology" },
+    link: { label: "Explore OpenRoad TMS", href: "/pktgrouptechnology" },
   },
   {
     icon: Leaf,

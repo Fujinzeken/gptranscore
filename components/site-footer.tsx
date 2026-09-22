@@ -36,7 +36,7 @@ const COLUMNS = [
     links: [
       { label: "Freight Services", href: "/services" },
       { label: "Brokerage Solutions", href: "/freight-brokerage-services" },
-      { label: "Technology", href: "/PKTGroupTechnology" },
+      { label: "Technology", href: "/pktgrouptechnology" },
       { label: "Request a Quote", href: "/services" },
     ],
   },
@@ -46,7 +46,7 @@ const COLUMNS = [
       { label: "Driver Careers", href: "/careers" },
       { label: "Office Careers", href: "/office-careers" },
       { label: "Benefits", href: "/careers#benefits" },
-      { label: "ELITE Program", href: "/EliteDriverProgram" },
+      { label: "ELITE Program", href: "/elitedriverprogram" },
     ],
   },
 ];

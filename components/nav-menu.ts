@@ -112,11 +112,11 @@ export type Menu = {
  * so the row behaves as real navigation instead of dead "#".
  */
 export const EXPLORE_MORE = [
-  { label: "Be Selective", href: "/HighestPayingTruckingCompanies" },
+  { label: "Be Selective", href: "/highestpayingtruckingcompanies" },
   { label: "Safety", href: "/safety" },
-  { label: "Technology", href: "/PKTGroupTechnology" },
-  { label: "Sustainability", href: "/Sustainability" },
-  { label: "ELITE Drivers", href: "/EliteDriverProgram" },
+  { label: "Technology", href: "/pktgrouptechnology" },
+  { label: "Sustainability", href: "/sustainability" },
+  { label: "ELITE Drivers", href: "/elitedriverprogram" },
 ];
 
 export const MENUS: Menu[] = [
@@ -367,24 +367,24 @@ export const MENUS: Menu[] = [
   { label: "Blog", href: "/blog" },
   {
     label: "Innovation",
-    href: "/PKTGroupTechnology",
+    href: "/pktgrouptechnology",
     panel: {
       items: [
         {
           label: "Be Selective",
           blurb:
             "Our philosophy of selectivity in staff, technology, and partnerships.",
-          href: "/HighestPayingTruckingCompanies",
+          href: "/highestpayingtruckingcompanies",
         },
         {
           label: "ELITE Drivers",
           blurb: "Performance-based rewards program for outstanding drivers.",
-          href: "/EliteDriverProgram",
+          href: "/elitedriverprogram",
         },
         {
           label: "Technology",
           blurb: "In-house technology and AI-powered logistics solutions.",
-          href: "/PKTGroupTechnology",
+          href: "/pktgrouptechnology",
         },
         {
           label: "Safety",
@@ -394,7 +394,7 @@ export const MENUS: Menu[] = [
         {
           label: "Sustainability",
           blurb: "Our commitment to environmental responsibility.",
-          href: "/Sustainability",
+          href: "/sustainability",
         },
       ],
       featured: {
