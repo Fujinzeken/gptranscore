@@ -22,6 +22,24 @@ neutral fallback copy. Nothing is invented.
 - [HOURS] for ops/recruiting (quick-apply response window uses
   "Mon–Sat 8:00–17:00 CDT" from the doc).
 - Insurance coverage/limits (safety page, Phase 2).
+- **Reefer equipment specifics taken from the notes column (not the structured
+  fields):** 2025 brand-new Great Dane reefers; Carrier and Thermo King
+  refrigeration units; continuous and start-stop modes; 24/7 road service
+  support. The structured row still carries placeholders ([UNIT MAKE],
+  [YEAR RANGE], [RANGE], [CONTINUOUS AND CYCLE], [MONITORING METHOD],
+  [INTERVALS]) — confirm the notes are current before launch. Monitoring is
+  rendered as "continuous" (from the reefer meta) and driver checks as
+  "on a regular schedule" ([INTERVALS] unresolved).
+- **Flatbed equipment specifics taken from the notes column (not the
+  structured fields):** 48' and 53' 2025 flatbeds; aluminum build; headracks
+  for storing securement equipment. Structured placeholders ([LENGTH],
+  [MATERIAL], [YEAR RANGE], deck height [HEIGHT], [MAX PAYLOAD]) remain
+  unresolved — deck height and max payload render as "available on request".
+  Securement kit items ([STRAPS, CHAINS, BINDERS, EDGE PROTECTION],
+  [TARP TYPES], [COIL RACKS]) are listed generically ("straps, chains,
+  binders and edge protection"; tarps as "available" per the meta row).
+  Oversize/escort note ("escorts, paid expensive rates") from the notes is
+  marketing-voice and not rendered.
 - Leadership names/photos — page will ship without the leadership section
   (per the doc's own build note). One name given: Jahongir Temirov.
 

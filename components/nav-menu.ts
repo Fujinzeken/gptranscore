@@ -133,17 +133,17 @@ export const MENUS: Menu[] = [
         {
           label: "Refrigerated",
           blurb: "Temperature-controlled capacity for higher-stakes freight.",
-          href: "/services#how-it-moves",
+          href: "/services/reefer",
         },
         {
           label: "Flatbed",
           blurb: "Open-deck capacity for oversized building materials and machinery.",
-          href: "/services#how-it-moves",
+          href: "/services/flatbed",
         },
         {
           label: "Step Deck",
           blurb: "For freight too tall for a flatbed.",
-          href: "/services#how-it-moves",
+          href: "/services/step-deck",
         },
         {
           label: "Dedicated",

@@ -1,22 +1,21 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, Truck } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
 import { ClosingCTA } from "../closing-cta";
 import { useQuote } from "../quote-modal";
 import { cx, label } from "../ui";
 
 /**
- * Dry Van service page sections (FREIGHT SERVICES — DRY VAN row of the
- * content pack). Copy is CSV-verbatim; the equipment spec placeholders
- * ([YEAR RANGE], [SUSPENSION], [LOADING METHODS]) are unresolved, so the
- * equipment section renders only what the notes confirm — 53' swing-door
- * trailers, brand-new fleet, FCFS facilities loading in about two hours —
- * and offers the full spec sheet on request rather than inventing figures.
+ * Step deck service page sections (FREIGHT SERVICES — STEP DECK row of the
+ * content pack). Copy is CSV-verbatim. Every equipment figure is bracketed
+ * ([LENGTH], [HEIGHT], [YEAR RANGE], [MAX PAYLOAD]) and the notes column
+ * confirms only the ramps, so the spec sheet renders what is confirmed —
+ * two deck levels, ramps for rolling equipment — and offers full specs on
+ * request. Logged in OPEN-ITEMS for confirmation.
  */
 
-export function DVIntro() {
+export function SDIntro() {
   return (
     <section id="intro" className="bg-page px-gut py-[clamp(96px,15vh,190px)]">
       <Reveal>
@@ -26,7 +25,7 @@ export function DVIntro() {
               style={{ "--i": 0 } as React.CSSProperties}
               className={cx(label, revealItem, "m-0 text-body-text")}
             >
-              Dry Van
+              Step Deck
             </p>
 
             <h2
@@ -37,8 +36,7 @@ export function DVIntro() {
                 "text-[clamp(26px,3.6vw,52px)] text-ink-text",
               )}
             >
-              Enclosed capacity for freight that travels at ambient
-              temperature.
+              Height without a permit — taller freight travels legal.
             </h2>
 
             <p
@@ -48,40 +46,45 @@ export function DVIntro() {
                 "mt-5 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
               )}
             >
-              Full truckload across the contiguous US, including OTR, recurring
-              lanes and dedicated opportunities.
-            </p>
-
-            <p
-              style={{ "--i": 3 } as React.CSSProperties}
-              className={cx(
-                revealItem,
-                "mt-4 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
-              )}
-            >
-              One load or weekly volume, you get a clear answer on
-              availability.
+              The lower deck sits closer to the road, letting taller freight
+              travel legally where a flatbed would put it over height. If
+              you&rsquo;ve been quoted for permits on a load, it&rsquo;s worth
+              asking whether a step deck removes the need.
             </p>
           </div>
 
-          {/* The artifact: the trailer itself, on the dark plate — the same
-              claim-then-object structure the homepage Communication section
-              uses, since that is the page's own rhyme. */}
+          {/* The artifact: the deck itself, as a ruled readout on the dark
+              plate — every line lifted from the CSV, no invented figures. */}
           <div
-            style={{ "--i": 4 } as React.CSSProperties}
+            style={{ "--i": 3 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "col-span-5 flex items-center justify-center bg-deep p-[clamp(28px,3.6vw,56px)]",
+              "col-span-5 bg-deep p-[clamp(28px,3.6vw,56px)]",
               "max-[1000px]:col-span-1",
             )}
           >
-            <Image
-              src="/dry-van.png"
-              alt="A PKT 53-foot dry van trailer."
-              width={640}
-              height={360}
-              className="h-auto w-full"
-            />
+            <div className="flex items-center justify-between pb-6">
+              <Truck size={30} weight="bold" className="text-azure-hi" />
+              <span className={cx(label, "text-mute-2")}>Drop deck</span>
+            </div>
+            <ul className="m-0 list-none border-t border-rule">
+              {[
+                ["Decks", "Two levels — upper and lower"],
+                ["Lower deck", "Closer to the road, taller freight legal"],
+                ["Ramps", "For rolling and driveable equipment"],
+                ["Permits", "Removed under legal height"],
+              ].map(([term, detail]) => (
+                <li
+                  key={term}
+                  className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-b border-rule py-4 max-[420px]:grid-cols-1 max-[420px]:gap-1"
+                >
+                  <span className={cx(label, "m-0 text-mute-2")}>{term}</span>
+                  <span className="text-[clamp(14px,1.05vw,16px)] leading-[1.5] text-paper">
+                    {detail}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Reveal>
@@ -90,14 +93,13 @@ export function DVIntro() {
 }
 
 const SPECS: Array<[string, string]> = [
-  ["Length", "53-foot enclosed trailer"],
-  ["Doors", "Swing doors"],
-  ["Fleet age", "Brand-new trailers"],
-  ["Freight", "Palletized and floor-loaded"],
-  ["Loading", "FCFS facilities — loaded and on the road in about 2 hours"],
+  ["Decks", "Two levels — an upper deck and a lower deck"],
+  ["Ramps", "Available for rolling and driveable equipment"],
+  ["Loading", "Ramps, crane, overhead, side or rear forklift"],
+  ["Full specs", "Deck lengths, legal height, payload and year range available on request"],
 ];
 
-export function DVEquipment() {
+export function SDEquipment() {
   return (
     <section id="equipment" className="bg-ink px-gut py-[clamp(96px,15vh,190px)]">
       <Reveal>
@@ -118,7 +120,7 @@ export function DVEquipment() {
                 "text-[clamp(26px,3.6vw,52px)] text-paper",
               )}
             >
-              53&prime; dry vans, kept new.
+              Two deck levels, one legal load.
             </h2>
 
             <p
@@ -128,8 +130,9 @@ export function DVEquipment() {
                 "mt-5 max-w-[46ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute",
               )}
             >
-              Full equipment specifications are available on request — send the
-              quote form and we&rsquo;ll confirm the trailer details with your
+              Full equipment specifications — deck lengths, legal height,
+              payload, year range — are available on request; send the quote
+              form and we&rsquo;ll confirm the trailer details with your
               booking.
             </p>
           </div>
@@ -159,50 +162,104 @@ export function DVEquipment() {
   );
 }
 
+/**
+ * The page's signature section: the CSV's "Flatbed or step deck guidance".
+ * The whole value of a step deck is a height-threshold decision, so it
+ * renders as two ruled verdict cards — flatbed under the threshold, step
+ * deck over it — with the send-us-dimensions close underneath.
+ */
+export function SDGuidance() {
+  return (
+    <section
+      id="guidance"
+      className="bg-surface border-y border-line px-gut py-[clamp(96px,15vh,190px)]"
+    >
+      <Reveal>
+        <div className="mx-auto max-w-[1200px]">
+          <p
+            style={{ "--i": 0 } as React.CSSProperties}
+            className={cx(label, revealItem, "m-0 text-azure")}
+          >
+            Flatbed or step deck?
+          </p>
+
+          <h2
+            style={{ "--i": 1 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              "type-display m-0 mt-[clamp(18px,2.6vh,30px)] max-w-[18em]",
+              "text-[clamp(26px,3.2vw,46px)] text-ink-text",
+            )}
+          >
+            Send the dimensions and we&rsquo;ll tell you which suits the load.
+          </h2>
+
+          <div
+            style={{ "--i": 2 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line md:grid-cols-2",
+            )}
+          >
+            {[
+              {
+                verdict: "Flatbed",
+                when: "Under the height threshold",
+                detail:
+                  "A flatbed usually works and loads more easily from the side.",
+              },
+              {
+                verdict: "Step Deck",
+                when: "Above the height threshold",
+                detail: "The lower deck keeps you legal without permits.",
+              },
+            ].map(({ verdict, when, detail }) => (
+              <div
+                key={verdict}
+                className="flex min-h-[clamp(200px,26vh,260px)] flex-col justify-between bg-paper p-[clamp(24px,2.6vw,40px)]"
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <span className="font-display text-[clamp(20px,1.9vw,27px)] font-bold leading-[1.05] tracking-[-0.015em] text-ink-text">
+                    {verdict}
+                  </span>
+                  <span className={cx(label, "text-azure")}>{when}</span>
+                </div>
+                <p className="m-0 mt-6 max-w-[46ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
+                  {detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 const HAUL: Array<{ name: string; detail: string }> = [
   {
-    name: "Consumer & retail",
+    name: "Machinery and equipment",
     detail:
-      "Packaged consumer products, retail merchandise, household goods, cleaning and personal care, e-commerce and DC freight.",
+      "Construction, agricultural and industrial machinery, generators and compressors, and rolling equipment suited to ramps.",
   },
   {
-    name: "Food & beverage",
+    name: "Tall freight",
     detail:
-      "Canned and bottled products, dry foods, beverages, packaged ingredients, shelf-stable goods.",
+      "Building materials over flatbed legal height, tanks and vessels, crated equipment, manufactured structures, HVAC units.",
   },
   {
-    name: "Manufacturing & industrial",
-    detail:
-      "Finished goods, industrial components, machinery parts, packaged tools, plastics, rubber.",
-  },
-  {
-    name: "Automotive",
-    detail:
-      "Parts, components, packaged replacements, tires, manufacturing supplies.",
-  },
-  {
-    name: "Paper & packaging",
-    detail: "Paper products, cartons, packaging materials, printed goods.",
-  },
-  {
-    name: "Electronics & appliances",
-    detail:
-      "Consumer electronics, appliances, electrical components, technology products — high-value freight subject to approval and insurance requirements.",
-  },
-  {
-    name: "Building products",
-    detail:
-      "Packaged hardware, flooring, fixtures, interior finishing materials.",
+    name: "General open deck",
+    detail: "Steel and metal products, and palletized freight loading from above.",
   },
 ];
 
-export function DVHaul() {
+export function SDHaul() {
   return (
     <section id="haul" className="bg-page px-gut py-[clamp(96px,15vh,190px)]">
       <Reveal>
         <p
           style={{ "--i": 0 } as React.CSSProperties}
-          className={cx(label, revealItem, "m-0 text-body-text")}
+          className={cx(label, revealItem, "m-0 text-azure")}
         >
           What we haul
         </p>
@@ -211,15 +268,15 @@ export function DVHaul() {
           style={{ "--i": 1 } as React.CSSProperties}
           className={cx(
             revealItem,
-            "type-display m-0 mt-[clamp(18px,2.6vh,30px)] max-w-[14em]",
+            "type-display m-0 mt-[clamp(18px,2.6vh,30px)] max-w-[18em]",
             "text-[clamp(26px,3.6vw,52px)] text-ink-text",
           )}
         >
-          Seven freight families, one trailer.
+          Three freight families, one drop deck.
         </h2>
 
         {/* The manifest. Ruled rows, names as display type, the same
-            ground-shift hover the homepage equipment list uses. */}
+            ground-shift hover the flatbed page uses. */}
         <ul
           className={cx(
             revealItem,
@@ -261,7 +318,7 @@ export function DVHaul() {
   );
 }
 
-export function DVCrossSell() {
+export function SDCrossSell() {
   return (
     <section
       id="cross-sell"
@@ -284,37 +341,23 @@ export function DVCrossSell() {
               "text-[clamp(26px,3.2vw,46px)] text-ink-text",
             )}
           >
-            Temperature-controlled food books through refrigerated; oversized
-            building materials go flatbed or step deck.
+            Enclosed freight books through dry van or refrigerated; oversized
+            building materials go flatbed.
           </h2>
-
-          <p
-            style={{ "--i": 2 } as React.CSSProperties}
-            className={cx(
-              revealItem,
-              "mt-5 max-w-[52ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
-            )}
-          >
-            Same dispatch, same clear answer on availability — just different
-            equipment.
-          </p>
         </Reveal>
 
-        {/* Service cards on the gap-px hairline grid — the vocabulary the rest
-            of the site uses for sibling links. Full-width row so the three
-            cards get real presence instead of fighting a tall headline. */}
         <Reveal>
           <div
-            style={{ "--i": 3 } as React.CSSProperties}
+            style={{ "--i": 2 } as React.CSSProperties}
             className={cx(
               revealItem,
               "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-3",
             )}
           >
             {[
+              { label: "Dry Van", href: "/services/dry-van" },
               { label: "Refrigerated", href: "/services/reefer" },
               { label: "Flatbed", href: "/services/flatbed" },
-              { label: "Step Deck", href: "/services/step-deck" },
             ].map(({ label: l, href }) => (
               <a
                 key={l}
@@ -338,25 +381,24 @@ export function DVCrossSell() {
   );
 }
 
-export function DVQuote() {
+export function SDQuote() {
   const { open: openQuote } = useQuote();
   return (
     <ClosingCTA
       id="quote"
-      ariaLabel="Get a dry van quote"
+      ariaLabel="Get a step deck quote"
       eyebrow="Get a quote"
       headline={
         <>
-          Ready to Move <span className="text-azure-hi">Dry Van?</span>
+          Ready to Move <span className="text-azure-hi">Step Deck?</span>
         </>
       }
-      copy="One load or weekly volume, you get a clear answer on availability — send the lane and the details and we'll come back with it."
+      copy="Send the dimensions and we'll tell you whether a flatbed or a step deck suits the load — and come back with a clear answer on availability."
       primaryLabel="Request a Quote"
       onPrimary={openQuote}
       secondaryLabel="Back to Freight Services"
       secondaryHref="/services"
-      note="Send ZIPs · Pickup date · Commodity · Appointments"
+      note="Send dimensions · Weight · ZIPs · Ramps needed"
     />
   );
 }
-

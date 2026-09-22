@@ -1,5 +1,22 @@
 export { ShipTechnology } from "./ship-technology";
 export { DVIntro, DVEquipment, DVHaul, DVCrossSell, DVQuote } from "./dry-van";
+export {
+  RFIntro,
+  RFEquipment,
+  RFProtect,
+  RFHaul,
+  RFCrossSell,
+  RFQuote,
+} from "./reefer";
+export {
+  FBIntro,
+  FBEquipment,
+  FBSecurement,
+  FBHaul,
+  FBDimensions,
+  FBCrossSell,
+  FBQuote,
+} from "./flatbed";
 export { ShipTrailers } from "./ship-trailers";
 export { ShipComparison } from "./ship-comparison";
 export { ShipAward } from "./ship-award";
