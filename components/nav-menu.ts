@@ -148,12 +148,12 @@ export const MENUS: Menu[] = [
         {
           label: "Dedicated",
           blurb: "Recurring-volume shippers get capacity reserved for them.",
-          href: "/services#coverage",
+          href: "/services/dedicated",
         },
         {
           label: "Drop Trailer",
           blurb: "For slow or unpredictable loading windows.",
-          href: "/services#coverage",
+          href: "/services/drop-trailer",
         },
         {
           label: "What We Need to Quote",
