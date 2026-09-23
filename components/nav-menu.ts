@@ -26,6 +26,7 @@ import {
   Sparkle,
   Stack,
   Star,
+  SteeringWheel,
   Target,
   Trophy,
   Truck,
@@ -46,14 +47,18 @@ export const ITEM_ICONS: Record<string, Icon> = {
   // Freight Services
   "Freight Services": Package,
   "Dry Van": Package,
-  "Refrigerated": Snowflake,
-  "Flatbed": Stack,
+  Refrigerated: Snowflake,
+  Flatbed: Stack,
   "Step Deck": Truck,
-  "Dedicated": Handshake,
+  Dedicated: Handshake,
   "Drop Trailer": TruckTrailer,
   "What We Need to Quote": ClipboardText,
   // Driver Careers
   "Apply to Drive": PaperPlaneTilt,
+  "Company Drivers": SteeringWheel,
+  "Owner-Operators": Handshake,
+  "Open Driver Positions": Briefcase,
+  "Quick Apply": PaperPlaneTilt,
   "Driver Pay Calculator": CurrencyDollar,
   "Why Drivers Choose Us": Star,
   "Routes that Fit Your Life": MapPin,
@@ -127,7 +132,8 @@ export const MENUS: Menu[] = [
       items: [
         {
           label: "Dry Van",
-          blurb: "53' enclosed capacity for freight that travels at ambient temperature.",
+          blurb:
+            "53' enclosed capacity for freight that travels at ambient temperature.",
           href: "/services/dry-van",
         },
         {
@@ -137,7 +143,8 @@ export const MENUS: Menu[] = [
         },
         {
           label: "Flatbed",
-          blurb: "Open-deck capacity for oversized building materials and machinery.",
+          blurb:
+            "Open-deck capacity for oversized building materials and machinery.",
           href: "/services/flatbed",
         },
         {
@@ -163,7 +170,8 @@ export const MENUS: Menu[] = [
       ],
       featured: {
         label: "Freight Services",
-        blurb: "PKT owns its trucks and holds its own authority. Dry van, refrigerated, flatbed and step deck capacity across 48 states.",
+        blurb:
+          "PKT owns its trucks and holds its own authority. Dry van, refrigerated, flatbed and step deck capacity across 48 states.",
         cta: "See all Freight Services",
       },
     },
@@ -178,16 +186,28 @@ export const MENUS: Menu[] = [
           blurb: "Start your application and join our elite team of drivers.",
         },
         {
+          label: "Quick Apply",
+          blurb:
+            "Four questions, about a minute. No resume, no uploads, no account.",
+          href: "/careers/apply",
+        },
+        {
+          label: "Company Drivers",
+          blurb:
+            "The truck, the trailer, the freight — you drive. OTR across 48 states.",
+          href: "/careers/company-drivers",
+        },
+        {
           label: "Driver Pay Calculator",
           blurb:
             "Estimate your potential annual pay at PKT Group in under a minute.",
           href: "/careers#calculator",
         },
         {
-          label: "Why Drivers Choose Us",
+          label: "Owner-Operators",
           blurb:
-            "Industry-leading pay, annual raises, and a team that has your back.",
-          href: "/careers#overview",
+            "Your truck, our authority and freight. Steady freight without chasing loads.",
+          href: "/careers/owner-operators",
         },
         {
           label: "Routes that Fit Your Life",
@@ -195,10 +215,10 @@ export const MENUS: Menu[] = [
           href: "/careers#routes",
         },
         {
-          label: "Am I ELITE?",
+          label: "Open Driver Positions",
           blurb:
-            "Take the 60-second quiz to see if you are tracking toward ELITE performance.",
-          href: "/careers#elite",
+            "Every opening here is current. Filter by state and type — or leave your details.",
+          href: "/careers/jobs",
         },
         {
           label: "ELITE Driver Program",

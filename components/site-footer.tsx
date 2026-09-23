@@ -100,7 +100,7 @@ export function SiteFooter() {
                 href="tel:+13313361445"
                 className="text-paper transition-colors duration-200 hover:text-azure-hi"
               >
-                Recruiting (331) 336-1445
+                Recruiting +1 (331) 256-8985
               </a>
             </li>
             <li>

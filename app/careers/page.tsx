@@ -4,6 +4,7 @@ import {
   DriverHero,
   DriverOverview,
   DriverEquipment,
+  DriverOwnerOperator,
   DriverRoutes,
   DriverPayCalculator,
   DriverBenefits,
@@ -16,14 +17,14 @@ import {
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Best CDL-A Truck Driving Jobs | PKT Group",
+  title: "Drive for PKT | CDL-A Jobs and Owner-Operator Opportunities",
   description:
-    "CDL-A driving jobs built around how you want to drive. Up to 83 CPM, home daily or weekly, late-model Freightliners, and industry-leading pay.",
+    "Company driver positions and owner-operator lease opportunities. 48-state OTR freight, late-model equipment, dispatch that knows your name.",
 };
-
 const LINKS: SectionLink[] = [
   { id: "overview", label: "Overview" },
   { id: "equipment", label: "Equipment" },
+  { id: "owner-operator", label: "Owner-Operator" },
   { id: "routes", label: "Route Selection" },
   { id: "calculator", label: "Pay Calculator" },
   { id: "benefits", label: "Benefits" },
@@ -40,6 +41,7 @@ export default function DriverCareersPage() {
       <SectionNav links={LINKS} />
       <DriverOverview />
       <DriverEquipment />
+      <DriverOwnerOperator />
       <DriverRoutes />
       <DriverPayCalculator />
       <DriverBenefits />

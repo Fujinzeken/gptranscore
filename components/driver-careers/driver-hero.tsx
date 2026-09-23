@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, PhoneCall, SteeringWheel } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowRight,
+  PhoneCall,
+  SteeringWheel,
+} from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "../site-nav";
 import { useQuote } from "../quote-modal";
 import { useDriverApply } from "../driver-apply-modal";
@@ -54,12 +58,13 @@ export function DriverHero() {
             "font-black uppercase leading-[0.88] tracking-[-0.03em] text-paper",
           )}
         >
-          CDL-A Driving Jobs <br />
-          Built Around <span className="text-azure-hi">How You Want to Drive</span>
+          Two ways to <br />
+          <span className="text-azure-hi">run with us.</span>
         </h1>
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-          Up to 83 CPM · Home Daily, Weekly or Every 2–3 Weeks · Late-Model Freightliners
+          Up to 83 CPM · Home Daily, Weekly or Every 2–3 Weeks · Late-Model
+          Freightliners
         </p>
 
         {/* Route Type Pills */}
@@ -86,7 +91,7 @@ export function DriverHero() {
               "shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)] max-[560px]:justify-center",
             )}
           >
-            Find Jobs That Fit Me
+            CDL-A Jobs
             <ArrowRight size={18} />
           </button>
 
@@ -95,7 +100,7 @@ export function DriverHero() {
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
             <PhoneCall size={17} />
-            Talk to a Recruiter
+            Lease On
           </a>
         </div>
       </div>

@@ -45,5 +45,14 @@ neutral fallback copy. Nothing is invented.
 
 ## Pages not offered today (client note in docs)
 Step deck, dedicated, drop trailer — "we currently don't do" notes on all
-three. Sitemap still lists them; build deferred to the P1/P2 increment pending
-client decision.
+three. Sitemap still lists them; built anyway (P1/P2 increment) with the
+"specs available on request" fallback. Client decision on the contradiction
+still pending.
+
+## Driver jobs board (/careers/jobs)
+- CSV "Build requirement": each opening needs JobPosting structured data
+  with an enforced expiry date (Google for Jobs eligibility). The board page
+  ships with the posting specimen + filters + honest empty state; before any
+  real listing goes live, add the JSON-LD JobPosting schema and an expiry
+  sweep, or Google delists expired postings and the domain's standing there
+  takes the hit.

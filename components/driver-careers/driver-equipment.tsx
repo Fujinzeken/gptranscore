@@ -147,9 +147,10 @@ export function DriverEquipment() {
           </h2>
 
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">
-            Our trucks are only 1.5 years old on average (vs. industry average
-            of 4 years). Freightliner Cascadias packed with advanced safety,
-            comfort, and efficiency features.
+            We provide the truck, you drive it. Pay — we set pay per driver
+            based on experience and route; call +1 (331) 256-8985 and we'll tell
+            you what your lane pays before you apply. Home time — depends on the
+            run; tell us where you live and we'll tell you what's realistic.
           </p>
         </header>
 

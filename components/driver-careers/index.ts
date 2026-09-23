@@ -1,6 +1,7 @@
 export { DriverHero } from "./driver-hero";
 export { DriverOverview } from "./driver-overview";
 export { DriverEquipment } from "./driver-equipment";
+export { DriverOwnerOperator } from "./driver-owner-operator";
 export { DriverRoutes } from "./driver-routes";
 export { DriverPayCalculator } from "./driver-pay-calculator";
 export { DriverBenefits } from "./driver-benefits";

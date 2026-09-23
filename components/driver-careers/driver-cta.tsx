@@ -27,14 +27,14 @@ export function DriverCTA() {
       }
       headline={
         <>
-          Ready to Drive With <span className="text-azure-hi">Purpose?</span>
+          Not sure which <span className="text-azure-hi">suits you? </span>
         </>
       }
-      copy="Join a team that values your skills, respects your time, and rewards your performance. Apply today and become part of the PKT Group family."
+      copy="Call +1 (331) 256-8985 and ask — two minutes, no application."
       primaryLabel="Apply to Drive"
       onPrimary={openApplyModal}
-      secondaryLabel="(708) 298-8281"
-      secondaryHref="tel:7082988281"
+      secondaryLabel="+1 (331) 256-8985"
+      secondaryHref="tel:+13312568985"
       SecondaryIcon={Phone}
       note="Recruiting Team Active Mon–Fri · Direct Human Response"
     />

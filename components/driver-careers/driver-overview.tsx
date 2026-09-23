@@ -26,7 +26,9 @@ import { btn, btnSolid, btnHero, cx, label } from "../ui";
 
 export function DriverOverview() {
   const { open: openQuote } = useQuote();
-  const [selectedPayTab, setSelectedPayTab] = useState<"first" | "elite">("first");
+  const [selectedPayTab, setSelectedPayTab] = useState<"first" | "elite">(
+    "first",
+  );
 
   return (
     <section
@@ -55,7 +57,9 @@ export function DriverOverview() {
           </h2>
 
           <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
-            Competitive pay, modern equipment, and a management team that actually cares about you.
+            At PKT, dispatch knows who you are, what you drive and where you
+            live. We run dry van, reefer, flatbed and step deck freight across
+            48 states. Pick the path that fits how you want to work.
           </p>
         </header>
 
@@ -71,7 +75,9 @@ export function DriverOverview() {
           <div className="col-span-12 lg:col-span-7 bg-surface border border-line p-[clamp(28px,4vw,48px)] flex flex-col justify-between shadow-sm">
             <div>
               <div className="flex items-center justify-between gap-4 pb-4 border-b border-line">
-                <span className={cx(label, "text-azure flex items-center gap-2")}>
+                <span
+                  className={cx(label, "text-azure flex items-center gap-2")}
+                >
                   <Coins size={18} weight="bold" />
                   Industry-Leading Earning Power
                 </span>
@@ -84,15 +90,26 @@ export function DriverOverview() {
                 Earn well above the national average
               </h3>
               <p className="text-[15px] leading-[1.65] text-body-text m-0 max-w-[54ch]">
-                First-year drivers at PKT Group earn <strong className="text-ink-text">$80,000 to $110,000</strong> annually — nearly double the national average CDL-A salary of $54,320. Plus, receive an automatic <strong className="text-azure">+1 CPM raise every single year</strong>.
+                First-year drivers at PKT Group earn{" "}
+                <strong className="text-ink-text">$80,000 to $110,000</strong>{" "}
+                annually — nearly double the national average CDL-A salary of
+                $54,320. Plus, receive an automatic{" "}
+                <strong className="text-azure">
+                  +1 CPM raise every single year
+                </strong>
+                .
               </p>
 
               {/* Salary Comparison Bar Visual */}
               <div className="mt-8 bg-page border border-line p-5 space-y-4">
                 <div>
                   <div className="flex justify-between text-xs font-semibold mb-1.5">
-                    <span className="text-ink-text">PKT Group First-Year Driver</span>
-                    <span className="text-azure font-mono font-bold">$80,000 – $110,000/yr</span>
+                    <span className="text-ink-text">
+                      PKT Group First-Year Driver
+                    </span>
+                    <span className="text-azure font-mono font-bold">
+                      $80,000 – $110,000/yr
+                    </span>
                   </div>
                   <div className="h-3 w-full bg-line rounded-full overflow-hidden">
                     <div className="h-full bg-azure rounded-full w-[92%] transition-all duration-500" />
@@ -116,7 +133,9 @@ export function DriverOverview() {
                 <TrendUp size={16} className="text-azure" weight="bold" />
                 <span>+1 CPM Guaranteed Annual Raise</span>
               </div>
-              <span className="text-xs text-body-text">No caps on experience earnings</span>
+              <span className="text-xs text-body-text">
+                No caps on experience earnings
+              </span>
             </div>
           </div>
 
@@ -126,7 +145,12 @@ export function DriverOverview() {
             <div className="bg-surface border border-line p-[clamp(24px,3vw,36px)] flex-1 flex flex-col justify-between shadow-sm">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <span className={cx(label, "text-azure flex items-center gap-1.5 mb-2")}>
+                  <span
+                    className={cx(
+                      label,
+                      "text-azure flex items-center gap-1.5 mb-2",
+                    )}
+                  >
                     <Trophy size={16} weight="bold" />
                     Performance Bonus
                   </span>
@@ -139,7 +163,10 @@ export function DriverOverview() {
                 </span>
               </div>
               <p className="mt-3 text-[14px] leading-[1.6] text-body-text m-0">
-                Earn up to <strong className="text-ink-text">$7,400 extra per year</strong> through our transparent, performance-based driver score program evaluating safety and fuel efficiency.
+                Earn up to{" "}
+                <strong className="text-ink-text">$7,400 extra per year</strong>{" "}
+                through our transparent, performance-based driver score program
+                evaluating safety and fuel efficiency.
               </p>
             </div>
 
@@ -147,7 +174,12 @@ export function DriverOverview() {
             <div className="bg-surface border border-line p-[clamp(24px,3vw,36px)] flex-1 flex flex-col justify-between shadow-sm">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <span className={cx(label, "text-azure flex items-center gap-1.5 mb-2")}>
+                  <span
+                    className={cx(
+                      label,
+                      "text-azure flex items-center gap-1.5 mb-2",
+                    )}
+                  >
                     <Truck size={16} weight="bold" />
                     Late-Model Fleet
                   </span>
@@ -160,7 +192,9 @@ export function DriverOverview() {
                 </span>
               </div>
               <p className="mt-3 text-[14px] leading-[1.6] text-body-text m-0">
-                Drive clean, late-model Freightliner Cascadias specced with luxury sleeper cabs, APU solar power, and collision avoidance technology.
+                Drive clean, late-model Freightliner Cascadias specced with
+                luxury sleeper cabs, APU solar power, and collision avoidance
+                technology.
               </p>
             </div>
 
@@ -168,7 +202,12 @@ export function DriverOverview() {
             <div className="bg-surface border border-line p-[clamp(24px,3vw,36px)] flex-1 flex flex-col justify-between shadow-sm">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <span className={cx(label, "text-azure flex items-center gap-1.5 mb-2")}>
+                  <span
+                    className={cx(
+                      label,
+                      "text-azure flex items-center gap-1.5 mb-2",
+                    )}
+                  >
                     <Headset size={16} weight="bold" />
                     Driver-First Support
                   </span>
@@ -181,7 +220,9 @@ export function DriverOverview() {
                 </span>
               </div>
               <p className="mt-3 text-[14px] leading-[1.6] text-body-text m-0">
-                You are assigned a dedicated manager who knows your facility preferences, home time goals, and lane choices — treating you with total respect.
+                You are assigned a dedicated manager who knows your facility
+                preferences, home time goals, and lane choices — treating you
+                with total respect.
               </p>
             </div>
           </div>
