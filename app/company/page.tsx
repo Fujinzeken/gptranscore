@@ -10,9 +10,9 @@ import { AboutCTA } from "@/components/about-us/about-cta";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "About Us | PKT Group",
+  title: "About PKT | Asset-Based Truckload Carrier",
   description:
-    "20 years of redefining trucking through innovation, integrity, and an uncompromising commitment to safety. Learn about PKT Group's mission, values, and leadership.",
+    "A carrier that owns its authority and answers its phone. PKT runs truckload freight on 48-state authority from Illinois.",
 };
 
 const LINKS: SectionLink[] = [

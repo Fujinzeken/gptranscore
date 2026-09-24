@@ -21,7 +21,11 @@ import { btn, btnSolid, btnGhost, btnHero, cx, label } from "../ui";
  * The three mono pills state the claims the sections below have to earn.
  */
 
-const PILLARS = ["AI-POWERED MONITORING", "E-SMART ACTIVE SAFETY", "TOP CSA SCORES"];
+const PILLARS = [
+  "AI-POWERED MONITORING",
+  "E-SMART ACTIVE SAFETY",
+  "TOP CSA SCORES",
+];
 
 export function SafetyHero() {
   const { open: openQuote } = useQuote();
@@ -60,8 +64,7 @@ export function SafetyHero() {
             "font-black uppercase leading-[0.88] tracking-[-0.03em] text-paper",
           )}
         >
-          Safety Is Built Into{" "}
-          <span className="text-azure-hi">Every Mile We Run</span>
+          Safety and <span className="text-azure-hi">compliance</span>
         </h1>
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
@@ -95,7 +98,7 @@ export function SafetyHero() {
               "shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)] max-[560px]:justify-center",
             )}
           >
-            Ship With Us
+            Request a Quote
             <ArrowRight size={18} />
           </button>
 

@@ -44,8 +44,8 @@ export function AboutHero() {
             "font-black uppercase leading-[0.88] tracking-[-0.03em] text-paper",
           )}
         >
-          20 Years of Redefining <br />
-          <span className="text-azure-hi">Trucking</span>
+          Who <br />
+          <span className="text-azure-hi">we are.</span>
         </h1>
 
         {/* Subtitle */}

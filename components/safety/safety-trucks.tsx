@@ -32,8 +32,8 @@ export function SafetyTrucks() {
               "text-[clamp(30px,4.2vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink-text",
             )}
           >
-            Safety Features on{" "}
-            <span className="text-azure">PKT Group Trucks &amp; Trailers</span>
+            Equipment that{" "}
+            <span className="text-azure">works.</span>
           </h2>
           <p
             style={{ "--i": 3 } as React.CSSProperties}
@@ -42,8 +42,10 @@ export function SafetyTrucks() {
               "mt-6 max-w-[58ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
             )}
           >
-            Our modern fleet is equipped with advanced safety features designed
-            to protect drivers, cargo, and the public.
+            Preventive maintenance on a set schedule rather than repair when
+            something fails · pre-trip and post-trip inspections on every run ·
+            annual DOT inspections · defects reported and repaired before
+            dispatch.
           </p>
         </div>
 

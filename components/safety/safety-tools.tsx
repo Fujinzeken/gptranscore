@@ -61,7 +61,7 @@ export function SafetyTools() {
               "text-[clamp(30px,4.2vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink-text",
             )}
           >
-            Advanced Safety <span className="text-azure">Management Tools</span>
+            Safety built into <span className="text-azure">every mile.</span>
           </h2>
           <p
             style={{ "--i": 3 } as React.CSSProperties}
@@ -70,8 +70,10 @@ export function SafetyTools() {
               "mt-6 max-w-[58ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
             )}
           >
-            PKT Group partners with industry-leading safety technology
-            providers to ensure the highest standards of fleet safety.
+            Good transportation should be predictable. Safety at PKT comes
+            down to four things — equipment that works, drivers who are
+            qualified to be in it, standards everyone understands, and one
+            rule that settles any argument.
           </p>
         </div>
 

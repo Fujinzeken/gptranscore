@@ -16,13 +16,13 @@ import { cx, label } from "../ui";
 const PILLARS = [
   {
     icon: UserCheck,
-    title: "High-Value Shipment Assignment",
-    body: "High-value loads are assigned exclusively to ELITE and highly tenured drivers with top safety performance and proven decision-making.",
+    title: "Secured to the FMCSA standard",
+    body: "Freight is secured to the FMCSA standard — the same rulebook every load is held to, no exceptions.",
   },
   {
     icon: Broadcast,
-    title: "Real-Time Monitoring",
-    body: "State-of-the-art surveillance technology alerts our team as soon as a high-value load begins moving. Our systems ping every 2 seconds for real-time location updates — an industry rarity — providing continuous visibility and proactive response from pickup to delivery.",
+    title: "Temperature-controlled monitoring",
+    body: "Temperature-controlled loads are monitored per refrigerated service standards, from set point to delivery.",
   },
 ];
 
@@ -45,7 +45,8 @@ export function SafetySecurity() {
               "text-[clamp(30px,4.2vw,60px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink-text",
             )}
           >
-            Shipment <span className="text-azure">Security</span>
+            Cargo, secured to{" "}
+            <span className="text-azure">standard.</span>
           </h2>
           <p
             style={{ "--i": 3 } as React.CSSProperties}
@@ -54,9 +55,9 @@ export function SafetySecurity() {
               "mt-6 max-w-[58ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
             )}
           >
-            At PKT Group, shipment security starts with who we assign and how we
-            monitor every move — especially for high-value and sensitive
-            freight.
+            Freight secured to the FMCSA standard, and temperature-controlled
+            loads monitored per refrigerated service standards — the load
+            arrives the way it left the dock.
           </p>
         </div>
 

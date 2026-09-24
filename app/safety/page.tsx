@@ -10,14 +10,16 @@ import {
   SafetyWeather,
   SafetySecurity,
   SafetyTrucks,
+  SafetyDrivers,
+  SafetyHours,
   SafetyCta,
 } from "@/components/safety";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Fleet Safety | PKT Group",
+  title: "Safety and Compliance | PKT",
   description:
-    "Safety is at the core of everything we do. AI-powered monitoring, E-SMART active safety, and Safety Connect — every safety data source in one in-house platform.",
+    "How PKT keeps freight moving predictably: maintained equipment, qualified drivers and clear operating standards.",
 };
 
 const LINKS: SectionLink[] = [
@@ -29,6 +31,8 @@ const LINKS: SectionLink[] = [
   { id: "weather", label: "Weather Intel" },
   { id: "security", label: "Security" },
   { id: "trucks", label: "Truck Features" },
+  { id: "drivers", label: "Qualified Drivers" },
+  { id: "hours", label: "Hours & Fatigue" },
 ];
 
 export default function SafetyPage() {
@@ -44,6 +48,9 @@ export default function SafetyPage() {
       <SafetyWeather />
       <SafetySecurity />
       <SafetyTrucks />
+      <SafetyHours />
+      <SafetyDrivers />
+
       <SafetyCta />
       <SiteFooter />
     </>

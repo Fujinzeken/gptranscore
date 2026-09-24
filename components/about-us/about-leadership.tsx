@@ -82,12 +82,13 @@ export function AboutLeadership() {
           </div>
 
           <h2 className="font-display text-[clamp(34px,4.5vw,64px)] font-black uppercase leading-[0.96] tracking-[-0.03em] text-ink-text">
-            Visionary <span className="text-azure">Leaders</span>
+            Who runs <span className="text-azure">PKT</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-[55ch] text-[clamp(15px,1.2vw,18.5px)] leading-[1.6] text-body-text">
-            Meet the executives driving innovation, technological excellence, and
-            uncompromising standards at PKT Group.
+            At our size, you work with the people on this page directly. Each
+            entry: name, title, what they handle for a customer or driver, years
+            in the industry, direct phone and email.
           </p>
         </div>
 

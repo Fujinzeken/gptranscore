@@ -67,10 +67,14 @@ export function AboutOverview() {
 
           {/* Narrative Lead */}
           <p className="mx-auto mt-6 max-w-[62ch] text-[clamp(15px,1.2vw,18px)] leading-[1.7] text-body-text">
-            Since our founding, PKT Group has grown from a small operation into
-            one of the most respected asset-based carriers in the Midwest. Our
-            success is built on a simple principle: treat customers and drivers
-            right, invest in technology, and never compromise on safety.
+            PKT is an asset-based truckload carrier operating from Illinois on
+            48-state authority. We started in 2024 with a simple idea: run our
+            own freight properly. The authority, the insurance and the dispatch
+            are all ours — when something changes on your load, the person you
+            call is the person who can act on it. We run dry van, refrigerated,
+            flatbed and step deck freight across the contiguous US. What we
+            offer is direct access and a fast answer; when we take your load, we
+            move it.
           </p>
 
           {/* Three Stat Pillar Counters */}

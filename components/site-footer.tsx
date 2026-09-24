@@ -27,7 +27,7 @@ const COLUMNS = [
     links: [
       { label: "About Us", href: "/company" },
       { label: "Leadership", href: "/company#leadership" },
-      { label: "Awards", href: "/company#awards" },
+      { label: "Contact us", href: "/contact" },
       { label: "Careers", href: "/careers" },
     ],
   },

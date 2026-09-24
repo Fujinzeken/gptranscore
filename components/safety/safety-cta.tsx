@@ -38,10 +38,9 @@ export function SafetyCta() {
       </h2>
 
       <p className="mx-auto mt-[clamp(18px,2.6vh,28px)] max-w-[56ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-        At PKT Group, safety isn&apos;t just a priority — it&apos;s a core value
-        that drives every decision we make. From advanced technology to
-        comprehensive training, we&apos;re committed to protecting our drivers,
-        customers, and communities.
+        48-state operating authority, active and in good standing ·
+        certificate of insurance available on request · USDOT and MC numbers
+        verifiable through FMCSA at any time.
       </p>
 
       <div className="mt-[clamp(28px,4vh,44px)] flex flex-wrap justify-center gap-[11px] max-[560px]:flex-col max-[560px]:items-stretch">

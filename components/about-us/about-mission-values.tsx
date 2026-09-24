@@ -1,24 +1,43 @@
 "use client";
 
-import { Handshake, Scales, Briefcase } from "@phosphor-icons/react/dist/ssr";
+import {
+  Handshake,
+  Scales,
+  Briefcase,
+  Package,
+  ShieldCheck,
+} from "@phosphor-icons/react/dist/ssr";
 import { cx, label } from "../ui";
 
 const values = [
   {
     icon: Handshake,
-    title: "Honesty",
-    description: "We communicate transparently and keep our promises.",
+    title: "Answer fast",
+    description: "A clear response on your lane the same day",
   },
   {
     icon: Scales,
-    title: "Integrity",
+    title: "Own the load",
     description:
-      "We conduct business ethically and stand by our principles.",
+      "Freight we accept moves under our authority with our people responsible for it from pickup through delivery",
   },
   {
     icon: Briefcase,
-    title: "Professionalism",
-    description: "We deliver excellence in everything we do.",
+    title: "Tell you first",
+    description:
+      "If a delivery time changes, you hear it from us with the updated ETA and what we're doing about it.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Respect the driver",
+    description:
+      "Everyone runs rested and within their hours; safety comes ahead of any load.",
+  },
+  {
+    icon: Package,
+    title: "Serve the freight we serve well",
+    description:
+      "We commit to the freight we can move properly, and we move it properly",
   },
 ];
 
@@ -43,7 +62,7 @@ export function AboutMissionValues() {
           <div className="inline-flex items-center gap-2 rounded-full border border-rule bg-page/80 px-4 py-1.5 backdrop-blur-sm shadow-sm mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-azure animate-pulse" />
             <span className={cx(label, "text-[11px] text-ink-text")}>
-              OUR MISSION
+              OUR Mission and Values
             </span>
           </div>
 
@@ -55,8 +74,8 @@ export function AboutMissionValues() {
           <p className="mx-auto mt-6 max-w-[70ch] text-[clamp(16px,1.25vw,19px)] leading-[1.7] text-body-text font-normal">
             Our mission is to provide safe, reliable transportation solutions
             through lasting relationships built on trust, commitment, and
-            effective communication. We honor our word, cultivate trust, and lead
-            with integrity — because our actions define who we are.
+            effective communication. We honor our word, cultivate trust, and
+            lead with integrity — because our actions define who we are.
           </p>
         </div>
 
@@ -66,7 +85,7 @@ export function AboutMissionValues() {
             <div className="inline-flex items-center gap-2 rounded-full border border-rule bg-page/80 px-4 py-1.5 backdrop-blur-sm shadow-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-azure" />
               <span className={cx(label, "text-[11px] text-ink-text")}>
-                OUR VALUES
+                What we hold ourselves to
               </span>
             </div>
           </div>

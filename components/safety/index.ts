@@ -7,4 +7,5 @@ export { SafetyEsmart } from "./safety-esmart";
 export { SafetyWeather } from "./safety-weather";
 export { SafetySecurity } from "./safety-security";
 export { SafetyTrucks } from "./safety-trucks";
+export { SafetyDrivers, SafetyHours } from "./safety-program";
 export { SafetyCta } from "./safety-cta";

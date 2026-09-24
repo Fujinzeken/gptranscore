@@ -2,8 +2,8 @@
  * Shared Telegram notification helper.
  *
  * Sends a lead notification to the configured contact chat via the Bot API.
- * Both lead routes (quote / driver-apply) call this after the row has been
- * recorded in Google Sheets.
+ * Every lead route (quote / driver-apply / quick-apply / contact) calls this
+ * after the row has been recorded in Google Sheets.
  *
  * Env vars (in .env / .env.local, server-side only):
  *   TELEGRAM_BOT_TOKEN       - token from @BotFather
@@ -90,6 +90,50 @@ export function notifyQuote(values: Record<string, string>, timestamp: string): 
     `\n<i>Received ${esc(timestamp)} CT</i>`;
 
   return sendTelegramMessage(html);
+}
+
+/**
+ * Display metadata for the /contact route ids. The alert must never make an
+ * admin translate an id like "quotes" mid-shift, so the route is spelled out
+ * and the free-text field is named for what it actually holds per route
+ * (a lane is not a "message"). The matching per-route sheet tabs are tracked
+ * in OPEN-ITEMS — these labels are the wording to use for them.
+ */
+const CONTACT_ROUTES: Record<string, { label: string; icon: string; field: string }> = {
+  quotes: { label: "New freight & quotes", icon: "🚚", field: "Lane" },
+  operations: { label: "Existing customers & operations", icon: "📦", field: "Details" },
+  recruiting: { label: "Driver recruiting", icon: "🚛", field: "Details" },
+  vendors: { label: "Vendors & general", icon: "🤝", field: "Topic" },
+};
+
+/**
+ * Renders the /contact alert. Exported on its own so the message shape can be
+ * inspected (or asserted in tests) without sending anything to Telegram.
+ */
+export function contactMessageHtml(
+  values: Record<string, string>,
+  timestamp: string,
+): string {
+  const route = CONTACT_ROUTES[values.route];
+  const label = route?.label ?? values.route;
+  const icon = route?.icon ?? "📬";
+  const field = route?.field ?? "Message";
+
+  return (
+    `${icon} <b>New Contact Message</b>\n` +
+    `<b>Route:</b> ${esc(label)}${route ? ` (${esc(values.route)})` : ""}\n\n` +
+    line("Name", values.name) +
+    line("Phone", values.phone) +
+    line("Email", values.email) +
+    line("Best time", values.hours) +
+    line(field, values.message) +
+    `\n<i>Received ${esc(timestamp)} CT</i>`
+  );
+}
+
+/** Builds and sends the general contact-message notification (/contact). */
+export function notifyContact(values: Record<string, string>, timestamp: string): Promise<boolean> {
+  return sendTelegramMessage(contactMessageHtml(values, timestamp));
 }
 
 /** Builds and sends the driver-application notification. */
