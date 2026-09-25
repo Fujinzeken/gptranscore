@@ -1,35 +1,73 @@
-"use client";
-
-import { useState } from "react";
 import {
   ArrowRight,
-  ChartLineUp,
-  Coins,
-  Headset,
-  Heart,
-  ShieldCheck,
-  TrendUp,
-  Trophy,
-  Truck,
+  Handshake,
+  SteeringWheel,
 } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
-import { useQuote } from "../quote-modal";
-import { btn, btnSolid, btnHero, cx, label } from "../ui";
+import { btn, btnOutline, btnSolid, btnHero, cx, label } from "../ui";
 
 /**
- * Driver Overview Section ("Why Drivers Choose Us").
+ * Driver Careers overview: the CSV intro and the two paths it names.
  *
- * Light field (bg-page) following the dark DriverHero plate.
- * Rebuilt as an Asymmetric Driver Earnings & Value Bento Stage rather than
- * a uniform grid of identical cards.
+ * Copy is the DRIVER CAREERS — HUB row of the content pack. Pay and home time
+ * are answered by recruiting on the phone rather than with published figures,
+ * so neither card states a number.
  */
 
-export function DriverOverview() {
-  const { open: openQuote } = useQuote();
-  const [selectedPayTab, setSelectedPayTab] = useState<"first" | "elite">(
-    "first",
-  );
+type Path = {
+  icon: typeof SteeringWheel;
+  tag: string;
+  name: string;
+  lead: string;
+  points: Array<{ term: string; detail: string }>;
+  primary: { label: string; href: string };
+  secondary?: { label: string; href: string };
+  featured?: boolean;
+};
 
+const PATHS: Path[] = [
+  {
+    icon: SteeringWheel,
+    tag: "Company driver",
+    name: "We provide the truck, you drive it.",
+    lead: "The truck, the trailer, fuel, maintenance, insurance and the freight are ours.",
+    points: [
+      {
+        term: "Pay",
+        detail:
+          "We set pay per driver based on experience and route. Call +1 (224) 666-0136 and we'll tell you what your lane pays before you apply.",
+      },
+      {
+        term: "Home time",
+        detail:
+          "Depends on the run. Tell us where you live and we'll tell you what's realistic.",
+      },
+    ],
+    primary: { label: "CDL-A Jobs", href: "/careers/jobs" },
+    secondary: { label: "About company driving", href: "/careers/company-drivers" },
+  },
+  {
+    icon: Handshake,
+    tag: "Owner-operator",
+    name: "Your truck, our authority and freight.",
+    lead: "Steady freight without chasing loads.",
+    points: [
+      {
+        term: "Freight",
+        detail:
+          "We run under our own authority with our own customer base, so the freight is there.",
+      },
+      {
+        term: "Dispatch",
+        detail: "The same dispatcher every week rather than whoever picks up.",
+      },
+    ],
+    primary: { label: "Lease On", href: "/careers/owner-operators" },
+    featured: true,
+  },
+];
+
+export function DriverOverview() {
   return (
     <section
       id="overview"
@@ -39,208 +77,115 @@ export function DriverOverview() {
         <header
           className={cx(
             revealItem,
-            "text-center max-w-[740px] mx-auto mb-[clamp(44px,6.5vh,72px)]",
+            "max-w-[740px] mb-[clamp(44px,6.5vh,72px)]",
           )}
         >
-          <p
-            className={cx(
-              label,
-              "text-azure mb-3 flex items-center justify-center gap-2",
-            )}
-          >
-            <Heart size={14} weight="bold" />
-            Why Choose PKT Group
-          </p>
+          <p className={cx(label, "text-azure mb-3")}>Drive for PKT</p>
 
           <h2 className="type-display m-0 text-[clamp(32px,4.5vw,62px)] text-ink-text leading-[0.94]">
-            Why Drivers <span className="text-azure">Choose Us</span>
+            Pick the path that fits how you want to work.
           </h2>
 
-          <p className="mt-4 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
+          <p className="mt-5 text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
             At PKT, dispatch knows who you are, what you drive and where you
-            live. We run dry van, reefer, flatbed and step deck freight across
-            48 states. Pick the path that fits how you want to work.
+            live. We run dry van, reefer and flatbed freight across 48 states.
+            Pick the path that fits how you want to work.
           </p>
         </header>
+      </Reveal>
 
-        {/* Asymmetric Bento Stage */}
+      <Reveal>
         <div
           style={{ "--i": 1 } as React.CSSProperties}
-          className={cx(
-            revealItem,
-            "grid grid-cols-12 gap-6 max-w-[1280px] mx-auto items-stretch",
+          className={cx(revealItem, "grid gap-px bg-line md:grid-cols-2")}
+        >
+          {PATHS.map(
+            ({ icon: Icon, tag, name, lead, points, primary, secondary, featured }) => (
+              <article
+                key={tag}
+                className={cx(
+                  "flex flex-col justify-between p-[clamp(24px,3vw,44px)]",
+                  featured ? "bg-ink" : "bg-surface",
+                )}
+              >
+                <div>
+                  <p
+                    className={cx(
+                      label,
+                      "m-0 flex items-center gap-2 border-b pb-4",
+                      featured
+                        ? "border-rule text-azure-hi"
+                        : "border-line text-azure",
+                    )}
+                  >
+                    <Icon size={18} weight="bold" />
+                    {tag}
+                  </p>
+
+                  <h3
+                    className={cx(
+                      "font-display mt-5 mb-3 text-[clamp(24px,2.6vw,34px)] font-bold leading-snug",
+                      featured ? "text-paper" : "text-ink-text",
+                    )}
+                  >
+                    {name}
+                  </h3>
+                  <p
+                    className={cx(
+                      "m-0 text-[clamp(15px,1.1vw,17px)] leading-[1.6]",
+                      featured ? "text-mute" : "text-body-text",
+                    )}
+                  >
+                    {lead}
+                  </p>
+
+                  <dl className="m-0 mt-6">
+                    {points.map(({ term, detail }) => (
+                      <div
+                        key={term}
+                        className={cx(
+                          "grid grid-cols-[7rem_1fr] gap-4 border-t py-4 max-[480px]:grid-cols-1 max-[480px]:gap-1",
+                          featured ? "border-rule" : "border-line",
+                        )}
+                      >
+                        <dt
+                          className={cx(
+                            label,
+                            featured ? "text-mute-2" : "text-soft-text",
+                          )}
+                        >
+                          {term}
+                        </dt>
+                        <dd
+                          className={cx(
+                            "m-0 text-[15px] leading-[1.6]",
+                            featured ? "text-mute" : "text-body-text",
+                          )}
+                        >
+                          {detail}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a href={primary.href} className={cx(btn, btnSolid, btnHero)}>
+                    {primary.label}
+                    <ArrowRight size={17} weight="bold" />
+                  </a>
+                  {secondary ? (
+                    <a
+                      href={secondary.href}
+                      className={cx(btn, btnOutline, btnHero)}
+                    >
+                      {secondary.label}
+                    </a>
+                  ) : null}
+                </div>
+              </article>
+            ),
           )}
-        >
-          {/* Main Hero Bento Card: Driver Pay & Salary Comparison (7 Cols) */}
-          <div className="col-span-12 lg:col-span-7 bg-surface border border-line p-[clamp(28px,4vw,48px)] flex flex-col justify-between shadow-sm">
-            <div>
-              <div className="flex items-center justify-between gap-4 pb-4 border-b border-line">
-                <span
-                  className={cx(label, "text-azure flex items-center gap-2")}
-                >
-                  <Coins size={18} weight="bold" />
-                  Industry-Leading Earning Power
-                </span>
-                <span className="font-mono text-xs font-semibold text-azure bg-azure/10 px-3 py-1 rounded-full">
-                  Verified W2 Earnings
-                </span>
-              </div>
-
-              <h3 className="font-display text-[clamp(24px,2.8vw,36px)] font-bold text-ink-text mt-5 mb-3 leading-snug">
-                Earn well above the national average
-              </h3>
-              <p className="text-[15px] leading-[1.65] text-body-text m-0 max-w-[54ch]">
-                First-year drivers at PKT Group earn{" "}
-                <strong className="text-ink-text">$80,000 to $110,000</strong>{" "}
-                annually — nearly double the national average CDL-A salary of
-                $54,320. Plus, receive an automatic{" "}
-                <strong className="text-azure">
-                  +1 CPM raise every single year
-                </strong>
-                .
-              </p>
-
-              {/* Salary Comparison Bar Visual */}
-              <div className="mt-8 bg-page border border-line p-5 space-y-4">
-                <div>
-                  <div className="flex justify-between text-xs font-semibold mb-1.5">
-                    <span className="text-ink-text">
-                      PKT Group First-Year Driver
-                    </span>
-                    <span className="text-azure font-mono font-bold">
-                      $80,000 – $110,000/yr
-                    </span>
-                  </div>
-                  <div className="h-3 w-full bg-line rounded-full overflow-hidden">
-                    <div className="h-full bg-azure rounded-full w-[92%] transition-all duration-500" />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs text-body-text mb-1.5">
-                    <span>National Average CDL-A Salary</span>
-                    <span className="font-mono">$54,320/yr</span>
-                  </div>
-                  <div className="h-2.5 w-full bg-line rounded-full overflow-hidden">
-                    <div className="h-full bg-soft-text/40 rounded-full w-[52%]" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-5 border-t border-line flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-2 text-xs font-semibold text-ink-text">
-                <TrendUp size={16} className="text-azure" weight="bold" />
-                <span>+1 CPM Guaranteed Annual Raise</span>
-              </div>
-              <span className="text-xs text-body-text">
-                No caps on experience earnings
-              </span>
-            </div>
-          </div>
-
-          {/* Secondary Stacked Bento Columns (5 Cols) */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col gap-6">
-            {/* Card A: ELITE Driver Score Program */}
-            <div className="bg-surface border border-line p-[clamp(24px,3vw,36px)] flex-1 flex flex-col justify-between shadow-sm">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <span
-                    className={cx(
-                      label,
-                      "text-azure flex items-center gap-1.5 mb-2",
-                    )}
-                  >
-                    <Trophy size={16} weight="bold" />
-                    Performance Bonus
-                  </span>
-                  <h4 className="font-display text-xl font-bold text-ink-text m-0">
-                    ELITE Driver Program
-                  </h4>
-                </div>
-                <span className="font-mono text-xs font-bold text-azure bg-azure/10 px-2.5 py-1 rounded-full whitespace-nowrap">
-                  +$7,400 / yr
-                </span>
-              </div>
-              <p className="mt-3 text-[14px] leading-[1.6] text-body-text m-0">
-                Earn up to{" "}
-                <strong className="text-ink-text">$7,400 extra per year</strong>{" "}
-                through our transparent, performance-based driver score program
-                evaluating safety and fuel efficiency.
-              </p>
-            </div>
-
-            {/* Card B: Equipment & Rest */}
-            <div className="bg-surface border border-line p-[clamp(24px,3vw,36px)] flex-1 flex flex-col justify-between shadow-sm">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <span
-                    className={cx(
-                      label,
-                      "text-azure flex items-center gap-1.5 mb-2",
-                    )}
-                  >
-                    <Truck size={16} weight="bold" />
-                    Late-Model Fleet
-                  </span>
-                  <h4 className="font-display text-xl font-bold text-ink-text m-0">
-                    1.5 Year Average Fleet Age
-                  </h4>
-                </div>
-                <span className="font-mono text-xs font-bold text-ink-text bg-page border border-line px-2.5 py-1 rounded-full whitespace-nowrap">
-                  Cascadias Only
-                </span>
-              </div>
-              <p className="mt-3 text-[14px] leading-[1.6] text-body-text m-0">
-                Drive clean, late-model Freightliner Cascadias specced with
-                luxury sleeper cabs, APU solar power, and collision avoidance
-                technology.
-              </p>
-            </div>
-
-            {/* Card C: Respect & Dedicated Support */}
-            <div className="bg-surface border border-line p-[clamp(24px,3vw,36px)] flex-1 flex flex-col justify-between shadow-sm">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <span
-                    className={cx(
-                      label,
-                      "text-azure flex items-center gap-1.5 mb-2",
-                    )}
-                  >
-                    <Headset size={16} weight="bold" />
-                    Driver-First Support
-                  </span>
-                  <h4 className="font-display text-xl font-bold text-ink-text m-0">
-                    24/7 Dedicated Managers
-                  </h4>
-                </div>
-                <span className="font-mono text-xs font-bold text-azure bg-azure/10 px-2.5 py-1 rounded-full whitespace-nowrap">
-                  1-on-1 Contact
-                </span>
-              </div>
-              <p className="mt-3 text-[14px] leading-[1.6] text-body-text m-0">
-                You are assigned a dedicated manager who knows your facility
-                preferences, home time goals, and lane choices — treating you
-                with total respect.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div
-          style={{ "--i": 2 } as React.CSSProperties}
-          className={cx(revealItem, "mt-12 flex justify-center")}
-        >
-          <button
-            type="button"
-            onClick={openQuote}
-            className={cx(btn, btnSolid, btnHero, "shadow-md")}
-          >
-            Start Your Application
-            <ArrowRight size={17} />
-          </button>
         </div>
       </Reveal>
     </section>

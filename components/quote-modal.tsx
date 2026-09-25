@@ -22,6 +22,7 @@ import {
   X,
 } from "@phosphor-icons/react/dist/ssr";
 import type { Icon } from "@phosphor-icons/react";
+import { SmsConsent } from "./sms-consent";
 import { btn, btnOutline, btnSolid, cx, label as labelType } from "./ui";
 
 /**
@@ -145,12 +146,8 @@ const STEPS: Step[] = [
         label: "Equipment",
         options: [
           "Dry Van",
-          "Conestoga",
-          "Expedited",
-          "Intermodal",
-          "Partial Truckload",
-          "Volume LTL",
-          "Air Ride",
+          "Refrigerated",
+          "Flatbed",
           "Not sure yet",
         ],
         half: true,
@@ -211,6 +208,7 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
+  const [smsConsent, setSmsConsent] = useState(false);
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const restoreTo = useRef<HTMLElement | null>(null);
@@ -304,7 +302,11 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          smsConsent,
+          source: window.location.pathname,
+        }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
@@ -324,6 +326,7 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
     setIndex(0);
     setValues({});
     setErrors({});
+    setSmsConsent(false);
     setSent(false);
   }
 
@@ -370,11 +373,11 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
               Quote request sent
             </h2>
             <p className="mx-auto mt-4 max-w-[46ch] text-[15.5px] leading-[1.6] text-body-text">
-              Same-day response guaranteed. We will come back to{" "}
+              We will come back to{" "}
               <span className="font-semibold text-ink-text">
                 {values.email || "your email"}
               </span>{" "}
-              with pricing and available capacity.
+              the same day with pricing and available capacity.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <button
@@ -546,6 +549,14 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
                   );
                 })}
               </div>
+
+              {step.key === "contact" ? (
+                <SmsConsent
+                  checked={smsConsent}
+                  onChange={setSmsConsent}
+                  className="mt-6"
+                />
+              ) : null}
             </div>
 
             <div className="flex items-center justify-between gap-4 border-t border-line px-[clamp(20px,3vw,40px)] py-5">

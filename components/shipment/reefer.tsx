@@ -17,8 +17,9 @@ import { cx, label } from "../ui";
  * content pack). Copy is CSV-verbatim. Equipment placeholders ([UNIT MAKE],
  * [YEAR RANGE], [RANGE], [MONITORING METHOD], [INTERVALS]) are unresolved in
  * the structured fields, so the spec sheet renders only what the notes column
- * confirms — 2025 Great Danes, Carrier/Thermo King units, continuous and
- * start-stop modes, 24/7 road service — and offers full specs on request.
+ * confirms — 2025 Great Danes, Carrier/Thermo King units under warranty,
+ * continuous and start-stop modes, 24/7 road service, and the produce /
+ * grocery / dairy / meat and poultry focus — and offers full specs on request.
  * Logged in OPEN-ITEMS for confirmation.
  */
 
@@ -102,7 +103,7 @@ export function RFIntro() {
 const SPECS: Array<[string, string]> = [
   ["Length", "53-foot reefer trailers"],
   ["Fleet", "Brand-new 2025 Great Dane reefers"],
-  ["Units", "Carrier and Thermo King refrigeration"],
+  ["Units", "Carrier and Thermo King refrigeration, under manufacturer warranty"],
   ["Modes", "Continuous and start-stop (cycle)"],
   ["Roadside", "24/7 road service when a reefer faces an issue in transit"],
 ];
@@ -260,9 +261,9 @@ const HAUL: Array<{ name: string; detail: string }> = [
       "Fresh produce, dairy, packaged meat and poultry, frozen foods, temperature-controlled beverages, bakery, prepared meals.",
   },
   {
-    name: "Temperature-sensitive",
+    name: "Other temperature-sensitive",
     detail:
-      "Floral, personal care with temperature specs, packaged goods with tolerances — freight where a range matters even without active cooling demands.",
+      "Floral, personal care with temperature specs, packaged goods with tolerances.",
   },
   {
     name: "Protected freight",
@@ -292,6 +293,17 @@ export function RFHaul() {
         >
           Three freight families, one set point.
         </h2>
+
+        <p
+          style={{ "--i": 2 } as React.CSSProperties}
+          className={cx(
+            revealItem,
+            "mt-5 max-w-[58ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
+          )}
+        >
+          Most of the reefer freight we move is produce, grocery, dairy, and
+          meat and poultry.
+        </p>
 
         {/* The manifest. Ruled rows, names as display type, the same
             ground-shift hover the homepage equipment list uses. */}
@@ -336,6 +348,60 @@ export function RFHaul() {
   );
 }
 
+const BOOKING = [
+  "Set point",
+  "Continuous or cycle",
+  "Receiver temperature tolerances",
+  "Whether the freight is pre-cooled at origin",
+  "Reefer download needs",
+  "Appointment windows",
+];
+
+export function RFBooking() {
+  return (
+    <section id="booking" className="bg-ink px-gut py-[clamp(96px,15vh,190px)]">
+      <Reveal>
+        <div className="grid grid-cols-12 gap-x-[clamp(32px,5vw,88px)] gap-y-[clamp(36px,6vh,64px)] max-[1000px]:grid-cols-1">
+          <div className="col-span-5 max-[1000px]:col-span-1">
+            <p
+              style={{ "--i": 0 } as React.CSSProperties}
+              className={cx(label, revealItem, "m-0 text-mute-2")}
+            >
+              Additional booking requirements
+            </p>
+            <h2
+              style={{ "--i": 1 } as React.CSSProperties}
+              className={cx(
+                revealItem,
+                "type-display m-0 mt-[clamp(18px,2.6vh,30px)] max-w-[12em]",
+                "text-[clamp(26px,3.6vw,52px)] text-paper",
+              )}
+            >
+              What we need on top of the lane.
+            </h2>
+          </div>
+
+          <ul className="col-span-7 m-0 list-none border-t border-rule p-0 max-[1000px]:col-span-1">
+            {BOOKING.map((item, i) => (
+              <li
+                key={item}
+                style={{ "--i": i + 2 } as React.CSSProperties}
+                className={cx(
+                  revealItem,
+                  "flex items-center gap-4 border-b border-rule py-5 text-[clamp(15px,1.2vw,18px)] leading-[1.5] text-paper",
+                )}
+              >
+                <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-azure-hi" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 export function RFCrossSell() {
   return (
     <section
@@ -360,7 +426,7 @@ export function RFCrossSell() {
             )}
           >
             Dry freight books through dry van; oversized building materials go
-            flatbed or step deck.
+            flatbed.
           </h2>
         </Reveal>
 
@@ -369,13 +435,12 @@ export function RFCrossSell() {
             style={{ "--i": 2 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-3",
+              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-2",
             )}
           >
             {[
               { label: "Dry Van", href: "/services/dry-van" },
               { label: "Flatbed", href: "/services/flatbed" },
-              { label: "Step Deck", href: "/services/step-deck" },
             ].map(({ label: l, href }) => (
               <a
                 key={l}
@@ -416,7 +481,7 @@ export function RFQuote() {
       onPrimary={openQuote}
       secondaryLabel="Back to Freight Services"
       secondaryHref="/services"
-      note="Send set point · Mode · Tolerances · Pre-cool · Appointments"
+      note="Send set point · Mode · Receiver tolerances · Pre-cool · Download needs · Appointments"
     />
   );
 }

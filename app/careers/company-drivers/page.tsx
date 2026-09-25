@@ -4,6 +4,7 @@ import {
   CDHero,
   CDIntro,
   CDStay,
+  CDMore,
   CDClosing,
 } from "@/components/driver-careers/company-drivers";
 import { SiteFooter } from "@/components/site-footer";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 const LINKS: SectionLink[] = [
   { id: "intro", label: "Company Drivers" },
   { id: "stay", label: "Why Drivers Stay" },
+  { id: "more", label: "New Drivers & Freight" },
   { id: "apply", label: "Apply" },
 ];
 
@@ -27,6 +29,7 @@ export default function CompanyDriversPage() {
       <SectionNav links={LINKS} />
       <CDIntro />
       <CDStay />
+      <CDMore />
       <CDClosing />
       <SiteFooter />
     </>

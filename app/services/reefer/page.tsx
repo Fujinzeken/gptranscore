@@ -6,6 +6,7 @@ import {
   RFEquipment,
   RFProtect,
   RFHaul,
+  RFBooking,
   RFCrossSell,
   RFQuote,
 } from "@/components/shipment/reefer";
@@ -22,6 +23,7 @@ const LINKS: SectionLink[] = [
   { id: "equipment", label: "Equipment" },
   { id: "protecting", label: "Protecting the Load" },
   { id: "haul", label: "What We Haul" },
+  { id: "booking", label: "Booking Requirements" },
   { id: "quote", label: "Get a Quote" },
 ];
 
@@ -45,6 +47,7 @@ export default function ReeferPage() {
       <RFEquipment />
       <RFProtect />
       <RFHaul />
+      <RFBooking />
       <RFCrossSell />
       <RFQuote />
       <SiteFooter />

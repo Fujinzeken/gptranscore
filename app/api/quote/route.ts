@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { notifyQuote } from "../../lib/telegram";
+import { smsConsentFields } from "../../lib/sms-consent";
 
 /**
  * POST /api/quote
@@ -85,6 +86,8 @@ export async function POST(req: Request) {
     minute: "2-digit",
     second: "2-digit",
   });
+
+  Object.assign(values, smsConsentFields(body, req, timestamp));
 
   // Apps Script answers redirects with 302, so follow them.
   // Content-Type is text/plain to avoid the Apps Script pre-flight CORS preambles.

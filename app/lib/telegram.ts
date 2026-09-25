@@ -30,6 +30,13 @@ function line(label: string, value: string): string {
   return value ? `<b>${esc(label)}:</b> ${esc(value)}\n` : "";
 }
 
+/** "SMS consent: Yes · /contact" — the full wording lives in the sheet row. */
+function consentLine(values: Record<string, string>): string {
+  if (!values.smsConsent) return "";
+  const where = values.smsConsentSource ? ` · ${values.smsConsentSource}` : "";
+  return line("SMS consent", `${values.smsConsent}${where}`);
+}
+
 export async function sendTelegramMessage(html: string): Promise<boolean> {
   if (!BOT_TOKEN || !CHAT_ID) {
     console.warn(
@@ -87,6 +94,7 @@ export function notifyQuote(values: Record<string, string>, timestamp: string): 
     line("Weight", values.weight) +
     line("Commodity", values.commodity) +
     line("Notes", values.notes) +
+    consentLine(values) +
     `\n<i>Received ${esc(timestamp)} CT</i>`;
 
   return sendTelegramMessage(html);
@@ -127,6 +135,7 @@ export function contactMessageHtml(
     line("Email", values.email) +
     line("Best time", values.hours) +
     (field ? line(field, values.message) : "") +
+    consentLine(values) +
     `\n<i>Received ${esc(timestamp)} CT</i>`
   );
 }
@@ -134,6 +143,21 @@ export function contactMessageHtml(
 /** Builds and sends the general contact-message notification (/contact). */
 export function notifyContact(values: Record<string, string>, timestamp: string): Promise<boolean> {
   return sendTelegramMessage(contactMessageHtml(values, timestamp));
+}
+
+/** Builds and sends the Quick Apply notification (/careers/apply). */
+export function notifyQuickApply(values: Record<string, string>, timestamp: string): Promise<boolean> {
+  const html =
+    `🚛 <b>New Quick Apply</b>\n\n` +
+    line("Name", `${values.firstName} ${values.lastName}`) +
+    line("Applying as", values.applyingAs) +
+    line("Phone", values.phone) +
+    line("State", values.state) +
+    line("CDL-A Experience", values.yearsExperience) +
+    consentLine(values) +
+    `\n<i>Received ${esc(timestamp)} CT</i>`;
+
+  return sendTelegramMessage(html);
 }
 
 /** Builds and sends the driver-application notification. */
@@ -154,6 +178,7 @@ export function notifyDriver(values: Record<string, string>, timestamp: string):
     line("DUI/DWI (5y)", values.dui5y) +
     line("Moving Violations (3y)", values.movingViolations3y) +
     line("Preventable Accidents (3y)", values.preventableAccidents3y) +
+    consentLine(values) +
     `\n<i>Received ${esc(timestamp)} CT</i>`;
 
   return sendTelegramMessage(html);

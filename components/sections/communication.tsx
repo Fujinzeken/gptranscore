@@ -1,7 +1,6 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
 import { btn, btnOutline, btnHero, cx, label } from "../ui";
-import { QuoteButton } from "./cta-buttons";
 
 /**
  * Homepage section 4 of 6 (Communication).
@@ -46,7 +45,8 @@ export function Communication() {
           )}
         >
           Freight changes, appointments move, weather happens. You get a direct
-          line to the person managing your shipment.
+          line to the person managing your shipment, and our dispatch team is
+          available around the clock.
         </p>
 
         {/* The artifact. One object carrying the argument. */}
@@ -74,7 +74,7 @@ export function Communication() {
 
           <dl className="col-span-4 col-start-9 m-0 self-end max-[820px]:col-span-1 max-[820px]:col-start-1">
             <p className={cx(label, "m-0 mb-1 text-mute")}>What you get</p>
-            {["The new ETA", "What we are doing about it"].map((row) => (
+            {["The new ETA", "What we are doing about it", "Dispatch 24/7"].map((row) => (
               <div
                 key={row}
                 className="flex items-baseline justify-between gap-4 border-b border-white/15 py-3.5 last:border-b-0"
@@ -92,12 +92,10 @@ export function Communication() {
           style={{ "--i": 3 } as React.CSSProperties}
           className={cx(revealItem, "mt-[clamp(28px,4vh,48px)] flex flex-wrap gap-3")}
         >
-          <QuoteButton
-            className={cx(btn, btnOutline, btnHero, "cursor-pointer")}
-          >
+          <a href="/contact" className={cx(btn, btnOutline, btnHero)}>
             Talk to Our Team
             <ArrowRight size={17} />
-          </QuoteButton>
+          </a>
         </div>
       </Reveal>
     </section>

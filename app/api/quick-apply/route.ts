@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { notifyDriver } from "../../lib/telegram";
+import { notifyQuickApply } from "../../lib/telegram";
+import { smsConsentFields } from "../../lib/sms-consent";
 
 /**
  * POST /api/quick-apply
@@ -10,8 +11,9 @@ import { notifyDriver } from "../../lib/telegram";
  * lands in the same "Driver Applications" tab with the reduced field set
  * (columns the quick form doesn't carry stay blank).
  *
- * Telegram notification mirrors /api/driver-apply: convenience channel,
- * never fails the request.
+ * Telegram notification is a convenience channel and never fails the
+ * request; it uses its own message shape since the quick form carries no
+ * city, ZIP or record questions.
  */
 
 const WEBAPP_URL = process.env.GOOGLE_SHEETS_WEBAPP_URL ?? "";
@@ -81,6 +83,8 @@ export async function POST(req: Request) {
     second: "2-digit",
   });
 
+  Object.assign(values, smsConsentFields(body, req, timestamp));
+
   const payload = JSON.stringify({ form: "driver", quick: true, timestamp, ...values });
   console.log(
     "[quick-apply] forwarding to Apps Script:",
@@ -141,7 +145,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const delivered = await notifyDriver(values, timestamp);
+  const delivered = await notifyQuickApply(values, timestamp);
   console.log(`[quick-apply] telegram notification ${delivered ? "sent" : "failed/skipped"}`);
 
   return NextResponse.json({ ok: true });

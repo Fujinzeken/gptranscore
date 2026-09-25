@@ -1,4 +1,3 @@
-export { ShipTechnology } from "./ship-technology";
 export { DVIntro, DVEquipment, DVHaul, DVCrossSell, DVQuote } from "./dry-van";
 export {
   RFIntro,
@@ -17,14 +16,11 @@ export {
   FBCrossSell,
   FBQuote,
 } from "./flatbed";
-export { ShipTrailers } from "./ship-trailers";
-export { ShipComparison } from "./ship-comparison";
-export { ShipAward } from "./ship-award";
-export { ShipOpenRoad } from "./ship-openroad";
-export { ShipFeatures } from "./ship-features";
-export { ShipSustainability } from "./ship-sustainability";
-export { ShipEliteDrivers } from "./ship-elite-drivers";
-export { ShipSupport } from "./ship-support";
-export { ShipCustomers } from "./ship-customers";
-export { ShipCaseStudies } from "./ship-case-studies";
-export { HubIntro, HubHowItMoves, HubCommunication, HubCoverage, HubQuote } from "./hub-sections";
+export {
+  HubIntro,
+  HubEquipment,
+  HubHowItMoves,
+  HubCommunication,
+  HubCoverage,
+  HubQuote,
+} from "./hub-sections";

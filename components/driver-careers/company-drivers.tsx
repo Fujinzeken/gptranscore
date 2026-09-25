@@ -1,29 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
-  PhoneCall,
+  Check,
+  Phone,
   SteeringWheel,
 } from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "../site-nav";
 import { Reveal, revealItem } from "../reveal";
 import { ClosingCTA } from "../closing-cta";
-import { useDriverApply } from "../driver-apply-modal";
 import { btn, btnGhost, btnHero, btnSolid, cx, label } from "../ui";
 
 /**
  * Company drivers page sections (CAREERS — COMPANY DRIVERS row of the
- * content pack). Copy is CSV-verbatim. The recruiting-note column is
- * marketing voice and unconfirmed, so it is not rendered; the page sells
- * what the row confirms — what the company provides and why drivers stay.
+ * content pack). Body copy is CSV-verbatim. The recruiting notes (training
+ * for new CDL holders, USPS freight, new dry vans) are rewritten as plain
+ * facts in CDMore; their hype ("get richer", "paycheck to paycheck") is not.
  */
 
-const FREIGHT_TYPES = ["DRY VAN", "REEFER", "OPEN DECK", "48 STATES"];
+const FREIGHT_TYPES = ["DRY VAN", "REEFER", "FLATBED", "48 STATES"];
 
 export function CDHero() {
-  const { openApplyModal } = useDriverApply();
-
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
@@ -63,7 +62,7 @@ export function CDHero() {
         </h1>
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-          OTR company driver positions running dry van, reefer and open deck
+          OTR company driver positions running dry van, reefer and flatbed
           freight across 48 states.
         </p>
 
@@ -79,9 +78,8 @@ export function CDHero() {
         </div>
 
         <div className="mt-[clamp(24px,3.4vh,38px)] flex flex-wrap gap-[11px] max-[560px]:flex-col max-[560px]:items-stretch">
-          <button
-            type="button"
-            onClick={openApplyModal}
+          <a
+            href="/careers/jobs"
             className={cx(
               btn,
               btnHero,
@@ -91,14 +89,13 @@ export function CDHero() {
           >
             See Open Positions
             <ArrowRight size={18} />
-          </button>
+          </a>
 
           <a
-            href="/careers"
+            href="/careers/apply?type=company-driver"
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
-            <PhoneCall size={17} />
-            Drive With PKT
+            Quick Apply
           </a>
         </div>
       </div>
@@ -106,13 +103,13 @@ export function CDHero() {
   );
 }
 
-const PROVIDES: Array<[string, string]> = [
-  ["Truck", "Late-model tractor, assigned to you"],
-  ["Trailer", "Dry van, reefer or open deck"],
-  ["Fuel", "On us"],
-  ["Maintenance", "Preventive, scheduled, our shop"],
-  ["Insurance", "Liability and cargo"],
-  ["Freight", "Ours — you never chase loads"],
+const PROVIDES = [
+  "The truck",
+  "The trailer",
+  "Fuel",
+  "Maintenance",
+  "Insurance",
+  "The freight",
 ];
 
 export function CDIntro() {
@@ -136,7 +133,8 @@ export function CDIntro() {
                 "text-[clamp(26px,3.6vw,52px)] text-ink-text",
               )}
             >
-              Not trying to be a bigger carrier. Trying to be a good one.
+              We are not trying to become a bigger carrier — we are trying to
+              be a good one.
             </h2>
 
             <p
@@ -146,8 +144,8 @@ export function CDIntro() {
                 "mt-5 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
               )}
             >
-              Dispatch knows what you drive and where you live; when you call,
-              someone picks up. Nobody here gets pushed to run tired or run past
+              That means dispatch knows what you drive and where you live; when
+              you call, someone picks up. Nobody here gets pushed to run tired or run past
               their hours — a load is never worth your license.
             </p>
           </div>
@@ -171,14 +169,14 @@ export function CDIntro() {
               <span className={cx(label, "text-mute-2")}>What we provide</span>
             </div>
             <ul className="m-0 list-none border-t border-rule">
-              {PROVIDES.map(([term, detail]) => (
+              {PROVIDES.map((item) => (
                 <li
-                  key={term}
-                  className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-b border-rule py-4 max-[420px]:grid-cols-1 max-[420px]:gap-1"
+                  key={item}
+                  className="flex items-center gap-3 border-b border-rule py-4"
                 >
-                  <span className={cx(label, "m-0 text-mute-2")}>{term}</span>
+                  <Check size={16} weight="bold" className="shrink-0 text-azure-hi" />
                   <span className="text-[clamp(14px,1.05vw,16px)] leading-[1.5] text-paper">
-                    {detail}
+                    {item}
                   </span>
                 </li>
               ))}
@@ -213,7 +211,7 @@ const STAY: Array<{ name: string; detail: string }> = [
   {
     name: "Equipment that works",
     detail:
-      "2025–2026 tractors on a preventive maintenance schedule — breakdowns cost you money, so we work to avoid them.",
+      "2025 Kenworth and Freightliner Cascadia tractors on a preventive maintenance schedule — breakdowns cost you money, so we work to avoid them.",
   },
 ];
 
@@ -285,8 +283,88 @@ export function CDStay() {
   );
 }
 
+const MORE: Array<{ name: string; detail: string }> = [
+  {
+    name: "Training for new CDL-A holders",
+    detail:
+      "Newly licensed? Our training program gets you from licence to running loads, with our team behind you while you build experience.",
+  },
+  {
+    name: "USPS freight for US citizens",
+    detail:
+      "We have dry van coverage on USPS freight for company drivers who are US citizens.",
+  },
+  {
+    name: "New 53′ dry vans",
+    detail:
+      "Brand-new 53′ swing-door trailers, and first-come, first-served facilities that typically have you loaded and back on the road in about two hours.",
+  },
+  {
+    name: "No owner-operator overhead",
+    detail:
+      "Steady paychecks without carrying the fuel, maintenance and insurance costs of running your own truck.",
+  },
+  {
+    name: "Clean-inspection bonus",
+    detail: "Every driver earns a bonus for maintaining a clean inspection record.",
+  },
+  {
+    name: "Support around the clock",
+    detail:
+      "24/7 assistance from our dispatch, maintenance, pre-trip inspection (PTI) and fuel teams.",
+  },
+];
+
+export function CDMore() {
+  return (
+    <section
+      id="more"
+      className="bg-surface border-y border-line px-gut py-[clamp(78px,12vh,150px)]"
+    >
+      <Reveal>
+        <p
+          style={{ "--i": 0 } as React.CSSProperties}
+          className={cx(label, revealItem, "m-0 text-azure")}
+        >
+          Also for company drivers
+        </p>
+
+        <h2
+          style={{ "--i": 1 } as React.CSSProperties}
+          className={cx(
+            revealItem,
+            "type-display m-0 mt-[clamp(18px,2.6vh,30px)] max-w-[16em]",
+            "text-[clamp(26px,3.6vw,52px)] text-ink-text",
+          )}
+        >
+          Room for new drivers and steady freight for everyone.
+        </h2>
+
+        <div
+          style={{ "--i": 2 } as React.CSSProperties}
+          className={cx(
+            revealItem,
+            "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-2",
+          )}
+        >
+          {MORE.map(({ name, detail }) => (
+            <div key={name} className="bg-paper p-[clamp(24px,2.6vw,36px)]">
+              <h3 className="font-display m-0 pb-2 text-[20px] font-bold tracking-[-0.01em] text-ink-text">
+                {name}
+              </h3>
+              <p className="m-0 text-[15px] leading-[1.6] text-body-text">
+                {detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 export function CDClosing() {
-  const { openApplyModal } = useDriverApply();
+  const router = useRouter();
 
   return (
     <ClosingCTA
@@ -304,12 +382,13 @@ export function CDClosing() {
           <span className="text-azure-hi">the name.</span>
         </>
       }
-      copy="We provide the truck, the trailer, the fuel, the maintenance, the insurance and the freight — you drive. Apply and we'll tell you what your lane pays."
-      primaryLabel="Apply to Drive"
-      onPrimary={openApplyModal}
-      secondaryLabel="Back to Drive With PKT"
-      secondaryHref="/careers"
-      note="Recruiting Team Active Mon–Fri · Direct Human Response"
+      copy="We provide the truck, the trailer, fuel, maintenance, insurance and the freight — you drive. Call and we'll tell you what your lane pays before you apply."
+      primaryLabel="See Open Positions"
+      onPrimary={() => router.push("/careers/jobs")}
+      secondaryLabel="+1 (224) 666-0136"
+      secondaryHref="tel:+12246660136"
+      SecondaryIcon={Phone}
+      note="Recruiting · Mon–Sat · 8 AM–5 PM CDT"
     />
   );
 }

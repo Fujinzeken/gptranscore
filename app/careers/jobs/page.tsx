@@ -6,6 +6,10 @@ import {
   DJOpenings,
   DJClosing,
 } from "@/components/driver-careers/driver-jobs";
+import {
+  activeJobs,
+  jobPostingJsonLd,
+} from "@/components/driver-careers/jobs-data";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
@@ -14,6 +18,9 @@ export const metadata: Metadata = {
     "Current CDL-A company driver and owner-operator openings. Filter by state and route type.",
 };
 
+/** Re-render hourly so postings past their validThrough drop off the board. */
+export const revalidate = 3600;
+
 const LINKS: SectionLink[] = [
   { id: "board", label: "How the Board Works" },
   { id: "openings", label: "Openings" },
@@ -21,12 +28,25 @@ const LINKS: SectionLink[] = [
 ];
 
 export default function DriverJobsPage() {
+  const jobs = activeJobs();
   return (
     <>
+      {jobs.map((job) => (
+        <script
+          key={job.id}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jobPostingJsonLd(job)).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
+      ))}
       <DJHero />
       <SectionNav links={LINKS} />
       <DJSpecimen />
-      <DJOpenings />
+      <DJOpenings jobs={jobs} />
       <DJClosing />
       <SiteFooter />
     </>

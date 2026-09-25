@@ -7,11 +7,14 @@ import {
   MapTrifold,
   NotePencil,
   Package,
+  Snowflake,
+  Stack,
   Truck,
 } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
 import { useQuote } from "../quote-modal";
 import { btn, btnSolid, btnHero, cx, label } from "../ui";
+import { LaneMap } from "./lane-map";
 
 /**
  * Freight Services hub sections. Copy transcribed from the PKT content pack
@@ -49,9 +52,9 @@ export function HubIntro() {
                 "mt-5 max-w-[52ch] text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-ink/80",
               )}
             >
-              We run dry van, refrigerated, flatbed and step deck equipment
-              across 48 states. The people you call about a load are the people
-              who dispatched it.
+              We run dry van, refrigerated and flatbed equipment across 48
+              states. The people you call about a load are the people who
+              dispatched it.
             </p>
           </div>
         </Reveal>
@@ -71,6 +74,74 @@ export function HubIntro() {
               className="object-cover object-[52%_58%]"
             />
           </figure>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+const EQUIPMENT = [
+  {
+    icon: Package,
+    name: "Dry Van",
+    body: "53' enclosed capacity for freight that travels at ambient temperature.",
+    href: "/services/dry-van",
+  },
+  {
+    icon: Snowflake,
+    name: "Refrigerated",
+    body: "Temperature-controlled truckload for freight that has to arrive at temperature.",
+    href: "/services/reefer",
+  },
+  {
+    icon: Stack,
+    name: "Flatbed",
+    body: "Open deck capacity for freight loading from the side, rear or overhead.",
+    href: "/services/flatbed",
+  },
+];
+
+export function HubEquipment() {
+  return (
+    <section
+      id="equipment"
+      className="relative border-t border-line bg-paper px-gut py-[clamp(64px,10vh,120px)]"
+    >
+      <div className="mx-auto max-w-[1200px]">
+        <Reveal>
+          <p className={cx(label, "text-azure mb-6")}>Equipment</p>
+          <h2 className="font-display m-0 max-w-[16em] text-[clamp(30px,3.6vw,52px)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-ink">
+            Pick the trailer your freight needs.
+          </h2>
+          <ul className="m-0 mt-[clamp(36px,5vh,60px)] grid list-none gap-px bg-line p-0 md:grid-cols-3">
+            {EQUIPMENT.map(({ icon: Icon, name, body, href }, i) => (
+              <li key={name} className="bg-surface">
+                <a
+                  href={href}
+                  style={{ "--i": i } as React.CSSProperties}
+                  className={cx(
+                    revealItem,
+                    "group flex h-full flex-col gap-4 p-[clamp(24px,2.6vw,36px)] transition-colors duration-300 hover:bg-paper",
+                  )}
+                >
+                  <Icon size={24} weight="bold" className="text-azure" />
+                  <span className="font-display text-[22px] font-bold uppercase tracking-[-0.01em] text-ink">
+                    {name}
+                  </span>
+                  <span className="text-[15px] leading-[1.6] text-ink/75">
+                    {body}
+                  </span>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-2 text-[14px] font-semibold text-azure">
+                    View {name}
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </section>
@@ -154,7 +225,6 @@ export function HubHowItMoves() {
 }
 
 export function HubCommunication() {
-  const { open: openQuote } = useQuote();
   return (
     <section
       id="communication"
@@ -162,7 +232,7 @@ export function HubCommunication() {
     >
       <Image
         src="/case-haul.jpg"
-        alt="A PKT driver at the wheel of a company Freightliner Cascadia."
+        alt="A PKT driver at the wheel."
         fill
         sizes="100vw"
         className="-z-10 object-cover object-[64%_38%]"
@@ -200,35 +270,24 @@ export function HubCommunication() {
           directly by operations.
         </p>
 
-        <button
-          type="button"
-          onClick={openQuote}
+        <a
+          href="/contact"
           style={{ "--i": 3 } as React.CSSProperties}
           className={cx(
             revealItem,
             btn,
             btnHero,
             btnSolid,
-            "mt-[clamp(26px,4vh,44px)] cursor-pointer shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)]",
+            "mt-[clamp(26px,4vh,44px)] shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)]",
           )}
         >
           Talk to Our Team
           <ArrowRight size={17} />
-        </button>
+        </a>
       </Reveal>
     </section>
   );
 }
-
-/** Lanes from the content pack's notes — the lanes PKT runs regularly. */
-const LANES = [
-  "WI → FL", "WI → MA", "WI → CT", "WI → NJ",
-  "IL → FL", "IL → GA", "IL → TX",
-  "NJ → MI", "NJ → GA", "NJ → SC", "NJ → NC", "NJ → FL",
-  "FL → NC", "FL → GA",
-  "GA → OH", "GA → MI",
-  "NC → IN", "KY → TX",
-];
 
 export function HubCoverage() {
   const { open: openQuote } = useQuote();
@@ -244,14 +303,16 @@ export function HubCoverage() {
             Where we run
           </p>
           <h2 className="font-display m-0 text-[clamp(30px,3.6vw,52px)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-ink">
-            48-state authority, regular lanes in the middle of the map.
+            48-state authority, regular lanes where we run most.
           </h2>
           <p className="mt-6 text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-ink/80">
             PKT holds 48-state operating authority and runs OTR across the
-            contiguous US. The lanes below are where we run most consistently —
-            fastest quote turnaround. Freight outside these lanes is open to us
-            depending on where equipment sits that week; send the lane for a
-            same-day answer.
+            contiguous US. The lanes on the map are where we run most
+            consistently — Midwest to the Northeast, Northeast to the
+            Southeast, and Southeast to the Midwest — with the fastest quote
+            turnaround. Freight outside these lanes is open to us depending on
+            where equipment sits that week; send the lane for a same-day
+            answer.
           </p>
           <button
             type="button"
@@ -263,22 +324,7 @@ export function HubCoverage() {
           </button>
         </Reveal>
         <Reveal>
-          <div className={revealItem}>
-          <div className="grid grid-cols-2 gap-px bg-line sm:grid-cols-3">
-            {LANES.map((lane) => (
-              <div
-                key={lane}
-                className="flex items-center justify-center bg-paper px-4 py-5 text-[14px] font-semibold uppercase tracking-[0.04em] text-ink"
-              >
-                {lane}
-              </div>
-            ))}
-          </div>
-          <p className={cx(label, "mt-4 text-soft-text")}>
-            Regular lanes · weekly freight can be reviewed for ongoing or
-            dedicated capacity
-          </p>
-          </div>
+          <LaneMap className={revealItem} />
         </Reveal>
       </div>
     </section>
@@ -312,9 +358,9 @@ export function HubQuote() {
             Send the details, get a clear answer.
           </h2>
           <p className="mt-6 max-w-[48ch] text-[clamp(15px,1.1vw,17px)] leading-[1.65] text-mute">
-            Weekly freight can be reviewed for ongoing or dedicated capacity —
-            send the lane, loads per week, schedules, commodity, average weight,
-            loading method and receiver requirements.
+            Weekly freight can be reviewed for ongoing capacity — send the
+            lane, loads per week, schedules, commodity, average weight, loading
+            method and receiver requirements.
           </p>
           <button
             type="button"

@@ -22,7 +22,7 @@ import { ApplyButton, QuoteButton } from "./cta-buttons";
 const DOORS = [
   {
     heading: "Move freight",
-    body: "Need a truck? Tell us the origin, destination, equipment and pickup date — we'll tell you whether PKT can cover it.",
+    body: "Need a truck? Tell us the origin, destination, equipment and pickup date. We'll tell you whether PKT can cover it.",
     action: "Request a Quote",
     tone: "ink" as const,
   },

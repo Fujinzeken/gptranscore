@@ -11,7 +11,13 @@ export const metadata: Metadata = {
     "Four questions, about a minute. No resume, no uploads, no account.",
 };
 
-export default function QuickApplyPage() {
+export default async function QuickApplyPage({
+  searchParams,
+}: PageProps<"/careers/apply">) {
+  const { type } = await searchParams;
+  const initialApplyingAs =
+    type === "owner-operator" ? "Owner-Operator" : "Company Driver";
+
   return (
     <>
       {/* Compact hero — this page's job is the form, not a build-up. */}
@@ -43,7 +49,7 @@ export default function QuickApplyPage() {
           </p>
         </div>
       </div>
-      <QuickApply />
+      <QuickApply key={initialApplyingAs} initialApplyingAs={initialApplyingAs} />
       <SiteFooter />
     </>
   );

@@ -1,31 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Phone } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "../site-nav";
 import { useQuote } from "../quote-modal";
 import { btn, btnSolid, btnGhost, btnHero, cx, label } from "../ui";
 
 /**
- * Safety hero.
- *
- * Same register as every sub-page hero: full-height ink plate, full-bleed
- * photograph under the side scrim, display headline with the accent on the
- * final clause. The prod page opened with a lavender icon pill ("Safety
- * Leader") above a headline that said the company name; the icon pill is the
- * register the system bans and the company name is already in the nav, so
- * this opens with the mono kicker and a claim instead.
- *
- * The photograph is a tractor at work on the interstate — the environment
- * the safety system operates in, and the subject the whole page protects.
- * The three mono pills state the claims the sections below have to earn.
+ * Safety hero. Same register as every sub-page hero: full-height ink plate,
+ * full-bleed photograph under the side scrim, display headline. The pills
+ * name the standards the sections below document.
  */
 
-const PILLARS = [
-  "AI-POWERED MONITORING",
-  "E-SMART ACTIVE SAFETY",
-  "TOP CSA SCORES",
-];
+const PILLARS = ["MAINTAINED EQUIPMENT", "QUALIFIED DRIVERS", "48-STATE AUTHORITY"];
 
 export function SafetyHero() {
   const { open: openQuote } = useQuote();
@@ -34,7 +21,7 @@ export function SafetyHero() {
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
         src="/demo-home/demo1.jpg"
-        alt="A PKT Group tractor running under an overpass on the interstate"
+        alt="A PKT tractor running under an overpass on the interstate"
         fill
         priority
         sizes="100vw"
@@ -55,7 +42,7 @@ export function SafetyHero() {
           )}
         >
           <ShieldCheck size={15} weight="bold" />
-          Fleet Safety
+          Safety
         </p>
 
         <h1
@@ -68,14 +55,10 @@ export function SafetyHero() {
         </h1>
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-          Safety is at the core of everything we do. From advanced AI-powered
-          monitoring to comprehensive driver training, PKT Group employs
-          industry-leading safety practices to protect our drivers, cargo, and
-          the public.
+          How PKT keeps freight moving predictably: maintained equipment,
+          qualified drivers and clear operating standards.
         </p>
 
-        {/* Pillars, in the innovation hero's mono pill register. Claims the
-            page then has to prove section by section. */}
         <div className="mt-6 flex flex-wrap gap-2.5">
           {PILLARS.map((pillar) => (
             <span
@@ -103,11 +86,10 @@ export function SafetyHero() {
           </button>
 
           <a
-            href="tel:+18004605071"
+            href="#compliance"
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
-            <Phone size={17} />
-            (800) 460-5071
+            USDOT &amp; MC Numbers
           </a>
         </div>
       </div>

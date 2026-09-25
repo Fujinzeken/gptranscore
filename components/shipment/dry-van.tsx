@@ -37,7 +37,7 @@ export function DVIntro() {
                 "text-[clamp(26px,3.6vw,52px)] text-ink-text",
               )}
             >
-              Enclosed capacity for freight that travels at ambient
+              53&prime; enclosed capacity for freight that travels at ambient
               temperature.
             </h2>
 
@@ -48,8 +48,8 @@ export function DVIntro() {
                 "mt-5 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
               )}
             >
-              Full truckload across the contiguous US, including OTR, recurring
-              lanes and dedicated opportunities.
+              Full truckload across the contiguous US, including OTR and
+              recurring lanes.
             </p>
 
             <p
@@ -94,7 +94,10 @@ const SPECS: Array<[string, string]> = [
   ["Doors", "Swing doors"],
   ["Fleet age", "Brand-new trailers"],
   ["Freight", "Palletized and floor-loaded"],
-  ["Loading", "FCFS facilities — loaded and on the road in about 2 hours"],
+  [
+    "Loading",
+    "First-come, first-served facilities — typically loaded and on the road in about 2 hours",
+  ],
 ];
 
 export function DVEquipment() {
@@ -285,7 +288,7 @@ export function DVCrossSell() {
             )}
           >
             Temperature-controlled food books through refrigerated; oversized
-            building materials go flatbed or step deck.
+            building materials go flatbed.
           </h2>
 
           <p
@@ -301,20 +304,19 @@ export function DVCrossSell() {
         </Reveal>
 
         {/* Service cards on the gap-px hairline grid — the vocabulary the rest
-            of the site uses for sibling links. Full-width row so the three
-            cards get real presence instead of fighting a tall headline. */}
+            of the site uses for sibling links. Full-width row so the cards
+            get real presence instead of fighting a tall headline. */}
         <Reveal>
           <div
             style={{ "--i": 3 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-3",
+              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-2",
             )}
           >
             {[
               { label: "Refrigerated", href: "/services/reefer" },
               { label: "Flatbed", href: "/services/flatbed" },
-              { label: "Step Deck", href: "/services/step-deck" },
             ].map(({ label: l, href }) => (
               <a
                 key={l}

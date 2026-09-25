@@ -7,16 +7,15 @@ import { useQuote } from "../quote-modal";
 import { useDriverApply } from "../driver-apply-modal";
 import { btn, btnGhost, btnHero, btnSolid, cx, label } from "../ui";
 
-// PKT Group's published equipment and service list.
+// Proof strip and equipment lines from the content pack's home row.
 const EQUIPMENT = [
+  "Operating since 2018",
+  "48-state authority",
+  "Asset-based carrier",
+  "2025 equipment",
   "Dry Van",
-  "Conestoga",
-  "Expedited",
-  "Intermodal",
-  "Partial Truckload",
-  "Volume LTL",
-  "Air Ride",
-  "Guaranteed Delivery",
+  "Refrigerated",
+  "Flatbed",
 ];
 
 /**
@@ -104,7 +103,7 @@ export function Manifest() {
       </header>
 
       <div
-        aria-label="Equipment and services"
+        aria-label="About PKT at a glance"
         className={cx(
           "relative z-10 mt-[clamp(30px,5vh,64px)] shrink-0 overflow-hidden border-t border-rule",
         )}

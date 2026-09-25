@@ -1,20 +1,27 @@
-"use client";
-
+import Link from "next/link";
 import { House, Truck } from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { ClosingCTA } from "@/components/closing-cta";
+import { NotFoundCta } from "@/components/not-found-cta";
 import { cx, label } from "@/components/ui";
 
 /**
- * 404 — "Wrong turn at the interchange." Built in the site's own language:
- * the dark cinematic plate, a ruled dispatch readout as the artifact, and
- * the standard ClosingCTA for the way back. No dead end — every exit is a
- * working route.
+ * 404 — "Wrong turn at the interchange." The dark cinematic plate, a ruled
+ * readout of the ways back in, and the standard ClosingCTA. No dead end —
+ * every exit is a working route.
  */
+
+const ROUTES: Array<[string, string, string]> = [
+  ["Freight", "Freight Services", "/services"],
+  ["Drivers", "Driver Careers", "/careers"],
+  ["Openings", "Open Driver Positions", "/careers/jobs"],
+  ["Contact", "Reach the right team", "/contact"],
+];
+
 export default function NotFound() {
   return (
     <>
+      <title>Page Not Found | PKT Logistics</title>
       <div className="bg-ink">
         <SiteNav tone="dark" />
       </div>
@@ -47,15 +54,15 @@ export default function NotFound() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
+              <Link
                 href="/"
                 className={cx(
                   "inline-flex items-center gap-2.5 rounded-full bg-azure px-8 py-3.5 text-[15.5px] font-semibold text-ink shadow-lg shadow-azure/25 transition-colors hover:bg-azure-hi",
                 )}
               >
                 <House size={18} weight="bold" />
-                Back to the yard
-              </a>
+                Back to the homepage
+              </Link>
               <a
                 href="/services"
                 className={cx(
@@ -65,67 +72,38 @@ export default function NotFound() {
                 View Freight Services
               </a>
             </div>
-
-            <p className="mt-6 flex items-center gap-2 text-xs font-mono text-mute">
-              <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Status: 404 · Page not found · Nothing lost
-            </p>
           </div>
 
-          {/* The artifact: a dispatch readout for the missing page. */}
-          <div className="col-span-5 bg-deep p-[clamp(28px,3.6vw,56px)] max-[1000px]:col-span-1">
+          <nav
+            aria-label="Ways back in"
+            className="col-span-5 bg-deep p-[clamp(28px,3.6vw,56px)] max-[1000px]:col-span-1"
+          >
             <div className="flex items-center justify-between pb-6">
               <Truck size={30} weight="bold" className="text-azure-hi" />
-              <span className={cx(label, "text-mute-2")}>Dispatch readout</span>
+              <span className={cx(label, "text-mute-2")}>Re-route</span>
             </div>
-            <ul className="m-0 list-none border-t border-rule">
-              {[
-                ["Status", "404 — page not found"],
-                ["Route", "Not on our map"],
-                ["Freight", "Unaffected — in transit"],
-                ["Action", "Head back and re-dispatch"],
-              ].map(([term, detail]) => (
+            <ul className="m-0 list-none border-t border-rule p-0">
+              {ROUTES.map(([term, text, href]) => (
                 <li
                   key={term}
                   className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-b border-rule py-4 max-[420px]:grid-cols-1 max-[420px]:gap-1"
                 >
                   <span className={cx(label, "m-0 text-mute-2")}>{term}</span>
-                  <span className="text-[clamp(14px,1.05vw,16px)] leading-[1.5] text-paper">
-                    {detail}
-                  </span>
+                  <a
+                    href={href}
+                    className="text-[clamp(14px,1.05vw,16px)] leading-[1.5] text-paper transition-colors hover:text-azure-hi"
+                  >
+                    {text} →
+                  </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
       </main>
 
       <NotFoundCta />
       <SiteFooter />
     </>
-  );
-}
-
-function NotFoundCta() {
-  return (
-    <ClosingCTA
-      id="not-found-quote"
-      ariaLabel="Recover from a missing page"
-      eyebrow="Still need something?"
-      headline={
-        <>
-          Get a real <span className="text-azure-hi">answer.</span>
-        </>
-      }
-      copy="If you were looking for capacity, not a page — send the lane and we'll come back with a clear answer on availability."
-      primaryLabel="Request a Quote"
-      onPrimary={() => {
-        window.location.assign("/services");
-      }}
-      secondaryLabel="Back to the yard"
-      secondaryHref="/"
-      SecondaryIcon={House}
-      note="Status: 404 · Re-route available"
-    />
   );
 }

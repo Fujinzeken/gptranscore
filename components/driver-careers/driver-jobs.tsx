@@ -1,38 +1,49 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   Briefcase,
-  PhoneCall,
   SteeringWheel,
 } from "@phosphor-icons/react/dist/ssr";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { SiteNav } from "../site-nav";
 import { Reveal, revealItem } from "../reveal";
 import { ClosingCTA } from "../closing-cta";
-import { useDriverApply } from "../driver-apply-modal";
 import { btn, btnGhost, btnHero, btnSolid, cx, label } from "../ui";
+import { DRIVER_TYPES, type DriverType, type JobPosting } from "./jobs-data";
 
 /**
  * Driver jobs board page (CAREERS — DRIVER JOBS row of the content pack).
- * Copy is CSV-verbatim. The CSV defines the board — what each posting shows
- * and the leave-your-details fallback — but contains no posting records, so
- * the board renders the posting specimen and an honest empty state. The
- * sitemap's JobPosting structured-data + expiry requirement is logged in
- * OPEN-ITEMS before real listings go live.
+ * Copy is CSV-verbatim. Postings come from jobs-data.ts, already filtered to
+ * unexpired records by the page; filters run by state and driver type, and
+ * the empty state is the CSV's own fallback: leave your details and we'll
+ * call when something opens near you.
  */
 
-const TYPES = ["Company Driver", "Owner-Operator"] as const;
+const LEAVE_DETAILS_HREF = "/careers/apply";
+
+/** Contiguous US, the footprint of PKT's 48-state authority. */
+const STATES = [
+  "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "ID", "IL", "IN",
+  "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
+  "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
+  "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+];
+
+function applyHref(type: DriverType) {
+  return `/careers/apply?type=${
+    type === "Owner-Operator" ? "owner-operator" : "company-driver"
+  }`;
+}
 
 export function DJHero() {
-  const { openApplyModal } = useDriverApply();
-
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
         src="/driver-highlight.png"
-        alt="A PKT driver on the road — openings are posted the day they are real."
+        alt="A PKT driver on the road."
         fill
         priority
         sizes="100vw"
@@ -67,15 +78,14 @@ export function DJHero() {
         </h1>
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-          Company driver and owner-operator openings, filtered by state and
-          type. If nothing matches your state, leave your details and
-          we&rsquo;ll call when something opens near you.
+          Filter by state and by type — company driver or owner-operator. If
+          nothing matches your state, leave your details and we&rsquo;ll call
+          when something opens near you.
         </p>
 
         <div className="mt-[clamp(24px,3.4vh,38px)] flex flex-wrap gap-[11px] max-[560px]:flex-col max-[560px]:items-stretch">
-          <button
-            type="button"
-            onClick={openApplyModal}
+          <a
+            href="#openings"
             className={cx(
               btn,
               btnHero,
@@ -83,16 +93,15 @@ export function DJHero() {
               "shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)] max-[560px]:justify-center",
             )}
           >
-            Leave Your Details
+            See Openings
             <ArrowRight size={18} />
-          </button>
+          </a>
 
           <a
-            href="/careers/company-drivers"
+            href={LEAVE_DETAILS_HREF}
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
-            <PhoneCall size={17} />
-            Company Drivers
+            Leave Your Details
           </a>
         </div>
       </div>
@@ -100,21 +109,20 @@ export function DJHero() {
   );
 }
 
-const FIELDS: Array<{ n: string; name: string; detail: string }> = [
-  { n: "01", name: "Title", detail: "What the truck actually does" },
-  { n: "02", name: "Driver type", detail: "Company driver or owner-operator" },
-  { n: "03", name: "Route type", detail: "Home daily, weekly, or OTR" },
-  { n: "04", name: "Hiring states", detail: "Where the opening is real" },
-  { n: "05", name: "Pay or split", detail: "The number, before you apply" },
-  { n: "06", name: "Home time", detail: "What the run actually gives you" },
-  { n: "07", name: "Equipment", detail: "The tractor and trailer you'd run" },
-  { n: "08", name: "Experience minimum", detail: "Whether your record fits" },
+const FIELDS: Array<{ n: string; name: string }> = [
+  { n: "01", name: "Title" },
+  { n: "02", name: "Driver type" },
+  { n: "03", name: "Route type" },
+  { n: "04", name: "Hiring states" },
+  { n: "05", name: "Pay or split" },
+  { n: "06", name: "Home time" },
+  { n: "07", name: "Equipment" },
+  { n: "08", name: "Experience minimum" },
 ];
 
 /**
  * The posting specimen: the CSV's "each posting shows" list rendered as a
- * ruled manifest — the shape every opening takes, so the empty board still
- * makes a promise about what will appear on it.
+ * ruled manifest — the shape every opening takes.
  */
 export function DJSpecimen() {
   return (
@@ -147,21 +155,19 @@ export function DJSpecimen() {
                 "mt-5 max-w-[48ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
               )}
             >
-              No vague ads. Each opening on this board carries the same eight
-              fields, so you can decide whether it fits before you apply —
-              not after.
+              Each opening shows the same eight details, so you can decide
+              whether it fits before you apply.
             </p>
           </div>
 
           <dl className="col-span-7 m-0 max-[1000px]:col-span-1">
-            {FIELDS.map(({ n, name, detail }, i) => (
+            {FIELDS.map(({ n, name }, i) => (
               <div
                 key={n}
                 style={{ "--i": i + 3 } as React.CSSProperties}
                 className={cx(
                   revealItem,
-                  "grid grid-cols-[2rem_9rem_1fr] items-baseline gap-x-[clamp(12px,2vw,28px)] border-b border-line py-4 first:border-t",
-                  "max-[560px]:grid-cols-[2rem_1fr] max-[560px]:gap-y-1",
+                  "grid grid-cols-[2rem_1fr] items-baseline gap-x-[clamp(12px,2vw,28px)] border-b border-line py-4 first:border-t",
                 )}
               >
                 <span className="font-mono text-xs font-bold text-azure tabular-nums">
@@ -170,9 +176,6 @@ export function DJSpecimen() {
                 <dt className="m-0 font-display text-[clamp(16px,1.4vw,19px)] font-bold tracking-[-0.01em] text-ink-text">
                   {name}
                 </dt>
-                <dd className="m-0 max-[560px]:col-start-2 text-[clamp(14px,1.05vw,15.5px)] leading-[1.55] text-soft-text">
-                  {detail}
-                </dd>
               </div>
             ))}
           </dl>
@@ -182,20 +185,66 @@ export function DJSpecimen() {
   );
 }
 
-/**
- * The board itself. The CSV carries no posting records, so the filters and
- * the posting grid exist and are wired, and the empty state is the CSV's
- * own fallback: leave your details and we'll call when something opens
- * near you. No invented openings.
- */
-export function DJOpenings() {
-  const { openApplyModal } = useDriverApply();
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+function JobCard({ job }: { job: JobPosting }) {
+  const rows: Array<[string, string]> = [
+    ["Driver type", job.driverType],
+    ["Route type", job.routeType],
+    ["Hiring states", job.hiringStates.join(", ")],
+    [job.driverType === "Owner-Operator" ? "Split" : "Pay", job.pay],
+    ["Home time", job.homeTime],
+    ["Equipment", job.equipment],
+    ["Experience", job.experience],
+  ];
+  return (
+    <article className="flex flex-col justify-between bg-deep border border-rule p-[clamp(22px,2.6vw,36px)]">
+      <div>
+        <h3 className="font-display m-0 text-[clamp(20px,2vw,26px)] font-bold leading-[1.15] text-paper">
+          {job.title}
+        </h3>
+        <dl className="m-0 mt-5">
+          {rows.map(([term, detail]) => (
+            <div
+              key={term}
+              className="grid grid-cols-[8rem_1fr] gap-3 border-t border-rule py-2.5 text-[14px]"
+            >
+              <dt className="text-mute-2">{term}</dt>
+              <dd className="m-0 text-paper">{detail}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <a
+        href={applyHref(job.driverType)}
+        className={cx(btn, btnHero, btnSolid, "mt-6 self-start")}
+      >
+        Apply
+        <ArrowRight size={17} weight="bold" />
+      </a>
+    </article>
+  );
+}
 
-  const toggleType = (t: string) =>
+export function DJOpenings({ jobs }: { jobs: JobPosting[] }) {
+  const [selectedTypes, setSelectedTypes] = useState<DriverType[]>([]);
+  const [state, setState] = useState("");
+
+  const toggleType = (t: DriverType) =>
     setSelectedTypes((prev) =>
       prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t],
     );
+
+  const filtered = useMemo(
+    () =>
+      jobs.filter(
+        (job) =>
+          (selectedTypes.length === 0 ||
+            selectedTypes.includes(job.driverType)) &&
+          (!state || job.hiringStates.includes(state)),
+      ),
+    [jobs, selectedTypes, state],
+  );
+
+  const filtering = selectedTypes.length > 0 || state !== "";
 
   return (
     <section
@@ -220,7 +269,7 @@ export function DJOpenings() {
           </p>
 
           <h2 className="type-display m-0 text-[clamp(26px,3.6vw,52px)] text-paper leading-[0.94]">
-            Current openings, by type.
+            Current openings, by state and type.
           </h2>
         </header>
       </Reveal>
@@ -233,12 +282,29 @@ export function DJOpenings() {
             "flex flex-wrap items-center justify-center gap-2 mb-8",
           )}
         >
-          {TYPES.map((t) => {
+          <label className="sr-only" htmlFor="job-state">
+            State
+          </label>
+          <select
+            id="job-state"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            className="h-9 rounded-full border border-rule-lit bg-ink px-4 text-xs font-semibold uppercase tracking-wider text-paper"
+          >
+            <option value="">All states</option>
+            {STATES.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+          {DRIVER_TYPES.map((t) => {
             const active = selectedTypes.includes(t);
             return (
               <button
                 key={t}
                 type="button"
+                aria-pressed={active}
                 onClick={() => toggleType(t)}
                 className={cx(
                   "px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 rounded-full cursor-pointer",
@@ -254,45 +320,50 @@ export function DJOpenings() {
         </div>
       </Reveal>
 
-      {/* The honest empty state — the CSV's fallback, not invented listings. */}
-      <Reveal>
-        <div
-          style={{ "--i": 2 } as React.CSSProperties}
-          className={cx(
-            revealItem,
-            "mx-auto max-w-[760px] bg-deep border border-rule rounded-2xl px-[clamp(28px,4vw,56px)] py-[clamp(40px,6vh,72px)] text-center",
-          )}
-        >
-          <span className={cx(label, "text-mute-2")}>Board status</span>
-
-          <p className="font-display m-0 mt-4 text-[clamp(20px,2.4vw,30px)] font-bold leading-[1.1] tracking-[-0.015em] text-paper">
-            {selectedTypes.length > 0
-              ? "Nothing posted under that filter yet."
-              : "No postings are live on this board right now."}
-          </p>
-
-          <p className="m-0 mt-4 mx-auto max-w-[52ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">
-            Openings go up the day they&rsquo;re real. If nothing matches your
-            state, leave your details and we&rsquo;ll call when something
-            opens near you.
-          </p>
-
-          <button
-            type="button"
-            onClick={openApplyModal}
-            className={cx(btn, btnHero, btnSolid, "mt-8 cursor-pointer")}
-          >
-            Leave Your Details
-            <ArrowRight size={17} weight="bold" />
-          </button>
+      {filtered.length > 0 ? (
+        <div className="mx-auto grid max-w-[1200px] gap-6 md:grid-cols-2">
+          {filtered.map((job) => (
+            <JobCard key={job.id} job={job} />
+          ))}
         </div>
-      </Reveal>
+      ) : (
+        <Reveal>
+          <div
+            style={{ "--i": 2 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              "mx-auto max-w-[760px] bg-deep border border-rule rounded-2xl px-[clamp(28px,4vw,56px)] py-[clamp(40px,6vh,72px)] text-center",
+            )}
+          >
+            <span className={cx(label, "text-mute-2")}>Board status</span>
+
+            <p className="font-display m-0 mt-4 text-[clamp(20px,2.4vw,30px)] font-bold leading-[1.1] tracking-[-0.015em] text-paper">
+              {filtering
+                ? "Nothing posted under that filter yet."
+                : "No postings are live on this board right now."}
+            </p>
+
+            <p className="m-0 mt-4 mx-auto max-w-[52ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute">
+              If nothing matches your state, leave your details and we&rsquo;ll
+              call when something opens near you.
+            </p>
+
+            <a
+              href={LEAVE_DETAILS_HREF}
+              className={cx(btn, btnHero, btnSolid, "mt-8")}
+            >
+              Leave Your Details
+              <ArrowRight size={17} weight="bold" />
+            </a>
+          </div>
+        </Reveal>
+      )}
     </section>
   );
 }
 
 export function DJClosing() {
-  const { openApplyModal } = useDriverApply();
+  const router = useRouter();
 
   return (
     <ClosingCTA
@@ -311,10 +382,10 @@ export function DJClosing() {
       }
       copy="Leave your details and we'll call when something opens near you — company driver or owner-operator, whichever fits how you want to run."
       primaryLabel="Leave Your Details"
-      onPrimary={openApplyModal}
+      onPrimary={() => router.push(LEAVE_DETAILS_HREF)}
       secondaryLabel="Back to Drive With PKT"
       secondaryHref="/careers"
-      note="Openings Posted As They Go Live · Mon–Fri"
+      note="Recruiting · Mon–Sat · 8 AM–5 PM CDT"
     />
   );
 }

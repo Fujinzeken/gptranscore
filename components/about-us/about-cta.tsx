@@ -10,7 +10,7 @@ export function AboutCTA() {
 
   return (
     <section
-      aria-label="Ready to partner with PKT Group"
+      aria-label="Work with PKT"
       className="relative isolate overflow-hidden bg-ink py-[clamp(80px,12vh,140px)]"
     >
       {/* Subtle grid pattern texture from screenshot 4 */}
@@ -35,7 +35,7 @@ export function AboutCTA() {
         {/* Eyebrow */}
         <p className={cx(label, "text-azure-hi mb-5 flex items-center justify-center gap-2")}>
           <Sparkle size={13} weight="fill" />
-          START YOUR JOURNEY WITH PKT GROUP
+          WORK WITH PKT
         </p>
 
         {/* Display Headline */}
@@ -46,8 +46,8 @@ export function AboutCTA() {
 
         {/* Subtitle */}
         <p className="mx-auto mt-6 max-w-[55ch] text-[clamp(15px,1.2vw,18.5px)] leading-[1.6] text-mute">
-          Partner with a carrier that delivers on every promise. Let&apos;s talk about
-          how we can work together.
+          Send us your lane for a quote, or see what driving for PKT looks
+          like.
         </p>
 
         {/* Dual Primary Action Buttons */}
@@ -75,15 +75,14 @@ export function AboutCTA() {
               "w-full justify-center hover:border-azure hover:text-azure-hi",
             )}
           >
-            <span>Apply to Drive</span>
+            <span>Driver Careers</span>
             <ArrowRight size={18} weight="bold" />
           </Link>
         </div>
 
-        {/* Trust Guarantee Note */}
         <div className="mt-8 flex items-center justify-center gap-2 text-xs font-mono font-medium text-mute/80">
           <ShieldCheck size={16} weight="fill" className="text-azure-hi" />
-          <span>Same-day response guaranteed • No obligations</span>
+          <span>USDOT 3188421 • MC 132863</span>
         </div>
       </div>
     </section>

@@ -5,13 +5,15 @@ import { Reveal, revealItem } from "../reveal";
 import { cx, label } from "../ui";
 
 /**
- * Equipment Safety — what is bolted to the trucks and trailers.
- *
- * Prod headed this "Safety Features on GP Transco Trucks & Trailers" and
- * followed it with a full-width photograph. The photograph carries this
- * section: one edge-to-edge plate of the fleet with a mono caption strip,
- * and the copy states the standard the equipment exists to meet.
+ * Equipment Safety — the CSV's maintenance standard plus the maintenance
+ * support the client listed in the Safety comments.
  */
+
+const SUPPORT = [
+  "Maintenance team available 24/7",
+  "Trusted partner repair shops with short wait times",
+  "Planned preventive maintenance service",
+];
 
 export function SafetyTrucks() {
   return (
@@ -47,6 +49,23 @@ export function SafetyTrucks() {
             annual DOT inspections · defects reported and repaired before
             dispatch.
           </p>
+          <ul
+            style={{ "--i": 4 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              "m-0 mt-6 flex list-none flex-wrap gap-x-8 gap-y-3 p-0",
+            )}
+          >
+            {SUPPORT.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-2.5 text-[clamp(14px,1.05vw,16px)] font-semibold text-ink-text"
+              >
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-azure" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <figure
@@ -56,7 +75,7 @@ export function SafetyTrucks() {
           <div className="relative aspect-[21/9] w-full overflow-hidden bg-ink max-[760px]:aspect-[4/3]">
             <Image
               src="/fleet-dock.jpg"
-              alt="A PKT Group tractor and trailer at the loading dock"
+              alt="A PKT tractor and trailer at the loading dock"
               fill
               sizes="100vw"
               className="object-cover object-[50%_45%]"
@@ -68,7 +87,7 @@ export function SafetyTrucks() {
               "mt-3 flex items-center justify-between text-[9.5px] text-mute-2",
             )}
           >
-            <span>PKT Group fleet — late-model equipment, continuously inspected</span>
+            <span>PKT equipment — inspected before every run</span>
             <span>Fleetwide</span>
           </figcaption>
         </figure>

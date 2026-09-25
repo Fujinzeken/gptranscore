@@ -1,6 +1,19 @@
 # Case-normalization: legacy uppercase URLs redirect to the lowercase routes.
-/Safety            /safety                            301
-/Sustainability    /sustainability                    301
-/EliteDriverProgram  /elitedriverprogram              301
-/HighestPayingTruckingCompanies  /highestpayingtruckingcompanies  301
-/PKTGroupTechnology  /pktgrouptechnology              301
+/Safety                          /safety     301
+
+# Removed routes: not in the approved sitemap, or services PKT does not offer.
+# Mirrors redirects() in next.config.ts.
+/services/step-deck              /services   301
+/services/dedicated              /services   301
+/services/drop-trailer           /services   301
+/freight-brokerage-services      /services   301
+/pktgrouptechnology              /company    301
+/PKTGroupTechnology              /company    301
+/sustainability                  /company    301
+/Sustainability                  /company    301
+/office-careers                  /careers    301
+/elitedriverprogram              /careers    301
+/EliteDriverProgram              /careers    301
+/highestpayingtruckingcompanies  /careers    301
+/HighestPayingTruckingCompanies  /careers    301
+/blog                            /           301

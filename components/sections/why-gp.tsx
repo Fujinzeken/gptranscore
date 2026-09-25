@@ -3,7 +3,7 @@ import { Reveal, revealItem } from "../reveal";
 import { cx } from "../ui";
 
 /**
- * "Why companies choose PKT Group"
+ * Homepage "Capacity" section.
  *
  * Was six filled cells floating in a gap grid, which was the last container
  * layout left on a page otherwise built from plates, hairlines and bled edges.
@@ -52,12 +52,8 @@ export function WhyGP() {
           className={cx(revealItem, "mb-[clamp(30px,4.5vh,50px)] px-gut")}
         >
           <h2 className="type-display m-0 max-w-[13em] text-[clamp(26px,3.6vw,52px)] text-ink-text">
-            Why companies choose PKT
+            Capacity
           </h2>
-          <p className="mt-5 max-w-[54ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text">
-            Built on reliability, powered by innovation, and committed to your
-            success.
-          </p>
         </header>
 
         {/* gap-px over the line colour is what draws the rules: every cell

@@ -1,8 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { Sparkle } from "@phosphor-icons/react/dist/ssr";
 import { cx, label } from "../ui";
+
+const FACTS: Array<[string, string]> = [
+  ["5+", "Years of expertise"],
+  ["20,000+", "Loads delivered"],
+  ["96%", "US ZIP codes covered"],
+  ["24/7", "Dispatch team"],
+];
 
 export function AboutOverview() {
   return (
@@ -26,7 +32,7 @@ export function AboutOverview() {
         >
           <Image
             src="/about-us/overview-left.png"
-            alt="PKT Group Team Member"
+            alt=""
             width={700}
             height={900}
             className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(11,26,44,0.12)]"
@@ -41,7 +47,7 @@ export function AboutOverview() {
         >
           <Image
             src="/about-us/overview-right.png"
-            alt="PKT Group Team Member"
+            alt=""
             width={700}
             height={900}
             className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(11,26,44,0.12)]"
@@ -61,54 +67,38 @@ export function AboutOverview() {
 
           {/* Display Headline */}
           <h2 className="font-display text-[clamp(34px,4.4vw,62px)] font-black uppercase leading-[0.98] tracking-[-0.03em] text-ink-text">
-            Driven by People. <br />
-            <span className="text-azure">Powered by Innovation.</span>
+            Direct access. <br />
+            <span className="text-azure">A fast answer.</span>
           </h2>
 
           {/* Narrative Lead */}
           <p className="mx-auto mt-6 max-w-[62ch] text-[clamp(15px,1.2vw,18px)] leading-[1.7] text-body-text">
             PKT is an asset-based truckload carrier operating from Illinois on
-            48-state authority. We started in 2024 with a simple idea: run our
-            own freight properly. The authority, the insurance and the dispatch
-            are all ours — when something changes on your load, the person you
-            call is the person who can act on it. We run dry van, refrigerated,
-            flatbed and step deck freight across the contiguous US. What we
-            offer is direct access and a fast answer; when we take your load, we
-            move it.
+            48-state authority. We started with a simple idea: run our own
+            freight properly. The authority, the insurance and the dispatch are
+            all ours — when something changes on your load, the person you call
+            is the person who can act on it. We run dry van, refrigerated and
+            flatbed freight across the contiguous US. What we offer is direct
+            access and a fast answer; when we take your load, we move it.
           </p>
 
-          {/* Three Stat Pillar Counters */}
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8 pt-10 border-t border-rule">
-            {/* Stat 1 */}
-            <div className="flex flex-col items-center">
-              <span className="font-display text-[clamp(38px,4.5vw,56px)] font-black tracking-tight text-ink-text leading-none">
-                2006
-              </span>
-              <span className={cx(label, "mt-2.5 text-mute text-[12px]")}>
-                FOUNDED
-              </span>
-            </div>
-
-            {/* Stat 2 */}
-            <div className="flex flex-col items-center">
-              <span className="font-display text-[clamp(38px,4.5vw,56px)] font-black tracking-tight text-azure leading-none">
-                500+
-              </span>
-              <span className={cx(label, "mt-2.5 text-mute text-[12px]")}>
-                TRACTORS
-              </span>
-            </div>
-
-            {/* Stat 3 */}
-            <div className="flex flex-col items-center">
-              <span className="font-display text-[clamp(38px,4.5vw,56px)] font-black tracking-tight text-ink-text leading-none">
-                1,800
-              </span>
-              <span className={cx(label, "mt-2.5 text-mute text-[12px]")}>
-                TRAILERS
-              </span>
-            </div>
-          </div>
+          <dl className="m-0 mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8 pt-10 border-t border-rule">
+            {FACTS.map(([value, term], i) => (
+              <div key={term} className="flex flex-col items-center">
+                <dt className={cx(label, "order-last mt-2.5 text-mute-2 text-[12px]")}>
+                  {term}
+                </dt>
+                <dd
+                  className={cx(
+                    "m-0 font-display text-[clamp(30px,3.6vw,46px)] font-black tracking-tight leading-none",
+                    i === 1 ? "text-azure" : "text-ink-text",
+                  )}
+                >
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

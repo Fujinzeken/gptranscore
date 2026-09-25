@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Phone } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ChatCircleText } from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "../site-nav";
 import { useQuote } from "../quote-modal";
 import { btn, btnGhost, btnHero, btnSolid, cx } from "../ui";
@@ -94,11 +94,11 @@ export function PageHero({
           ) : null}
 
           <a
-            href="tel:+18004605071"
+            href="/contact"
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
-            <Phone size={17} />
-            (800) 460-5071
+            <ChatCircleText size={17} />
+            Contact Us
           </a>
         </div>
       </div>

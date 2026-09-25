@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -9,7 +10,7 @@ import {
   Truck,
   X,
 } from "@phosphor-icons/react/dist/ssr";
-import { EXPLORE_MORE, ITEM_ICONS, MENUS, type Menu } from "./nav-menu";
+import { ITEM_ICONS, MENUS, type Menu } from "./nav-menu";
 import { useQuote } from "./quote-modal";
 import { useDriverApply } from "./driver-apply-modal";
 import { btn, btnGhost, btnNav, btnOutline, btnSolid, cx, label } from "./ui";
@@ -33,9 +34,9 @@ const CLOSE_DELAY = 180;
 export function Wordmark({ tone }: { tone: Tone }) {
   const ink = tone === "light" ? "var(--color-ink)" : "var(--color-paper)";
   return (
-    <a
-      href="#"
-      aria-label="PKT Group home"
+    <Link
+      href="/"
+      aria-label="PKT home"
       className="flex shrink-0 items-center gap-[11px]"
     >
       <svg
@@ -66,10 +67,8 @@ export function Wordmark({ tone }: { tone: Tone }) {
         )}
       >
         PKT
-        <br />
-        Group
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -194,20 +193,6 @@ function MegaPanel({
           </a>
         </div>
       </div>
-
-      <div className="flex flex-wrap items-center gap-x-[clamp(16px,2.2vw,36px)] gap-y-3 border-t border-rule pt-5">
-        <span className={cx(label, "text-mute-2")}>Explore more</span>
-        {EXPLORE_MORE.map(({ label: l, href }) => (
-          <a
-            key={l}
-            href={href}
-            onClick={onClose}
-            className="text-[13.5px] font-medium text-mute transition-colors duration-200 hover:text-azure-hi"
-          >
-            {l}
-          </a>
-        ))}
-      </div>
     </div>
   );
 }
@@ -262,16 +247,16 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             "gap-[clamp(14px,2.2vw,34px)] max-[1440px]:gap-[18px]",
           )}
         >
-          <a href="#" aria-label="PKT Group home" className="block shrink-0">
+          <Link href="/" aria-label="PKT home" className="block shrink-0">
             <Image
               src="/pkt-logo1.png"
-              alt="PKT Group"
+              alt="PKT"
               width={144}
               height={28}
               priority
               className="block h-7 w-auto brightness-0 invert"
             />
-          </a>
+          </Link>
 
           <div
             className={cx(
@@ -602,22 +587,6 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-          {EXPLORE_MORE.map(({ label: l, href }) => (
-            <a
-              key={l}
-              href={href}
-              onClick={() => setOpen(false)}
-              className={cx(
-                "text-[13.5px] font-medium",
-                light ? "text-body-text" : "text-mute",
-              )}
-            >
-              {l}
-            </a>
-          ))}
         </div>
       </div>
     </>

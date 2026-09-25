@@ -1,16 +1,12 @@
 "use client";
 
-import { ArrowRight, Cpu } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ChatCircleText } from "@phosphor-icons/react/dist/ssr";
 import { useQuote } from "../quote-modal";
 import { btn, btnSolid, btnGhost, btnHero, cx, label } from "../ui";
 
 /**
- * Closing CTA — the page's last word.
- *
- * Prod closed on a purple gradient slab: "Safety First. Always." with two
- * buttons. The claim keeps its poster voice on the ink plate with an azure
- * glow; "Ship With Us" starts the quote flow and the secondary button hands
- * off to the technology page, which is where the systems named above live.
+ * Closing CTA — on the ink plate with an azure glow. The primary starts the
+ * quote flow; the secondary hands off to the contact page.
  */
 
 export function SafetyCta() {
@@ -18,7 +14,6 @@ export function SafetyCta() {
 
   return (
     <section className="relative isolate overflow-hidden bg-ink px-gut py-[clamp(90px,14vh,170px)] text-center">
-      {/* Azure glow — the one decorative move, replacing prod's purple gradient. */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10"
@@ -34,7 +29,7 @@ export function SafetyCta() {
           "font-black uppercase leading-[0.92] tracking-[-0.03em] text-paper",
         )}
       >
-        Safety First. <span className="text-azure-hi">Always.</span>
+        Predictable, <span className="text-azure-hi">load after load.</span>
       </h2>
 
       <p className="mx-auto mt-[clamp(18px,2.6vh,28px)] max-w-[56ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
@@ -54,23 +49,22 @@ export function SafetyCta() {
             "shadow-[0_12px_34px_-12px_rgba(11,143,203,0.75)] max-[560px]:justify-center",
           )}
         >
-          Ship With Us
+          Request a Quote
           <ArrowRight size={18} />
         </button>
 
         <a
-          href="/pktgrouptechnology"
+          href="/contact"
           className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
         >
-          <Cpu size={17} />
-          Discover PKT Group Technology
+          <ChatCircleText size={17} />
+          Contact Us
         </a>
       </div>
 
       <p className={cx(label, "mt-[clamp(28px,4vh,44px)] text-[9.5px] text-mute-2")}>
-        PKT Group · Fleet Safety
+        USDOT 3188421 · MC 132863
       </p>
     </section>
   );
 }
-

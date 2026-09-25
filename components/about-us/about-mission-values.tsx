@@ -13,13 +13,13 @@ const values = [
   {
     icon: Handshake,
     title: "Answer fast",
-    description: "A clear response on your lane the same day",
+    description: "A clear response on your lane the same day.",
   },
   {
     icon: Scales,
     title: "Own the load",
     description:
-      "Freight we accept moves under our authority with our people responsible for it from pickup through delivery",
+      "Freight we accept moves under our authority with our people responsible for it from pickup through delivery.",
   },
   {
     icon: Briefcase,
@@ -37,7 +37,7 @@ const values = [
     icon: Package,
     title: "Serve the freight we serve well",
     description:
-      "We commit to the freight we can move properly, and we move it properly",
+      "We commit to the freight we can move properly, and we move it properly.",
   },
 ];
 
@@ -62,33 +62,28 @@ export function AboutMissionValues() {
           <div className="inline-flex items-center gap-2 rounded-full border border-rule bg-page/80 px-4 py-1.5 backdrop-blur-sm shadow-sm mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-azure animate-pulse" />
             <span className={cx(label, "text-[11px] text-ink-text")}>
-              OUR Mission and Values
+              Mission and Values
             </span>
           </div>
 
           <h2 className="font-display text-[clamp(34px,4.5vw,64px)] font-black uppercase leading-[0.96] tracking-[-0.03em] text-ink-text">
-            Safe, Reliable, Advanced <br />
-            <span className="text-azure">Freight Transportation</span>
+            What we hold <br />
+            <span className="text-azure">ourselves to</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-[70ch] text-[clamp(16px,1.25vw,19px)] leading-[1.7] text-body-text font-normal">
-            Our mission is to provide safe, reliable transportation solutions
-            through lasting relationships built on trust, commitment, and
-            effective communication. We honor our word, cultivate trust, and
-            lead with integrity — because our actions define who we are.
+          <p className="mx-auto mt-6 max-w-[64ch] text-[clamp(16px,1.25vw,19px)] leading-[1.7] text-body-text">
+            <strong className="font-semibold text-ink-text">Our mission:</strong>{" "}
+            through collaboration, integrity and continuous innovation, provide
+            outstanding logistics services in a safe and efficient manner while
+            being a leading workplace in our industry.
+          </p>
+          <p className="mx-auto mt-4 max-w-[64ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.7] text-body-text">
+            Success is built on strong relationships with brokers and with our
+            drivers, based on trust, communication and transparency.
           </p>
         </div>
 
-        {/* Bottom Block: Our Values */}
-        <div className="mt-20 sm:mt-24 pt-16 border-t border-rule">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full border border-rule bg-page/80 px-4 py-1.5 backdrop-blur-sm shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-azure" />
-              <span className={cx(label, "text-[11px] text-ink-text")}>
-                What we hold ourselves to
-              </span>
-            </div>
-          </div>
+        <div className="mt-14 sm:mt-16">
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1100px] mx-auto">
             {values.map((val) => {

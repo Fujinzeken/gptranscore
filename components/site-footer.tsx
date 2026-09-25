@@ -1,66 +1,58 @@
 import Image from "next/image";
+import Link from "next/link";
 import { cx, label } from "./ui";
 
 /**
  * Footer.
  *
  * Dark because footers are chrome rather than content: it closes the page under
- * the azure CTA and reads as the edge of the site, not as another section. The
- * navigation labels and URLs are theirs, unchanged, so nothing they rank for or
- * track moves.
- *
- * Their current footer carries the line "This site was developed 100% in-house."
- * That is a claim about how their site was built, and it stops being true the
- * moment this redesign ships, so it is not carried over.
- */
-
-/**
- * Labels stay as prod has them; each link is resolved to the page (or panel
- * section anchor) that actually carries the content. "Careers" and
- * "Request a Quote" have no dedicated routes, so they land on the driver
- * careers page and the Ship With Us page respectively — the two destinations
- * that own those actions. Legal pages do not exist yet, so those remain "#".
+ * the azure CTA and reads as the edge of the site, not as another section.
+ * Every link resolves to a page in the approved sitemap.
  */
 const COLUMNS = [
   {
-    heading: "Company",
-    links: [
-      { label: "About Us", href: "/company" },
-      { label: "Leadership", href: "/company#leadership" },
-      { label: "Contact us", href: "/contact" },
-      { label: "Careers", href: "/careers" },
-    ],
-  },
-  {
-    heading: "Solutions",
+    heading: "Freight",
     links: [
       { label: "Freight Services", href: "/services" },
-      { label: "Brokerage Solutions", href: "/freight-brokerage-services" },
-      { label: "Technology", href: "/pktgrouptechnology" },
-      { label: "Request a Quote", href: "/services" },
+      { label: "Dry Van", href: "/services/dry-van" },
+      { label: "Refrigerated", href: "/services/reefer" },
+      { label: "Flatbed", href: "/services/flatbed" },
     ],
   },
   {
-    heading: "Careers",
+    heading: "Drivers",
     links: [
       { label: "Driver Careers", href: "/careers" },
-      { label: "Office Careers", href: "/office-careers" },
-      { label: "Benefits", href: "/careers#benefits" },
-      { label: "ELITE Program", href: "/elitedriverprogram" },
+      { label: "Company Drivers", href: "/careers/company-drivers" },
+      { label: "Owner-Operators", href: "/careers/owner-operators" },
+      { label: "Open Positions", href: "/careers/jobs" },
+      { label: "Quick Apply", href: "/careers/apply" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About PKT", href: "/company" },
+      { label: "Safety", href: "/safety" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
 
-const LEGAL = ["Privacy Policy", "Terms of Service", "Sitemap"];
+const LEGAL = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Use", href: "/terms" },
+  { label: "Accessibility", href: "/accessibility" },
+];
 
 export function SiteFooter() {
   return (
     <footer className="bg-ink px-gut pb-10 pt-[clamp(56px,8vh,96px)]">
       <div className="grid grid-cols-12 gap-x-8 gap-y-[clamp(36px,5vh,56px)] max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
         <div className="col-span-4 max-[900px]:col-span-2 max-[560px]:col-span-1">
-          <a
-            href="#"
-            aria-label="PKT Group home"
+          <Link
+            href="/"
+            aria-label="PKT home"
             className="flex w-fit shrink-0 items-center gap-[11px]"
           >
             <Image
@@ -72,13 +64,11 @@ export function SiteFooter() {
             />
             <span className="font-display text-[12.5px] font-extrabold uppercase leading-[1.04] tracking-[0.055em] text-paper">
               PKT
-              <br />
-              Group
             </span>
-          </a>
+          </Link>
           <p className="mt-6 max-w-[34ch] text-[14.5px] leading-[1.6] text-mute-2">
-            Modern logistics carrier delivering reliable freight solutions and
-            rewarding driver careers.
+            Asset-based truckload carrier running 48-state authority out of
+            Rosemont, Illinois.
           </p>
         </div>
 
@@ -114,18 +104,18 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href="tel:+13313361445"
+                href="tel:+12246660136"
                 className="text-paper transition-colors duration-200 hover:text-azure-hi"
               >
-                Recruiting +1 (331) 256-8985
+                +1 (224) 666-0136
               </a>
             </li>
             <li>
               <a
-                href="mailto:info@pktgroup.com"
+                href="mailto:safety@pktgroup.net"
                 className="text-paper transition-colors duration-200 hover:text-azure-hi"
               >
-                info@pktgroup.com
+                safety@pktgroup.net
               </a>
             </li>
           </ul>
@@ -134,14 +124,14 @@ export function SiteFooter() {
 
       <div className="mt-[clamp(44px,6vh,72px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-rule pt-7">
         <p className="m-0 text-[13.5px] text-mute-2">
-          &copy; 2026 PKT Group. All rights reserved. · USDOT 3188421 · MC
-          132863
+          &copy; 2026 PKT Transportation INC. All rights reserved. · USDOT
+          3188421 · MC 132863
         </p>
         <ul className="m-0 flex flex-wrap list-none gap-x-7 gap-y-2 p-0">
-          {LEGAL.map((l) => (
+          {LEGAL.map(({ label: l, href }) => (
             <li key={l}>
               <a
-                href="#"
+                href={href}
                 className="text-[13.5px] text-mute-2 transition-colors duration-200 hover:text-paper"
               >
                 {l}

@@ -1,7 +1,6 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
 import { btn, btnGhost, btnHero, cx, label } from "../ui";
-import { QuoteButton } from "./cta-buttons";
 
 /**
  * Homepage section 3 of 6 (Coverage).
@@ -12,12 +11,12 @@ import { QuoteButton } from "./cta-buttons";
  * carries. The route telemetry belonged to a copy claim the home page no
  * longer makes; what this section actually has to say is the lane board, so
  * the panel now holds that: eighteen regular lanes meeting on shared hairlines
- * over the dark ground, the accent carried by the arrows.
+ * over the dark ground.
  *
  * The CSV gives one sentence and a placeholder — [PRIMARY LANES] — resolved
- * by the notes into these eighteen lanes (Midwest ↔ Northeast ↔ Southeast
- * round trips). The sentence stays verbatim; the board is what the placeholder
- * stood for.
+ * by the home notes into three regional corridors and by the services notes
+ * into these eighteen state pairs. The notes write lanes as "WI-FL", not as a
+ * direction, so pairs are joined with a dash rather than an arrow.
  */
 
 /** Regular lanes, from the content pack's notes. */
@@ -63,16 +62,19 @@ export function Coverage() {
               )}
             >
               PKT operates across the contiguous United States, with regular
-              capacity concentrated in the lanes on this board.
+              capacity concentrated in three corridors: Midwest to the
+              Northeast, Northeast to the Southeast, and Southeast to the
+              Midwest.
             </p>
 
-            <QuoteButton
+            <a
+              href="/services#coverage"
               style={{ "--i": 4 } as React.CSSProperties}
-              className={cx(revealItem, btn, btnGhost, btnHero, "mt-9 cursor-pointer")}
+              className={cx(revealItem, btn, btnGhost, btnHero, "mt-9")}
             >
-              Request a Quote
+              Where We Run
               <ArrowRight size={17} />
-            </QuoteButton>
+            </a>
           </div>
 
           {/* The lane panel. Same chrome the technology panel wore: ringed
@@ -103,9 +105,9 @@ export function Coverage() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="text-[0.72em] text-azure transition-transform duration-300 ease-[var(--ease-out-strong)] group-hover:translate-x-[3px]"
+                    className="text-[0.72em] text-azure"
                   >
-                    →
+                    &ndash;
                   </span>
                   <span className="font-display text-[clamp(14px,1.3vw,19px)] font-bold tracking-[0.02em] text-paper">
                     {to}

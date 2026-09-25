@@ -11,8 +11,10 @@ import { cx, label } from "../ui";
  * content pack). Copy is CSV-verbatim. The equipment row is all placeholders
  * ([LENGTH], [MATERIAL], [YEAR RANGE], [HEIGHT], [MAX PAYLOAD]) and the
  * securement kit is partly bracketed, so specs render only what the notes
- * column confirms — 48'/53' 2025 aluminum trailers with headracks — and offer
- * full specs on request. Logged in OPEN-ITEMS for confirmation.
+ * column confirms — 48'/53' 2025 trailers, aluminum available, headracks,
+ * team flatbed, full tarped loads, permitted oversize with escorts — and
+ * offer full specs on request. RGN / multi-axle heavy haul stays excluded per
+ * the body copy. Logged in OPEN-ITEMS for confirmation.
  */
 
 export function FBIntro() {
@@ -71,7 +73,7 @@ export function FBIntro() {
             <ul className="m-0 list-none border-t border-rule">
               {[
                 ["Loading", "Side, rear or overhead"],
-                ["Trailers", "48' and 53' aluminum"],
+                ["Trailers", "48' and 53' 2025 models"],
                 ["Headrack", "Stores securement equipment"],
                 ["Securement", "Handled by our drivers, FMCSA standard"],
               ].map(([term, detail]) => (
@@ -95,9 +97,10 @@ export function FBIntro() {
 
 const SPECS: Array<[string, string]> = [
   ["Length", "48' and 53' flatbeds"],
-  ["Build", "Aluminum trailers"],
+  ["Model year", "2025 trailers"],
+  ["Build", "Aluminum trailers available"],
   ["Headrack", "For storing and collecting securement equipment"],
-  ["Securement", "FMCSA standard"],
+  ["Team drivers", "Team flatbed for direct deliveries"],
 ];
 
 export function FBEquipment() {
@@ -167,9 +170,8 @@ export function FBEquipment() {
 
 const KIT: Array<[string, string]> = [
   ["Standard", "Every load secured to the FMCSA standard"],
-  ["Tarps", "Tarping available"],
-  ["Kit", "Straps, chains, binders and edge protection"],
-  ["Extras", "Coil racks and dunnage as the load requires"],
+  ["Tarps", "Full tarped loads handled"],
+  ["Dunnage", "As the load requires"],
 ];
 
 export function FBSecurement() {
@@ -371,6 +373,16 @@ export function FBDimensions() {
                 "mt-4 max-w-[56ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute",
               )}
             >
+              For permitted oversize flatbed loads, we arrange the permits and
+              escorts as part of the move.
+            </p>
+            <p
+              style={{ "--i": 4 } as React.CSSProperties}
+              className={cx(
+                revealItem,
+                "mt-4 max-w-[56ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-mute",
+              )}
+            >
               Freight requiring RGN or multi-axle heavy haul sits outside our
               capability — send it anyway and we&rsquo;ll point you to a
               carrier who handles it.
@@ -415,13 +427,12 @@ export function FBCrossSell() {
             style={{ "--i": 2 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-3",
+              "mt-[clamp(36px,5vh,64px)] grid gap-px bg-line sm:grid-cols-2",
             )}
           >
             {[
               { label: "Dry Van", href: "/services/dry-van" },
               { label: "Refrigerated", href: "/services/reefer" },
-              { label: "Step Deck", href: "/services/step-deck" },
             ].map(({ label: l, href }) => (
               <a
                 key={l}

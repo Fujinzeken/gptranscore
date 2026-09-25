@@ -1,11 +1,7 @@
 export { SafetyHero } from "./safety-hero";
-export { SafetyTools } from "./safety-tools";
-export { SafetyConnect } from "./safety-connect";
-export { SafetyVideos } from "./safety-videos";
-export { SafetyIdelic } from "./safety-idelic";
-export { SafetyEsmart } from "./safety-esmart";
-export { SafetyWeather } from "./safety-weather";
+export { SafetyIntro } from "./safety-intro";
 export { SafetySecurity } from "./safety-security";
 export { SafetyTrucks } from "./safety-trucks";
 export { SafetyDrivers, SafetyHours } from "./safety-program";
+export { SafetyCompliance } from "./safety-compliance";
 export { SafetyCta } from "./safety-cta";

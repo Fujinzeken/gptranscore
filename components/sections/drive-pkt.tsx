@@ -1,7 +1,6 @@
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal, revealItem } from "../reveal";
-import { cx, label } from "../ui";
-import { ApplyButton } from "./cta-buttons";
+import { btn, btnHero, btnOutline, cx, label } from "../ui";
 
 /**
  * Homepage section 6 of 6 (Drive PKT).
@@ -20,7 +19,10 @@ import { ApplyButton } from "./cta-buttons";
  * Copy is CSV-verbatim: the sentence above the rule, the two names below it.
  */
 
-const WAYS = ["Company drivers", "Owner-operators"];
+const WAYS: Array<[string, string]> = [
+  ["Company drivers", "/careers/company-drivers"],
+  ["Owner-operators", "/careers/owner-operators"],
+];
 
 export function DrivePKT() {
   return (
@@ -57,14 +59,15 @@ export function DrivePKT() {
 
         {/* The two doors. Full height, each one the link, hairline between. */}
         <div className="mt-[clamp(30px,4.4vh,52px)] grid grid-cols-2 border-t-2 border-ink-text max-[820px]:grid-cols-1">
-          {WAYS.map((way, i) => (
-            <ApplyButton
+          {WAYS.map(([way, href], i) => (
+            <a
               key={way}
+              href={href}
               style={{ "--i": i + 2 } as React.CSSProperties}
               className={cx(
                 revealItem,
                 "group/way relative flex min-h-[clamp(180px,26vh,260px)] flex-col justify-between text-left",
-                "py-[clamp(22px,3.4vh,40px)] cursor-pointer",
+                "py-[clamp(22px,3.4vh,40px)]",
                 "transition-colors duration-300 hover:bg-surface",
                 i > 0 &&
                   "border-l border-line pl-[clamp(24px,3vw,52px)] max-[820px]:border-l-0 max-[820px]:border-t",
@@ -87,9 +90,18 @@ export function DrivePKT() {
                   )}
                 />
               </span>
-            </ApplyButton>
+            </a>
           ))}
         </div>
+
+        <a
+          href="/careers"
+          style={{ "--i": 4 } as React.CSSProperties}
+          className={cx(revealItem, btn, btnOutline, btnHero, "mt-[clamp(28px,4vh,48px)]")}
+        >
+          See Driver Opportunities
+          <ArrowRight size={17} />
+        </a>
       </Reveal>
     </section>
   );

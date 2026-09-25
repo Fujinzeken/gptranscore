@@ -1,33 +1,35 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   Handshake,
+  Headset,
   Lightning,
-  PhoneCall,
   Receipt,
   SteeringWheel,
+  UsersThree,
+  Wrench,
 } from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "../site-nav";
 import { Reveal, revealItem } from "../reveal";
 import { ClosingCTA } from "../closing-cta";
-import { useDriverApply } from "../driver-apply-modal";
 import { btn, btnGhost, btnHero, btnSolid, cx, label } from "../ui";
 
 /**
  * Owner-operators page sections (CAREERS — OWNER-OPERATORS row of the
- * content pack). Copy is CSV-verbatim; the notes column is unedited
- * marketing voice and is not rendered. Design deliberately varies from the
- * other careers pages: the signature section is a debit/credit ledger, and
- * the lease terms render as three numbered cards.
+ * content pack). Body copy is CSV-verbatim; the recruiting notes (choosing
+ * loads from dispatcher offers, team loads on consistent lanes) are
+ * rewritten as plain facts. The signature section is a debit/credit ledger,
+ * and the lease terms render as numbered cards.
  */
 
 const PROMISES = ["STEADY FREIGHT", "FUEL PROGRAM", "ON-TIME SETTLEMENTS"];
 
-export function OOHero() {
-  const { openApplyModal } = useDriverApply();
+const LEASE_ON_HREF = "/careers/apply?type=owner-operator";
 
+export function OOHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
@@ -83,9 +85,8 @@ export function OOHero() {
         </div>
 
         <div className="mt-[clamp(24px,3.4vh,38px)] flex flex-wrap gap-[11px] max-[560px]:flex-col max-[560px]:items-stretch">
-          <button
-            type="button"
-            onClick={openApplyModal}
+          <a
+            href={LEASE_ON_HREF}
             className={cx(
               btn,
               btnHero,
@@ -95,13 +96,12 @@ export function OOHero() {
           >
             Lease On
             <ArrowRight size={18} />
-          </button>
+          </a>
 
           <a
             href="/careers/company-drivers"
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
-            <PhoneCall size={17} />
             Company Drivers
           </a>
         </div>
@@ -113,15 +113,15 @@ export function OOHero() {
 const LEDGER: Array<[string, string]> = [
   [
     "Dead time",
-    "We run under our own authority with our own customer base — the freight is there.",
+    "We run under our own authority with our own customer base, so the freight is there.",
   ],
   [
     "Chasing loads that don't pay",
-    "You deal with the same dispatcher every week, not whoever picks up.",
+    "Pick the best load from your dispatcher's offers — and it's the same dispatcher every week rather than whoever picks up.",
   ],
   [
     "Slow settlements",
-    "Settlements that arrive on schedule — and a real settlement example before you sign anything.",
+    "Settlements that arrive on schedule.",
   ],
 ];
 
@@ -151,8 +151,19 @@ export function OOLedger() {
               "text-[clamp(26px,3.6vw,52px)] text-ink-text",
             )}
           >
-            You know how to run a truck. We remove what costs you money.
+            You already know how to run a truck.
           </h2>
+
+          <p
+            style={{ "--i": 2 } as React.CSSProperties}
+            className={cx(
+              revealItem,
+              "mt-5 max-w-[58ch] text-[clamp(15px,1.15vw,17.5px)] leading-[1.62] text-body-text",
+            )}
+          >
+            What costs you money is dead time, slow settlements and chasing
+            loads that don&rsquo;t pay.
+          </p>
 
           <ol
             className={cx(
@@ -161,7 +172,7 @@ export function OOLedger() {
             )}
             style={{ "--i": 2 } as React.CSSProperties}
           >
-            {LEDGER.map(([cost, fix], i) => (
+            {LEDGER.map(([cost, fix]) => (
               <li
                 key={cost}
                 className="grid grid-cols-[2rem_1fr] items-start gap-x-[clamp(14px,2vw,32px)] border-b border-line py-[clamp(20px,3vh,34px)] last:border-b-0 md:grid-cols-[2rem_1fr_1.4fr] md:items-baseline"
@@ -218,8 +229,7 @@ const INCLUDES: Array<{
     num: "02",
     icon: Receipt,
     title: "Fuel program",
-    detail:
-      "A fuel program behind your truck, not a discount card afterthought.",
+    detail: "A fuel program for trucks leased on to PKT.",
   },
   {
     num: "03",
@@ -227,6 +237,27 @@ const INCLUDES: Array<{
     title: "Settlements on schedule",
     detail:
       "The same dispatcher every week and settlements that arrive when they're supposed to.",
+  },
+  {
+    num: "04",
+    icon: UsersThree,
+    title: "Team loads on consistent lanes",
+    detail:
+      "Run as a team on consistent lanes and get paid for the time and effort a team puts in.",
+  },
+  {
+    num: "05",
+    icon: Wrench,
+    title: "Shop and wash discounts",
+    detail:
+      "Discounts at the UGL Truck Center repair shop and Montgomery Truck Wash.",
+  },
+  {
+    num: "06",
+    icon: Headset,
+    title: "24/7 support",
+    detail:
+      "Dispatch, maintenance, pre-trip inspection (PTI) and fuel teams available around the clock.",
   },
 ];
 
@@ -249,7 +280,7 @@ export function OOIncludes() {
           </p>
 
           <h2 className="type-display m-0 text-[clamp(26px,3.6vw,52px)] text-ink-text leading-[0.94]">
-            Three commitments, agreed up front.
+            What leasing on to PKT includes.
           </h2>
         </header>
       </Reveal>
@@ -259,7 +290,7 @@ export function OOIncludes() {
           style={{ "--i": 1 } as React.CSSProperties}
           className={cx(
             revealItem,
-            "grid gap-[clamp(20px,2.6vw,36px)] md:grid-cols-3",
+            "grid gap-[clamp(20px,2.6vw,36px)] md:grid-cols-2 xl:grid-cols-3",
           )}
         >
           {INCLUDES.map(({ num, icon: Icon, title, detail }) => (
@@ -296,7 +327,7 @@ export function OOIncludes() {
 }
 
 export function OOClosing() {
-  const { openApplyModal } = useDriverApply();
+  const router = useRouter();
 
   return (
     <ClosingCTA
@@ -315,11 +346,11 @@ export function OOClosing() {
       }
       copy="Bring the truck — run our freight under our authority, with the same dispatcher every week. We'll walk you through a real settlement example before you sign anything."
       primaryLabel="Lease On"
-      onPrimary={openApplyModal}
+      onPrimary={() => router.push(LEASE_ON_HREF)}
       secondaryLabel="Compare Company Driving"
       secondaryHref="/careers/company-drivers"
       SecondaryIcon={SteeringWheel}
-      note="Real Settlement Example Before You Sign · Mon–Fri"
+      note="Recruiting · Mon–Sat · 8 AM–5 PM CDT"
     />
   );
 }

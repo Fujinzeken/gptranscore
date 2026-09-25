@@ -8,6 +8,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { useState } from "react";
 import { Reveal, revealItem } from "../reveal";
+import { SmsConsent } from "../sms-consent";
 import { btn, btnOutline, btnHero, btnSolid, cx, label } from "../ui";
 
 /**
@@ -30,19 +31,26 @@ const inputCls =
   "placeholder:text-soft-text/70 outline-none transition-colors duration-200 " +
   "focus:border-azure focus:ring-2 focus:ring-azure/20";
 
-export function QuickApply() {
+export type ApplyingAs = "Company Driver" | "Owner-Operator";
+
+export function QuickApply({
+  initialApplyingAs = "Company Driver",
+}: {
+  initialApplyingAs?: ApplyingAs;
+}) {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
     phone: "",
     state: "",
     yearsExperience: "",
-    applyingAs: "Company Driver",
+    applyingAs: initialApplyingAs as string,
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
   const [error, setError] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
 
   const set =
     (k: keyof typeof values) =>
@@ -59,7 +67,7 @@ export function QuickApply() {
       !values.state ||
       !values.yearsExperience
     ) {
-      setError("Fill in every field — it's six, and they're all quick.");
+      setError("Fill in every field — they're all quick.");
       return;
     }
     setStatus("sending");
@@ -67,7 +75,7 @@ export function QuickApply() {
       const res = await fetch("/api/quick-apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, smsConsent, source: "/careers/apply" }),
       });
       const data = (await res.json().catch(() => null)) as
         | { ok?: boolean; error?: string }
@@ -118,7 +126,19 @@ return (
 
           {/* Right: the form — or the confirmation once it's sent. */}
           <div className="col-span-7 max-[1000px]:col-span-1">
-            {status === "sent" ? <SentPanel /> : <ApplyForm values={values} set={set} error={error} sending={status === "sending"} onSend={sendIt} />}
+            {status === "sent" ? (
+              <SentPanel />
+            ) : (
+              <ApplyForm
+                values={values}
+                set={set}
+                smsConsent={smsConsent}
+                onSmsConsent={setSmsConsent}
+                error={error}
+                sending={status === "sending"}
+                onSend={sendIt}
+              />
+            )}
           </div>
         </div>
       </Reveal>
@@ -138,12 +158,22 @@ type ApplyFormProps = {
   set: (
     k: "firstName" | "lastName" | "phone" | "state" | "yearsExperience" | "applyingAs",
   ) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  smsConsent: boolean;
+  onSmsConsent: (checked: boolean) => void;
   error: string;
   sending: boolean;
   onSend: (e: React.FormEvent) => void;
 };
 
-function ApplyForm({ values, set, error, sending, onSend }: ApplyFormProps) {
+function ApplyForm({
+  values,
+  set,
+  smsConsent,
+  onSmsConsent,
+  error,
+  sending,
+  onSend,
+}: ApplyFormProps) {
   return (
     <form
       onSubmit={onSend}
@@ -158,7 +188,7 @@ function ApplyForm({ values, set, error, sending, onSend }: ApplyFormProps) {
             ["State", "state", "text", "text", "address-level1", "Illinois"],
             ["Years of CDL-A experience", "yearsExperience", "text", "text", "", "e.g. 5"],
           ] as const
-        ).map(([lab, key, type, autoComplete, ac, placeholder]) => (
+        ).map(([lab, key, type, , ac, placeholder]) => (
           <label key={key} className="block">
             <span className={cx(label, "mb-2 block text-body-text")}>{lab}</span>
             <input
@@ -185,6 +215,8 @@ function ApplyForm({ values, set, error, sending, onSend }: ApplyFormProps) {
           </select>
         </label>
       </div>
+
+      <SmsConsent checked={smsConsent} onChange={onSmsConsent} className="mt-5" />
 
       {error && (
         <p className="m-0 mt-4 text-sm font-medium text-red-600">{error}</p>
@@ -223,9 +255,9 @@ function SentPanel() {
         We&rsquo;ll call you during business hours — Monday through Saturday,
         8 AM to 5 PM CDT. Prefer to call us?
       </p>
-      <a href="tel:+13313361445" className={cx(btn, btnHero, btnOutline, "mt-7")}>
+      <a href="tel:+12246660136" className={cx(btn, btnHero, btnOutline, "mt-7")}>
         <Phone size={17} weight="bold" />
-        +1 (331) 336-1445
+        +1 (224) 666-0136
       </a>
     </div>
   );

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { notifyDriver } from "../../lib/telegram";
+import { smsConsentFields } from "../../lib/sms-consent";
 
 /**
  * POST /api/driver-apply
@@ -111,6 +112,8 @@ export async function POST(req: Request) {
     minute: "2-digit",
     second: "2-digit",
   });
+
+  Object.assign(values, smsConsentFields(body, req, timestamp));
 
   const payload = JSON.stringify({ form: "driver", timestamp, ...values });
   console.log(

@@ -1,42 +1,33 @@
 "use client";
 
-import { Phone, Sparkle } from "@phosphor-icons/react/dist/ssr";
+import { Phone } from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
 import { ClosingCTA } from "../closing-cta";
-import { useDriverApply } from "../driver-apply-modal";
 
 /**
- * Driver Careers Closing CTA Section.
- *
- * Cinematic dark plate (bg-ink) concluding the /careers page — this is the
- * site-standard ClosingCTA shape with careers words and actions.
- * Sits after the light DriverManagers section and flows seamlessly into SiteFooter.
+ * Driver Careers closing CTA: the hub's "Not sure which suits you?" line.
  */
 
 export function DriverCTA() {
-  const { openApplyModal } = useDriverApply();
+  const router = useRouter();
 
   return (
     <ClosingCTA
       id="apply"
       ariaLabel="Apply to drive"
-      eyebrow={
-        <>
-          <Sparkle size={14} weight="bold" />
-          Take the Next Step in Your Career
-        </>
-      }
+      eyebrow="Talk to recruiting"
       headline={
         <>
-          Not sure which <span className="text-azure-hi">suits you? </span>
+          Not sure which <span className="text-azure-hi">suits you?</span>
         </>
       }
-      copy="Call +1 (331) 256-8985 and ask — two minutes, no application."
-      primaryLabel="Apply to Drive"
-      onPrimary={openApplyModal}
-      secondaryLabel="+1 (331) 256-8985"
-      secondaryHref="tel:+13312568985"
+      copy="Call +1 (224) 666-0136 and ask — two minutes, no application."
+      primaryLabel="Quick Apply"
+      onPrimary={() => router.push("/careers/apply")}
+      secondaryLabel="+1 (224) 666-0136"
+      secondaryHref="tel:+12246660136"
       SecondaryIcon={Phone}
-      note="Recruiting Team Active Mon–Fri · Direct Human Response"
+      note="Recruiting · Mon–Sat · 8 AM–5 PM CDT"
     />
   );
 }

@@ -2,16 +2,12 @@ import type { Metadata } from "next";
 import { SectionNav, type SectionLink } from "@/components/section-nav";
 import {
   SafetyHero,
-  SafetyTools,
-  SafetyConnect,
-  SafetyVideos,
-  SafetyIdelic,
-  SafetyEsmart,
-  SafetyWeather,
-  SafetySecurity,
+  SafetyIntro,
   SafetyTrucks,
   SafetyDrivers,
+  SafetySecurity,
   SafetyHours,
+  SafetyCompliance,
   SafetyCta,
 } from "@/components/safety";
 import { SiteFooter } from "@/components/site-footer";
@@ -23,16 +19,12 @@ export const metadata: Metadata = {
 };
 
 const LINKS: SectionLink[] = [
-  { id: "tools", label: "Safety Tools" },
-  { id: "connect", label: "Safety Connect" },
-  { id: "videos", label: "Safety Videos" },
-  { id: "idelic", label: "Idelic" },
-  { id: "esmart", label: "E-SMART" },
-  { id: "weather", label: "Weather Intel" },
-  { id: "security", label: "Security" },
-  { id: "trucks", label: "Truck Features" },
+  { id: "intro", label: "Our Approach" },
   { id: "drivers", label: "Qualified Drivers" },
+  { id: "trucks", label: "Equipment" },
+  { id: "security", label: "Cargo" },
   { id: "hours", label: "Hours & Fatigue" },
+  { id: "compliance", label: "Compliance" },
 ];
 
 export default function SafetyPage() {
@@ -40,17 +32,12 @@ export default function SafetyPage() {
     <>
       <SafetyHero />
       <SectionNav links={LINKS} />
-      <SafetyTools />
-      <SafetyConnect />
-      <SafetyVideos />
-      <SafetyIdelic />
-      <SafetyEsmart />
-      <SafetyWeather />
-      <SafetySecurity />
-      <SafetyTrucks />
-      <SafetyHours />
+      <SafetyIntro />
       <SafetyDrivers />
-
+      <SafetyTrucks />
+      <SafetySecurity />
+      <SafetyHours />
+      <SafetyCompliance />
       <SafetyCta />
       <SiteFooter />
     </>

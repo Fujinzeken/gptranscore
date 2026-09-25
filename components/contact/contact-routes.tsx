@@ -3,6 +3,7 @@
 import {
   ArrowRight,
   CheckCircle,
+  EnvelopeSimple,
   Headset,
   Handshake,
   Package,
@@ -11,6 +12,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { useState } from "react";
 import { Reveal, revealItem } from "../reveal";
+import { useQuote } from "../quote-modal";
+import { SmsConsent } from "../sms-consent";
 import { btn, btnHero, btnOutline, btnSolid, cx, label } from "../ui";
 
 /**
@@ -20,10 +23,14 @@ import { btn, btnHero, btnOutline, btnSolid, cx, label } from "../ui";
  * quotes and ops carry phone+email, recruiting adds best-time hours,
  * vendors is email-first. Per-route posting mirrors /api/quick-apply;
  * unconfirmed phones/emails ([PHONE]/[EMAIL]/[HOURS] in the CSV) are not
- * invented — the build-requirement note is in OPEN-ITEMS.
+ * invented — the build-requirement note is in OPEN-ITEMS. PKT uses one line,
+ * (224) 666-0136, and one inbox, safety@pktgroup.net, for every route.
  */
 
 type RouteId = "quotes" | "operations" | "recruiting" | "vendors";
+
+const PHONE: [string, string, string] = ["Phone", "+1 (224) 666-0136", "tel:+12246660136"];
+const EMAIL: [string, string, string] = ["Email", "safety@pktgroup.net", "mailto:safety@pktgroup.net"];
 
 const ROUTES: Array<{
   id: RouteId;
@@ -32,7 +39,7 @@ const ROUTES: Array<{
   /** Who reads it — used in the after-submit confirmation. */
   team: string;
   body: string;
-  /** [term, detail, optional tel: href — only for confirmed phone lines]. */
+  /** [term, detail, optional tel:/mailto: href]. */
   facts: Array<[string, string, string?]>;
 }> = [
   {
@@ -43,8 +50,9 @@ const ROUTES: Array<{
     body: "Tell us the lane and the pickup date — a clear answer on availability.",
     facts: [
       ["Best for", "New lanes, one-off loads"],
-      ["Answer", "Same-day during sales hours"],
-      ["Goes to", "The quoting desk"],
+      PHONE,
+      EMAIL,
+      ["Answer", "A clear response the same day"],
     ],
   },
   {
@@ -55,8 +63,9 @@ const ROUTES: Array<{
     body: "Active shipment? You reach the team managing it — the same people who dispatched it.",
     facts: [
       ["Best for", "Loads already moving"],
-      ["Phone", "(224) 666-0136", "tel:+12246660136"],
-      ["Hours", "Dispatch keeps your load's clock"],
+      PHONE,
+      EMAIL,
+      ["Dispatch", "Available around the clock, 24/7"],
     ],
   },
   {
@@ -67,7 +76,8 @@ const ROUTES: Array<{
     body: "Company driver or owner-operator — two minutes on the phone, no application to start.",
     facts: [
       ["Best for", "CDL-A drivers and owner-ops"],
-      ["Phone", "+1 (331) 256-8985", "tel:+13312568985"],
+      PHONE,
+      EMAIL,
       ["Hours", "Mon–Sat · 8 AM–5 PM CDT"],
     ],
   },
@@ -79,8 +89,9 @@ const ROUTES: Array<{
     body: "Partnerships, suppliers and everything that isn't a load — read by a human.",
     facts: [
       ["Best for", "Suppliers, partnerships, other"],
-      ["Channel", "Email — one inbox"],
-      ["Answer", "Within business days"],
+      PHONE,
+      EMAIL,
+      ["Answer", "Read and answered by a person"],
     ],
   },
 ];
@@ -113,6 +124,7 @@ export function ContactForm() {
     "idle",
   );
   const [error, setError] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
 
   const set =
     (k: keyof typeof values) =>
@@ -140,11 +152,13 @@ export function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-        route: routeId,
-        ...Object.fromEntries(
-          ROUTE_FIELDS[routeId].map((k) => [k, values[k]]),
-        ),
-      }),
+          route: routeId,
+          ...Object.fromEntries(
+            ROUTE_FIELDS[routeId].map((k) => [k, values[k]]),
+          ),
+          smsConsent: ROUTE_FIELDS[routeId].includes("phone") && smsConsent,
+          source: "/contact",
+        }),
       });
       const data = (await res.json().catch(() => null)) as
         | { ok?: boolean; error?: string }
@@ -240,7 +254,11 @@ return (
                       href={tel}
                       className="inline-flex items-center gap-2 text-[clamp(13.5px,1.05vw,15.5px)] leading-[1.5] text-paper transition-colors duration-200 hover:text-azure-hi"
                     >
-                      <Phone size={13} weight="bold" className="text-azure-hi" />
+                      {tel.startsWith("mailto:") ? (
+                        <EnvelopeSimple size={13} weight="bold" className="text-azure-hi" />
+                      ) : (
+                        <Phone size={13} weight="bold" className="text-azure-hi" />
+                      )}
                       {detail}
                     </a>
                   ) : (
@@ -282,6 +300,8 @@ return (
                 routeId={routeId}
                 values={values}
                 set={set}
+                smsConsent={smsConsent}
+                onSmsConsent={setSmsConsent}
                 error={error}
                 sending={status === "sending"}
                 onSend={sendIt}
@@ -289,8 +309,54 @@ return (
             )}
           </div>
         </div>
+
+        <OfficeBlock />
       </Reveal>
     </section>
+  );
+}
+
+function OfficeBlock() {
+  return (
+    <dl
+      style={{ "--i": 2 } as React.CSSProperties}
+      className={cx(
+        revealItem,
+        "m-0 mx-auto mt-[clamp(36px,6vh,64px)] grid max-w-[1200px] grid-cols-3 gap-px bg-line border border-line",
+        "max-[860px]:grid-cols-1",
+      )}
+    >
+      <div className="bg-surface px-[clamp(20px,2.4vw,32px)] py-6">
+        <dt className={cx(label, "m-0 text-soft-text")}>Office</dt>
+        <dd className="m-0 mt-2 text-[15px] leading-[1.55] text-ink-text">
+          PKT Transportation INC
+          <br />
+          9400 W Higgins Rd STE 412
+          <br />
+          Rosemont, IL 60018
+        </dd>
+      </div>
+      <div className="bg-surface px-[clamp(20px,2.4vw,32px)] py-6">
+        <dt className={cx(label, "m-0 text-soft-text")}>Phone &amp; email</dt>
+        <dd className="m-0 mt-2 text-[15px] leading-[1.55] text-ink-text">
+          <a href="tel:+12246660136" className="hover:text-azure">
+            +1 (224) 666-0136
+          </a>
+          <br />
+          <a href="mailto:safety@pktgroup.net" className="hover:text-azure">
+            safety@pktgroup.net
+          </a>
+        </dd>
+      </div>
+      <div className="bg-surface px-[clamp(20px,2.4vw,32px)] py-6">
+        <dt className={cx(label, "m-0 text-soft-text")}>Authority</dt>
+        <dd className="m-0 mt-2 text-[15px] leading-[1.55] text-ink-text tabular-nums">
+          USDOT 3188421
+          <br />
+          MC 132863
+        </dd>
+      </div>
+    </dl>
   );
 }
 
@@ -305,6 +371,8 @@ type ContactFieldsProps = {
   ) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => void;
+  smsConsent: boolean;
+  onSmsConsent: (checked: boolean) => void;
   error: string;
   sending: boolean;
   onSend: (e: React.FormEvent) => void;
@@ -315,10 +383,14 @@ function ContactFields({
   routeId,
   values,
   set,
+  smsConsent,
+  onSmsConsent,
   error,
   sending,
   onSend,
 }: ContactFieldsProps) {
+  const { open: openQuote } = useQuote();
+
   return (
     <form
       onSubmit={onSend}
@@ -329,6 +401,19 @@ function ContactFields({
       <p className="m-0 mt-2 max-w-[54ch] text-[clamp(13.5px,1.05vw,15.5px)] leading-[1.6] text-body-text">
         {route.body}
       </p>
+      {routeId === "quotes" && (
+        <p className="m-0 mt-2 text-[clamp(13.5px,1.05vw,15.5px)] leading-[1.6] text-body-text">
+          Have the full load details?{" "}
+          <button
+            type="button"
+            onClick={openQuote}
+            className="cursor-pointer font-semibold text-azure hover:underline"
+          >
+            Use the full quote form
+          </button>
+          .
+        </p>
+      )}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <label className="block">
@@ -430,6 +515,14 @@ function ContactFields({
           </label>
         )}
       </div>
+
+      {routeId !== "vendors" && (
+        <SmsConsent
+          checked={smsConsent}
+          onChange={onSmsConsent}
+          className="mt-5"
+        />
+      )}
 
       {error && (
         <p className="m-0 mt-4 text-sm font-medium text-red-600">{error}</p>

@@ -1,14 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import {
-  ArrowRight,
-  PhoneCall,
-  SteeringWheel,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, SteeringWheel } from "@phosphor-icons/react/dist/ssr";
 import { SiteNav } from "../site-nav";
-import { useQuote } from "../quote-modal";
-import { useDriverApply } from "../driver-apply-modal";
 import { btn, btnSolid, btnGhost, btnHero, cx, label } from "../ui";
 
 /**
@@ -18,17 +10,14 @@ import { btn, btnSolid, btnGhost, btnHero, cx, label } from "../ui";
  * matching the exact H1 display typography and structure of PageHero.
  */
 
-const DRIVING_TYPES = ["LOCAL", "SHORT-HAUL", "REGIONAL", "OTR"];
+const DRIVING_TYPES = ["COMPANY DRIVERS", "OWNER-OPERATORS", "48-STATE OTR"];
 
 export function DriverHero() {
-  const { open: openQuote } = useQuote();
-  const { openApplyModal } = useDriverApply();
-
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
         src="/demo-home/demo1.jpg"
-        alt="PKT Group CDL-A driver next to late-model Freightliner Cascadia"
+        alt="A PKT CDL-A driver at the wheel."
         fill
         priority
         sizes="100vw"
@@ -49,7 +38,7 @@ export function DriverHero() {
           )}
         >
           <SteeringWheel size={15} weight="bold" />
-          Drive With Purpose
+          Drive for PKT
         </p>
 
         <h1
@@ -63,8 +52,9 @@ export function DriverHero() {
         </h1>
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
-          Up to 83 CPM · Home Daily, Weekly or Every 2–3 Weeks · Late-Model
-          Freightliners
+          Company driver positions and owner-operator lease opportunities.
+          48-state OTR freight, late-model equipment, dispatch that knows your
+          name.
         </p>
 
         {/* Route Type Pills */}
@@ -81,9 +71,8 @@ export function DriverHero() {
 
         {/* Actions */}
         <div className="mt-[clamp(24px,3.4vh,38px)] flex flex-wrap gap-[11px] max-[560px]:flex-col max-[560px]:items-stretch">
-          <button
-            type="button"
-            onClick={openApplyModal}
+          <a
+            href="/careers/jobs"
             className={cx(
               btn,
               btnHero,
@@ -93,14 +82,14 @@ export function DriverHero() {
           >
             CDL-A Jobs
             <ArrowRight size={18} />
-          </button>
+          </a>
 
           <a
-            href="tel:8005550199"
+            href="/careers/owner-operators"
             className={cx(btn, btnHero, btnGhost, "max-[560px]:justify-center")}
           >
-            <PhoneCall size={17} />
             Lease On
+            <ArrowRight size={18} />
           </a>
         </div>
       </div>

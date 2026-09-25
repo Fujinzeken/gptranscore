@@ -24,6 +24,7 @@ import {
   CheckCircle,
   Phone,
 } from "@phosphor-icons/react/dist/ssr";
+import { SmsConsent } from "./sms-consent";
 import { cx } from "./ui";
 
 interface DriverApplyContextType {
@@ -81,6 +82,8 @@ interface QualificationData {
   passRoadSkillsTest: boolean | null;
   physicallyAble: boolean | null;
   reportHonestly: boolean | null;
+
+  smsConsent: boolean;
 }
 
 const INITIAL_DATA: QualificationData = {
@@ -118,6 +121,7 @@ const INITIAL_DATA: QualificationData = {
   passRoadSkillsTest: null,
   physicallyAble: null,
   reportHonestly: null,
+  smsConsent: false,
 };
 
 const STEPS = [
@@ -245,7 +249,7 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
       const res = await fetch("/api/driver-apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source: window.location.pathname }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
@@ -253,7 +257,7 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
       }
       setSubmitted(true);
     } catch {
-      setSendError("We could not send your application. Please try again, or call recruiting at (708) 298-8281.");
+      setSendError("We could not send your application. Please try again, or call recruiting at +1 (224) 666-0136.");
     } finally {
       setSending(false);
     }
@@ -303,7 +307,7 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
                 </button>
 
                 <h3 className="text-base sm:text-lg font-bold text-[#25318d] m-0 text-center">
-                  PKT Group Driver Qualification
+                  PKT Driver Qualification
                 </h3>
 
                 <button
@@ -382,18 +386,18 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
                     Your application has been received.
                   </p>
                   <p className="text-sm text-slate-600 leading-relaxed m-0 mb-6">
-                    Our recruiting team will review it and reach out to you
-                    within 1–2 business days.
+                    Our recruiting team will review it and call you during
+                    business hours — Monday through Saturday, 8 AM to 5 PM CDT.
                   </p>
                   <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 bg-slate-100 rounded-full px-4 py-2 mb-6">
                     <Phone size={14} weight="bold" />
                     <span>
                       Questions? Call{" "}
                       <a
-                        href="tel:+17082988281"
+                        href="tel:+12246660136"
                         className="text-[#25318d] font-bold hover:underline"
                       >
-                        (708) 298-8281
+                        +1 (224) 666-0136
                       </a>
                     </span>
                   </div>
@@ -554,6 +558,11 @@ export function DriverApplyProvider({ children }: { children: ReactNode }) {
                           ))}
                         </div>
                       </div>
+
+                      <SmsConsent
+                        checked={formData.smsConsent}
+                        onChange={(checked) => updateField("smsConsent", checked)}
+                      />
                     </div>
                   )}
 
