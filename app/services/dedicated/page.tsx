@@ -32,7 +32,7 @@ export default function DedicatedPage() {
         title={["Trucks assigned to", "your freight"]}
         blurb="Trucks assigned to your lanes with the same drivers running them week after week. Rates agreed for the term, one operations contact."
         image={{
-          src: "/ship-hero.jpg",
+          src: "/demo-home/demo1.jpg",
           alt: "A PKT tractor on the highway running a dedicated lane.",
           position: "56% 62%",
         }}

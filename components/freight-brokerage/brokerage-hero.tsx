@@ -14,7 +14,7 @@ export function BrokerageHero() {
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       {/* Background Image — Clean original from live site */}
       <Image
-        src="/freight-brokerage/brokerage-hero.jpg"
+        src="/demo-home/demo3.jpg"
         alt="PKT Group Freight Brokerage Logistics Fleet"
         fill
         priority

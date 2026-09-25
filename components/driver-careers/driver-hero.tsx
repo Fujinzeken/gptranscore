@@ -27,7 +27,7 @@ export function DriverHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/fleet-dock.jpg"
+        src="/demo-home/demo1.jpg"
         alt="PKT Group CDL-A driver next to late-model Freightliner Cascadia"
         fill
         priority

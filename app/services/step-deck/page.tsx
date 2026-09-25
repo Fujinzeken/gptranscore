@@ -32,7 +32,7 @@ export default function StepDeckPage() {
         title={["Height without a permit,", "legality without the paperwork"]}
         blurb="Step deck capacity for freight too tall for a flatbed. Ramps available for rolling equipment. Step deck freight."
         image={{
-          src: "/freight-brokerage/brokerage-hero.jpg",
+          src: "/demo-home/demo2.jpg",
           alt: "A PKT tractor and drop deck trailer on the road.",
           position: "50% 55%",
         }}

@@ -27,7 +27,7 @@ export function CDHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/ship-hero.jpg"
+        src="/demo-home/demo3.jpg"
         alt="A PKT tractor on the highway running company freight."
         fill
         priority

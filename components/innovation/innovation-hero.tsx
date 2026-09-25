@@ -31,7 +31,7 @@ export function InnovationHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/bridge.jpg"
+        src="/demo-home/demo2.jpg"
         alt="Freight crossing a bridge at dusk, lit by the trailer's azure markers"
         fill
         priority
@@ -68,8 +68,8 @@ export function InnovationHero() {
 
         <p className="mt-[clamp(18px,2.6vh,28px)] max-w-[52ch] text-[clamp(15px,1.2vw,18px)] leading-[1.6] text-mute">
           Systems we build and run ourselves — dispatch, routing, visibility —
-          so nothing between a load and its delivery waits on someone else&apos;s
-          software.
+          so nothing between a load and its delivery waits on someone
+          else&apos;s software.
         </p>
 
         {/* Pillars, in the driver hero's mono pill register. These are claims

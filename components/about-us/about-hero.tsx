@@ -11,7 +11,7 @@ export function AboutHero() {
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       {/* Background Image — Clean original from live site */}
       <Image
-        src="/about-us/about-hero.jpg"
+        src="/demo-home/demo3.jpg"
         alt="PKT Group Professional Fleet and Driver"
         fill
         priority

@@ -29,10 +29,13 @@ export default function ReeferPage() {
   return (
     <>
       <PageHero
-        title={["Temperature-controlled capacity,", "moved by the carrier you hired"]}
+        title={[
+          "Temperature-controlled capacity,",
+          "moved by the carrier you hired",
+        ]}
         blurb="Temperature-controlled truckload for freight that has to arrive at temperature. Reefer has less margin for error than dry van, and operations manages these shipments accordingly."
         image={{
-          src: "/fleet-dock.jpg",
+          src: "/demo-home/demo2.jpg",
           alt: "PKT trailers backed into the loading dock.",
           position: "58% 55%",
         }}

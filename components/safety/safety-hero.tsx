@@ -33,7 +33,7 @@ export function SafetyHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/case-haul.jpg"
+        src="/demo-home/demo1.jpg"
         alt="A PKT Group tractor running under an overpass on the interstate"
         fill
         priority

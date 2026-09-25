@@ -32,7 +32,7 @@ export default function DropTrailerPage() {
         title={["Load on", "your schedule"]}
         blurb="Trailers staged at your dock so loading happens on your schedule. We collect when it's done and return an empty on the agreed cycle."
         image={{
-          src: "/fleet-dock.jpg",
+          src: "/demo-home/demo3.jpg",
           alt: "PKT drop trailers staged at a loading dock.",
           position: "58% 55%",
         }}

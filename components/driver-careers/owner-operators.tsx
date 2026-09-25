@@ -31,7 +31,7 @@ export function OOHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/case-haul.jpg"
+        src="/demo-home/demo2.jpg"
         alt="An owner-operator's tractor hauling freight under PKT authority."
         fill
         priority
@@ -218,7 +218,8 @@ const INCLUDES: Array<{
     num: "02",
     icon: Receipt,
     title: "Fuel program",
-    detail: "A fuel program behind your truck, not a discount card afterthought.",
+    detail:
+      "A fuel program behind your truck, not a discount card afterthought.",
   },
   {
     num: "03",
@@ -242,9 +243,7 @@ export function OOIncludes() {
             "max-w-[740px] mb-[clamp(44px,6.5vh,72px)]",
           )}
         >
-          <p
-            className={cx(label, "text-azure mb-3 flex items-center gap-2")}
-          >
+          <p className={cx(label, "text-azure mb-3 flex items-center gap-2")}>
             <Handshake size={14} weight="bold" />
             What the lease includes
           </p>

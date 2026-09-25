@@ -31,7 +31,7 @@ export default function FreightServices() {
         title={["Truckload freight, moved by", "the carrier you hired"]}
         blurb="PKT owns its trucks and holds its own authority. Dry van, refrigerated, flatbed and step deck capacity across 48 states."
         image={{
-          src: "/ship-hero.jpg",
+          src: "/demo-home/demo3.jpg",
           alt: "A PKT tractor and trailer on the highway.",
           position: "56% 62%",
         }}

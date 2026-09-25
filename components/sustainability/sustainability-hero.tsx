@@ -17,7 +17,11 @@ import { btn, btnSolid, btnGhost, btnHero, cx, label } from "../ui";
  * commitments below exist to change.
  */
 
-const PILLARS = ["GREEN TECHNOLOGY", "ECO-DRIVING INCENTIVES", "SOLAR FLEET PLAN"];
+const PILLARS = [
+  "GREEN TECHNOLOGY",
+  "ECO-DRIVING INCENTIVES",
+  "SOLAR FLEET PLAN",
+];
 
 export function SustainabilityHero() {
   const { open: openQuote } = useQuote();
@@ -25,7 +29,7 @@ export function SustainabilityHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/ship-hero.jpg"
+        src="/demo-home/demo3.jpg"
         alt="A PKT Group tractor running the interstate through open country"
         fill
         priority
