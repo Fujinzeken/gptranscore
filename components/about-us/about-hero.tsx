@@ -14,8 +14,8 @@ export function AboutHero() {
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       {/* Background Image — Clean original from live site */}
       <Image
-        src="/demo-home/demo3.jpg"
-        alt="A PKT tractor and driver"
+        src="/trucks/interstate-aerial.jpg"
+        alt="Aerial view of trucks on a divided interstate through Midwest farmland."
         fill
         priority
         sizes="100vw"

@@ -37,9 +37,9 @@ export default function ReeferPage() {
         ]}
         blurb="Temperature-controlled truckload for freight that has to arrive at temperature. Reefer has less margin for error than dry van, and operations manages these shipments accordingly."
         image={{
-          src: "/demo-home/demo2.jpg",
-          alt: "PKT trailers backed into the loading dock.",
-          position: "58% 55%",
+          src: "/trucks/reefer-desert.jpg",
+          alt: "A tractor with a refrigerated trailer parked at a desert truck stop at sunrise.",
+          position: "55% 70%",
         }}
       />
       <SectionNav links={LINKS} />

@@ -74,8 +74,8 @@ export function SafetyTrucks() {
         >
           <div className="relative aspect-[21/9] w-full overflow-hidden bg-ink max-[760px]:aspect-[4/3]">
             <Image
-              src="/fleet-dock.jpg"
-              alt="A PKT tractor and trailer at the loading dock"
+              src="/trucks/loading-dock.jpg"
+              alt="Tractors with dry van trailers backed into a warehouse loading dock."
               fill
               sizes="100vw"
               className="object-cover object-[50%_45%]"

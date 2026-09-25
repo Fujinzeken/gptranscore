@@ -58,8 +58,8 @@ export function SiteFooter() {
             <Image
               src="/pkt-logo1.png"
               alt=""
-              width={144}
-              height={28}
+              width={150}
+              height={98}
               className="block h-7 w-auto brightness-0 invert"
             />
             <span className="font-display text-[12.5px] font-extrabold uppercase leading-[1.04] tracking-[0.055em] text-paper">

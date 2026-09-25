@@ -42,12 +42,12 @@ export function DJHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/driver-highlight.png"
-        alt="A PKT driver on the road."
+        src="/trucks/cab-view.jpg"
+        alt="A driver's view through the windshield of an open interstate at sunrise."
         fill
         priority
         sizes="100vw"
-        className="-z-10 object-cover object-[50%_35%]"
+        className="-z-10 object-cover object-[60%_50%]"
       />
       <div
         aria-hidden="true"

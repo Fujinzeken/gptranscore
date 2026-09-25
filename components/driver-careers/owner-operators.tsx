@@ -33,12 +33,12 @@ export function OOHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/demo-home/demo2.jpg"
-        alt="An owner-operator's tractor hauling freight under PKT authority."
+        src="/trucks/flatbed-kenworth.jpg"
+        alt="A Kenworth tractor hauling a loaded flatbed on a wet highway."
         fill
         priority
         sizes="100vw"
-        className="-z-10 object-cover object-[60%_40%]"
+        className="-z-10 object-cover object-[45%_50%]"
       />
       <div
         aria-hidden="true"

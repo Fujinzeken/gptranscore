@@ -34,9 +34,9 @@ export default function FlatbedPage() {
         title={["Open deck capacity,", "secured to FMCSA standard"]}
         blurb="Flatbed capacity for building materials, steel, machinery and equipment. Secured to FMCSA standard, tarping available."
         image={{
-          src: "/demo-home/demo1.jpg",
-          alt: "A PKT tractor and open deck trailer on the road.",
-          position: "50% 55%",
+          src: "/trucks/flatbed-kenworth.jpg",
+          alt: "A Kenworth tractor hauling a loaded flatbed on a wet highway.",
+          position: "45% 55%",
         }}
       />
       <SectionNav links={LINKS} />

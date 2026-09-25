@@ -29,31 +29,32 @@ export function WhatWeMove() {
     <section className="overflow-hidden border-b border-line bg-page">
       <Reveal>
         <div className="grid grid-cols-12 items-stretch max-[900px]:grid-cols-1">
-          {/* Bleeds to the left viewport edge, like every spread image on the page. */}
+          {/* Bleeds to the left viewport edge at the same half width as the
+              Capacity photo above, so the two images stack flush. */}
           <figure
             style={{ "--i": 1 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "relative col-span-4 m-0 -ml-[var(--gut)] min-h-[clamp(460px,52vw,620px)] overflow-hidden bg-line",
-              "max-[900px]:col-span-1 max-[900px]:-mr-[var(--gut)] max-[900px]:aspect-[16/11] max-[900px]:min-h-0",
+              "relative col-span-6 m-0 min-h-[clamp(500px,40vw,620px)] overflow-hidden bg-line",
+              "max-[900px]:col-span-1 max-[900px]:aspect-[16/11] max-[900px]:min-h-0",
             )}
           >
             <Image
-              src="/demo-home/demo1.jpg"
-              alt="A PKT driver at the wheel."
+              src="/trucks/home-page-truck.jpg"
+              alt="Three tractors parked side by side at sunset with a dry van, a refrigerated trailer and a tarped flatbed beside a fuel island."
               fill
-              sizes="(max-width: 900px) 100vw, 42vw"
-              className="object-cover object-[64%_38%]"
+              sizes="(max-width: 900px) 100vw, 50vw"
+              className="object-cover object-[50%_55%]"
             />
           </figure>
 
-          <div className="col-span-8 self-center px-gut py-[clamp(44px,7vh,90px)] max-[900px]:col-span-1">
+          <div className="col-span-6 self-center px-gut py-[clamp(28px,4vh,56px)] max-[900px]:col-span-1">
             <p className={cx(label, "m-0 text-body-text")}>What we move</p>
             <h2
               style={{ "--i": 2 } as React.CSSProperties}
               className={cx(
                 revealItem,
-                "type-display m-0 mt-[clamp(18px,2.6vh,30px)] max-w-[15em] text-[clamp(26px,3.2vw,44px)] text-ink-text",
+                "type-display m-0 mt-[clamp(12px,1.6vh,20px)] max-w-[15em] text-[clamp(26px,3.2vw,44px)] text-ink-text",
               )}
             >
               Truckload capacity built around your freight.
@@ -62,7 +63,7 @@ export function WhatWeMove() {
               style={{ "--i": 3 } as React.CSSProperties}
               className={cx(
                 revealItem,
-                "mt-5 max-w-[54ch] text-[clamp(15px,1.1vw,17px)] leading-[1.62] text-body-text",
+                "mt-3 max-w-[54ch] text-[clamp(15px,1.1vw,17px)] leading-[1.62] text-body-text",
               )}
             >
               Dry van, refrigerated and flatbed equipment.
@@ -72,7 +73,7 @@ export function WhatWeMove() {
             <ul
               className={cx(
                 revealItem,
-                "m-0 mt-[clamp(28px,4vh,44px)] list-none border-y border-line",
+                "m-0 mt-[clamp(18px,2.4vh,28px)] list-none border-y border-line",
               )}
               style={{ "--i": 4 } as React.CSSProperties}
             >
@@ -85,7 +86,7 @@ export function WhatWeMove() {
                     href={href}
                     className={cx(
                       "group flex items-baseline gap-[clamp(20px,3vw,56px)]",
-                      "py-[clamp(14px,1.9vh,22px)]",
+                      "py-[clamp(9px,1.3vh,15px)]",
                       "transition-colors duration-300 hover:bg-surface",
                     )}
                   >
@@ -116,7 +117,7 @@ export function WhatWeMove() {
               style={{ "--i": 5 } as React.CSSProperties}
               className={cx(
                 revealItem,
-                "pt-[clamp(20px,3vh,32px)] text-[clamp(15px,1.1vw,17px)] leading-[1.62] text-body-text",
+                "pt-[clamp(12px,1.8vh,20px)] text-[clamp(15px,1.1vw,17px)] leading-[1.62] text-body-text",
               )}
             >
               48-state authority means we run your freight where it needs to go.
@@ -125,7 +126,7 @@ export function WhatWeMove() {
             <a
               href="/services"
               style={{ "--i": 6 } as React.CSSProperties}
-              className={cx(revealItem, btn, btnOutline, btnHero, "mt-7")}
+              className={cx(revealItem, btn, btnOutline, btnHero, "mt-5")}
             >
               Explore Freight Services
               <ArrowRight size={17} />

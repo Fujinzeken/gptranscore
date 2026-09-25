@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { cx, label } from "../ui";
 
 const FACTS: Array<[string, string]> = [
@@ -25,36 +24,6 @@ export function AboutOverview() {
       </div>
 
       <div className="relative mx-auto max-w-[1360px] px-gut">
-        {/* Left Team Member Cutout (hidden on small screens, positioned organically) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-[clamp(80px,12vh,140px)] -left-12 z-0 hidden lg:block w-[380px] xl:w-[460px] 2xl:w-[500px]"
-        >
-          <Image
-            src="/about-us/overview-left.png"
-            alt=""
-            width={700}
-            height={900}
-            className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(11,26,44,0.12)]"
-            priority={false}
-          />
-        </div>
-
-        {/* Right Team Member Cutout */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-[clamp(80px,12vh,140px)] -right-12 z-0 hidden lg:block w-[380px] xl:w-[460px] 2xl:w-[500px]"
-        >
-          <Image
-            src="/about-us/overview-right.png"
-            alt=""
-            width={700}
-            height={900}
-            className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(11,26,44,0.12)]"
-            priority={false}
-          />
-        </div>
-
         {/* Centered Content Container */}
         <div className="relative z-10 mx-auto max-w-[760px] text-center">
           {/* Eyebrow Pill */}

@@ -71,16 +71,16 @@ export function DVIntro() {
             style={{ "--i": 4 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "col-span-5 flex items-center justify-center bg-deep p-[clamp(28px,3.6vw,56px)]",
+              "relative col-span-5 min-h-[clamp(260px,28vw,380px)] overflow-hidden bg-deep",
               "max-[1000px]:col-span-1",
             )}
           >
             <Image
-              src="/dry-van.png"
-              alt="A PKT 53-foot dry van trailer."
-              width={640}
-              height={360}
-              className="h-auto w-full"
+              src="/trucks/dry-van-dock.jpg"
+              alt="A 53-foot dry van with its swing doors open at a dock, loaded with wrapped pallets."
+              fill
+              sizes="(max-width: 1000px) 100vw, 40vw"
+              className="object-cover object-[60%_50%]"
             />
           </div>
         </div>

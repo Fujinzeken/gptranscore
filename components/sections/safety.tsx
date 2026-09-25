@@ -20,13 +20,13 @@ export function Safety() {
   return (
     <section className="relative isolate flex min-h-[clamp(460px,62vh,660px)] items-center overflow-hidden bg-ink px-gut py-[clamp(56px,9vh,104px)]">
       <Image
-        src="/demo-home/demo3.jpg"
-        alt="A PKT tractor and trailer crossing a river bridge at first light."
+        src="/trucks/cab-view.jpg"
+        alt="A driver's view through the windshield of an open interstate at sunrise."
         fill
         sizes="100vw"
-        className="-z-10 object-cover object-[58%_56%]"
+        className="-z-10 object-cover object-[60%_50%]"
       />
-      {/* Reads left, so the scrim is heaviest there and clears by the tractor. */}
+      {/* Reads left, so the scrim is heaviest there and clears by the road. */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(7,11,17,0.94)_0%,rgba(7,11,17,0.82)_34%,rgba(7,11,17,0.34)_62%,rgba(7,11,17,0.12)_100%)]"

@@ -16,12 +16,12 @@ export function DriverHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/demo-home/demo1.jpg"
-        alt="A PKT CDL-A driver at the wheel."
+        src="/trucks/highway-dusk.jpg"
+        alt="Semi trucks running an interstate through farmland at dusk."
         fill
         priority
         sizes="100vw"
-        className="-z-10 object-cover object-[65%_35%]"
+        className="-z-10 object-cover object-[72%_62%]"
       />
       <div
         aria-hidden="true"

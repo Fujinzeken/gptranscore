@@ -30,9 +30,9 @@ export default function DryVanPage() {
         title={["53' dry van capacity,", "moved by the carrier you hired"]}
         blurb="Enclosed capacity for freight that travels at ambient temperature. Full truckload across the contiguous US — one load or weekly volume, you get a clear answer on availability."
         image={{
-          src: "/demo-home/demo3.jpg",
-          alt: "A PKT tractor pulling a 53-foot dry van on the highway.",
-          position: "56% 62%",
+          src: "/trucks/highway-dry-van.jpg",
+          alt: "A tractor pulling a dry van trailer on an open highway below storm clouds.",
+          position: "38% 62%",
         }}
       />
       <SectionNav links={LINKS} />

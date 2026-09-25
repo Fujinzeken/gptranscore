@@ -64,17 +64,17 @@ export function WhyGP() {
             style={{ "--i": 1 } as React.CSSProperties}
             className={cx(
               revealItem,
-              "relative col-span-2 row-span-2 m-0 min-h-[400px] overflow-hidden bg-line",
+              "relative col-span-2 row-span-2 m-0 min-h-[clamp(500px,40vw,620px)] overflow-hidden bg-line",
               "max-[860px]:row-span-1 max-[860px]:aspect-[16/10] max-[860px]:min-h-0",
               "max-[560px]:col-span-1",
             )}
           >
             <Image
-              src="/demo-home/demo2.jpg"
-              alt="PKT tractors and dry vans backed into the loading dock."
+              src="/trucks/loading-dock.jpg"
+              alt="Tractors with dry van trailers backed into a warehouse loading dock."
               fill
               sizes="(max-width: 860px) 100vw, 50vw"
-              className="object-cover object-[52%_58%]"
+              className="object-cover object-[30%_62%]"
             />
           </figure>
 
@@ -84,7 +84,7 @@ export function WhyGP() {
               revealItem,
               CAPACITY.tone === "azure" ? "bg-azure" : "bg-surface",
               "col-span-2 row-span-2 flex flex-col justify-center gap-3 p-[clamp(22px,2.2vw,36px)]",
-              "min-h-[400px] max-[860px]:row-span-1 max-[860px]:min-h-0 max-[860px]:py-[clamp(28px,4vh,48px)]",
+              "min-h-[clamp(500px,40vw,620px)] max-[860px]:row-span-1 max-[860px]:min-h-0 max-[860px]:py-[clamp(28px,4vh,48px)]",
               "max-[560px]:col-span-1 max-[560px]:min-h-[150px]",
             )}
           >

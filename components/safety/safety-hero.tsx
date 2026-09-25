@@ -20,12 +20,12 @@ export function SafetyHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/demo-home/demo1.jpg"
-        alt="A PKT tractor running under an overpass on the interstate"
+        src="/trucks/night-rest.jpg"
+        alt="A tractor-trailer parked for the night with its marker lights on."
         fill
         priority
         sizes="100vw"
-        className="-z-10 object-cover object-[50%_42%]"
+        className="-z-10 object-cover object-[70%_55%]"
       />
       <div
         aria-hidden="true"

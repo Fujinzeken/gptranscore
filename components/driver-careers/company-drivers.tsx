@@ -26,12 +26,12 @@ export function CDHero() {
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-ink">
       <Image
-        src="/demo-home/demo3.jpg"
-        alt="A PKT tractor on the highway running company freight."
+        src="/trucks/cab-view.jpg"
+        alt="A driver's view through the windshield of an open interstate at sunrise."
         fill
         priority
         sizes="100vw"
-        className="-z-10 object-cover object-[56%_62%]"
+        className="-z-10 object-cover object-[60%_50%]"
       />
       <div
         aria-hidden="true"

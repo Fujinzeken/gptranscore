@@ -67,11 +67,11 @@ export function HubIntro() {
             )}
           >
             <Image
-              src="/fleet-dock.jpg"
-              alt="PKT tractors and dry vans backed into the loading dock."
+              src="/trucks/loading-dock.jpg"
+              alt="Tractors with dry van trailers backed into a warehouse loading dock."
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
-              className="object-cover object-[52%_58%]"
+              className="object-cover object-[30%_62%]"
             />
           </figure>
         </Reveal>
@@ -231,11 +231,11 @@ export function HubCommunication() {
       className="relative isolate flex min-h-[clamp(460px,62vh,660px)] items-center overflow-hidden bg-ink px-gut py-[clamp(56px,9vh,104px)]"
     >
       <Image
-        src="/case-haul.jpg"
-        alt="A PKT driver at the wheel."
+        src="/trucks/cab-view.jpg"
+        alt="A driver's view through the windshield of an open interstate at sunrise."
         fill
         sizes="100vw"
-        className="-z-10 object-cover object-[64%_38%]"
+        className="-z-10 object-cover object-[60%_50%]"
       />
       {/* Reads left, so the scrim is heaviest there and clears to the right. */}
       <div

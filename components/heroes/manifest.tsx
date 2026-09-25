@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { HeroVideo } from "./hero-video";
+import { HeroCarousel } from "./hero-carousel";
 import { SiteNav } from "../site-nav";
 import { useQuote } from "../quote-modal";
 import { useDriverApply } from "../driver-apply-modal";
@@ -21,23 +21,14 @@ const EQUIPMENT = [
 /**
  * Direction "Manifest"
  *
- * The footage is the hero from the first frame. Content sits on a scrim over
- * it; the only continuous motion is the equipment roll at the foot.
+ * A crossfading truck-and-highway carousel is the hero from the first frame.
+ * Content sits on a scrim over it; the equipment roll runs at the foot.
  */
 export function Manifest() {
   const { open: openQuote } = useQuote();
   const { openApplyModal } = useDriverApply();
   return (
     <section className="relative isolate flex min-h-dvh flex-col overflow-hidden bg-pitch">
-      {/* Full-frame footage, always on. */}
-      <div aria-hidden="true" className="absolute inset-0 z-0 overflow-hidden">
-        <HeroVideo
-          poster={false}
-          className="scale-[1.04] object-[62%_52%] opacity-90 [filter:saturate(0.72)_contrast(1.1)_brightness(0.5)]"
-        />
-        <div className="scrim-side absolute inset-0 max-[920px]:scrim-base" />
-      </div>
-
       <SiteNav />
 
       <header className="relative z-10 flex flex-1 flex-col justify-center px-gut pt-[clamp(30px,5vh,60px)]">
@@ -124,6 +115,10 @@ export function Manifest() {
           ))}
         </div>
       </div>
+
+      {/* Last in the DOM so its controls follow the page in tab order; the
+          photo layer is absolutely positioned under everything. */}
+      <HeroCarousel className="opacity-90 [filter:saturate(0.8)_contrast(1.08)_brightness(0.55)]" />
     </section>
   );
 }

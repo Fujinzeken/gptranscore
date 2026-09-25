@@ -137,6 +137,18 @@ the cookie banner (this site sets no tracking cookies).
   +1 (331) 336-1445 are no longer used anywhere; every contact route, the
   careers pages, Quick Apply, the driver modal and the footer use the main
   line.
+- **New truck photography; home hero is now an image carousel.** The old
+  photos showed another carrier's branded trucks, trailer and staff ("GP
+  Transco"), an Australian road train and a European road, and the hero video
+  came from the same source. All were removed. The current photos in
+  `public/trucks/` are placeholders until PKT supplies its own fleet photos:
+  - Unsplash (free commercial use, no attribution required):
+    `highway-dry-van.jpg`, `reefer-desert.jpg`, `flatbed-kenworth.jpg`.
+  - AI-generated, unbranded: `highway-dusk.jpg`, `loading-dock.jpg`,
+    `cab-view.jpg`, `interstate-aerial.jpg`, `equipment-yard-tight.jpg`,
+    `dry-van-dock.jpg`, `night-rest.jpg`.
+  - Alt text describes what each photo shows; none claims to show PKT
+    equipment. The two staff cutouts on the About page were removed.
 
 ### Raised by the original site
 
