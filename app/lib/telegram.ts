@@ -99,10 +99,10 @@ export function notifyQuote(values: Record<string, string>, timestamp: string): 
  * (a lane is not a "message"). The matching per-route sheet tabs are tracked
  * in OPEN-ITEMS — these labels are the wording to use for them.
  */
-const CONTACT_ROUTES: Record<string, { label: string; icon: string; field: string }> = {
+const CONTACT_ROUTES: Record<string, { label: string; icon: string; field: string | null }> = {
   quotes: { label: "New freight & quotes", icon: "🚚", field: "Lane" },
   operations: { label: "Existing customers & operations", icon: "📦", field: "Details" },
-  recruiting: { label: "Driver recruiting", icon: "🚛", field: "Details" },
+  recruiting: { label: "Driver recruiting", icon: "🚛", field: null },
   vendors: { label: "Vendors & general", icon: "🤝", field: "Topic" },
 };
 
@@ -117,7 +117,7 @@ export function contactMessageHtml(
   const route = CONTACT_ROUTES[values.route];
   const label = route?.label ?? values.route;
   const icon = route?.icon ?? "📬";
-  const field = route?.field ?? "Message";
+  const field = route?.field ?? null;
 
   return (
     `${icon} <b>New Contact Message</b>\n` +
@@ -126,7 +126,7 @@ export function contactMessageHtml(
     line("Phone", values.phone) +
     line("Email", values.email) +
     line("Best time", values.hours) +
-    line(field, values.message) +
+    (field ? line(field, values.message) : "") +
     `\n<i>Received ${esc(timestamp)} CT</i>`
   );
 }

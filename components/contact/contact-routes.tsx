@@ -85,6 +85,22 @@ const ROUTES: Array<{
   },
 ];
 
+/**
+ * The exact fields each route's form renders. Switching routes resets
+ * anything the new form doesn't show, and submit posts only these keys —
+ * a lane typed under quotes must never leak into the recruiting or
+ * operations payload as a phantom "Details" value.
+ */
+const EMPTY_VALUES = { name: "", email: "", phone: "", hours: "", message: "" };
+type ValueKey = keyof typeof EMPTY_VALUES;
+
+const ROUTE_FIELDS: Record<RouteId, ValueKey[]> = {
+  quotes: ["name", "email", "phone", "message"],
+  operations: ["name", "email", "phone", "hours", "message"],
+  recruiting: ["name", "email", "phone", "hours"],
+  vendors: ["name", "email", "message"],
+};
+
 const inputCls =
   "w-full rounded-xl border border-line bg-page px-4 py-3 text-[15px] text-ink-text " +
   "placeholder:text-soft-text/70 outline-none transition-colors duration-200 " +
@@ -92,13 +108,7 @@ const inputCls =
 
 export function ContactForm() {
   const [routeId, setRouteId] = useState<RouteId>("quotes");
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    hours: "",
-    message: "",
-  });
+  const [values, setValues] = useState(EMPTY_VALUES);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
@@ -129,7 +139,12 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ route: routeId, ...values }),
+        body: JSON.stringify({
+        route: routeId,
+        ...Object.fromEntries(
+          ROUTE_FIELDS[routeId].map((k) => [k, values[k]]),
+        ),
+      }),
       });
       const data = (await res.json().catch(() => null)) as
         | { ok?: boolean; error?: string }
@@ -176,6 +191,14 @@ return (
                       type="button"
                       onClick={() => {
                         setRouteId(r.id);
+                        // Only name/email exist on every form — anything the
+                        // previous form collected that this one doesn't show
+                        // would otherwise ride along in the payload.
+                        setValues((prev) => ({
+                          ...EMPTY_VALUES,
+                          name: prev.name,
+                          email: prev.email,
+                        }));
                         setStatus("idle");
                         setError("");
                       }}
@@ -374,6 +397,21 @@ function ContactFields({
               <option>Afternoon (12 PM – 5 PM CT)</option>
               <option>Evening (after 5 PM CT)</option>
             </select>
+          </label>
+        )}
+
+        {routeId === "operations" && (
+          <label className="block sm:col-span-2">
+            <span className={cx(label, "mb-2 block text-body-text")}>
+              What&rsquo;s this about?
+            </span>
+            <input
+              type="text"
+              value={values.message}
+              onChange={set("message")}
+              placeholder="Load or PO number, and why you&rsquo;re reaching out"
+              className={inputCls}
+            />
           </label>
         )}
 

@@ -23,14 +23,13 @@ const WEBAPP_URL = process.env.GOOGLE_SHEETS_WEBAPP_URL ?? "";
 
 const ROUTES = ["quotes", "operations", "recruiting", "vendors"] as const;
 
-const TEXT_FIELDS = [
-  "route",
-  "name",
-  "email",
-  "phone",
-  "hours",
-  "message",
-] as const;
+/** The only keys each route may contribute, mirroring what its form renders. */
+const ROUTE_FIELDS: Record<(typeof ROUTES)[number], string[]> = {
+  quotes: ["name", "email", "phone", "message"],
+  operations: ["name", "email", "phone", "hours", "message"],
+  recruiting: ["name", "email", "phone", "hours"],
+  vendors: ["name", "email", "message"],
+};
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[\d\s()+.-]{7,20}$/;
@@ -51,7 +50,10 @@ export async function POST(req: Request) {
   }
 
   const values: Record<string, string> = {};
-  for (const key of TEXT_FIELDS) {
+  const route = typeof body.route === "string" ? body.route.trim() : "";
+  const allowed = ROUTE_FIELDS[route as (typeof ROUTES)[number]] ?? [];
+  values.route = route;
+  for (const key of allowed) {
     values[key] =
       typeof body[key] === "string" ? (body[key] as string).trim().slice(0, 1000) : "";
   }
