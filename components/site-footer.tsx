@@ -1,4 +1,4 @@
-import { Wordmark } from "./site-nav";
+import Image from "next/image";
 import { cx, label } from "./ui";
 
 /**
@@ -58,7 +58,24 @@ export function SiteFooter() {
     <footer className="bg-ink px-gut pb-10 pt-[clamp(56px,8vh,96px)]">
       <div className="grid grid-cols-12 gap-x-8 gap-y-[clamp(36px,5vh,56px)] max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
         <div className="col-span-4 max-[900px]:col-span-2 max-[560px]:col-span-1">
-          <Wordmark tone="dark" />
+          <a
+            href="#"
+            aria-label="PKT Group home"
+            className="flex w-fit shrink-0 items-center gap-[11px]"
+          >
+            <Image
+              src="/pkt-logo1.png"
+              alt=""
+              width={144}
+              height={28}
+              className="block h-7 w-auto brightness-0 invert"
+            />
+            <span className="font-display text-[12.5px] font-extrabold uppercase leading-[1.04] tracking-[0.055em] text-paper">
+              PKT
+              <br />
+              Group
+            </span>
+          </a>
           <p className="mt-6 max-w-[34ch] text-[14.5px] leading-[1.6] text-mute-2">
             Modern logistics carrier delivering reliable freight solutions and
             rewarding driver careers.

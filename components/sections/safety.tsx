@@ -20,7 +20,7 @@ export function Safety() {
   return (
     <section className="relative isolate flex min-h-[clamp(460px,62vh,660px)] items-center overflow-hidden bg-ink px-gut py-[clamp(56px,9vh,104px)]">
       <Image
-        src="/bridge.jpg"
+        src="/demo-home/demo3.jpg"
         alt="A PKT tractor and trailer crossing a river bridge at first light."
         fill
         sizes="100vw"

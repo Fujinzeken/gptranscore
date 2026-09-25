@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -261,7 +262,16 @@ export function SiteNav({ tone = "dark" }: { tone?: Tone }) {
             "gap-[clamp(14px,2.2vw,34px)] max-[1440px]:gap-[18px]",
           )}
         >
-          <Wordmark tone={tone} />
+          <a href="#" aria-label="PKT Group home" className="block shrink-0">
+            <Image
+              src="/pkt-logo1.png"
+              alt="PKT Group"
+              width={144}
+              height={28}
+              priority
+              className="block h-7 w-auto brightness-0 invert"
+            />
+          </a>
 
           <div
             className={cx(

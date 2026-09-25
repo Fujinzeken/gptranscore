@@ -74,7 +74,7 @@ export function WhyGP() {
             )}
           >
             <Image
-              src="/fleet-dock.jpg"
+              src="/demo-home/demo2.jpg"
               alt="PKT tractors and dry vans backed into the loading dock."
               fill
               sizes="(max-width: 860px) 100vw, 50vw"
