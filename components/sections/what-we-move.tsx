@@ -40,7 +40,7 @@ export function WhatWeMove() {
             )}
           >
             <Image
-              src="/trucks/home-page-truck.jpg"
+              src="/trucks/2027-cascadia.png"
               alt="Three tractors parked side by side at sunset with a dry van, a refrigerated trailer and a tarped flatbed beside a fuel island."
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
@@ -78,10 +78,7 @@ export function WhatWeMove() {
               style={{ "--i": 4 } as React.CSSProperties}
             >
               {EQUIPMENT.map(([name, href], i) => (
-                <li
-                  key={name}
-                  className="border-b border-line last:border-b-0"
-                >
+                <li key={name} className="border-b border-line last:border-b-0">
                   <a
                     href={href}
                     className={cx(

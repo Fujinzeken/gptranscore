@@ -70,7 +70,7 @@ export function WhyGP() {
             )}
           >
             <Image
-              src="/trucks/loading-dock.jpg"
+              src="/trucks/2027-volvo.jpg"
               alt="Tractors with dry van trailers backed into a warehouse loading dock."
               fill
               sizes="(max-width: 860px) 100vw, 50vw"
